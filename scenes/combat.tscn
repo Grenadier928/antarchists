@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://w2hysgo1h6s"]
+[gd_scene load_steps=4 format=3 uid="uid://w2hysgo1h6s"]
 
 [ext_resource type="Script" path="res://scripts/combat_manager.gd" id="1_6hf62"]
+[ext_resource type="Texture2D" uid="uid://c2i57ok5smfio" path="res://textures/COMBATSCREEN_DUSK.png" id="2_2jbtc"]
 [ext_resource type="Texture2D" uid="uid://dcxwy2doqqan5" path="res://textures/paper.jpg" id="2_mjmyh"]
 
 [node name="Combat" type="Node2D"]
 script = ExtResource("1_6hf62")
+
+[node name="CombatscreenDusk" type="Sprite2D" parent="."]
+position = Vector2(-7, 1.5)
+scale = Vector2(1.21927, 1.23102)
+texture = ExtResource("2_2jbtc")
 
 [node name="player_team_position_0" type="Node2D" parent="."]
 position = Vector2(-1937, 135)
@@ -19,23 +25,23 @@ position = Vector2(-1925, -729)
 position = Vector2(-1925, -265)
 
 [node name="enemy_team_position_0" type="Node2D" parent="."]
-position = Vector2(1871, 357)
+position = Vector2(1740, 377)
 
 [node name="enemy_team_position_2" type="Node2D" parent="."]
-position = Vector2(1791, -210)
+position = Vector2(1383, -160)
 
 [node name="enemy_team_position_3" type="Node2D" parent="."]
-position = Vector2(1943, -801)
+position = Vector2(1091, -584)
 
 [node name="enemy_team_position_1" type="Node2D" parent="."]
-position = Vector2(1862, 965)
+position = Vector2(1293, 995)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.25, 0.25)
 
 [node name="attack_queue_paper" type="Sprite2D" parent="."]
-position = Vector2(16.8936, -2227.95)
-scale = Vector2(0.593324, 0.559903)
+position = Vector2(3.50004, -2120)
+scale = Vector2(0.630969, 0.559903)
 texture = ExtResource("2_mjmyh")
 
 [node name="attacks_list_paper" type="Sprite2D" parent="."]
@@ -52,7 +58,4 @@ theme_override_font_sizes/font_size = 240
 text = "Moves List:"
 
 [node name="attack_queue" type="Node2D" parent="."]
-position = Vector2(-710, -1142)
-
-[node name="Node2D" type="Node2D" parent="attack_queue"]
-position = Vector2(-14, 331)
+position = Vector2(-701, -1088)

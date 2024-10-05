@@ -18,6 +18,14 @@ var in_combat = false
 var combat_portrait = null
 var player_controlled = false
 
+var const_ai_await_frames = 70
+var const_ai_targeting_frames = 20
+
+
+var ai_await_frames = 0
+var ai_targeting_frames = 0
+var ai_targeting_node = null
+
 var attacks_list = [];
 
 var selection_box = null
@@ -54,8 +62,8 @@ func _ready():
 	reticle.visible = false
 	sprite_node = $character_art
 	sprite_node.texture = load("res://textures/bug_sprites/" + sprite_path)
-	print(sprite_path)
-	print(sprite_node.texture)
+	#print(sprite_path)
+	#print(sprite_node.texture)
 	#sprite_node.texture = load("res://textures/bug_sprites/paper.jpg")
 	#print(sprite_node)
 	pass # Replace with function body.
