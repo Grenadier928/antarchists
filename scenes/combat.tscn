@@ -1,9 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://w2hysgo1h6s"]
+[gd_scene load_steps=3 format=3 uid="uid://w2hysgo1h6s"]
 
 [ext_resource type="Script" path="res://scripts/combat_manager.gd" id="1_6hf62"]
+[ext_resource type="Texture2D" uid="uid://dcxwy2doqqan5" path="res://textures/paper.jpg" id="2_mjmyh"]
 
 [node name="Combat" type="Node2D"]
 script = ExtResource("1_6hf62")
 
-[node name="player_team_position_1" type="Node2D" parent="."]
-position = Vector2(-888.84, 349.28)
+[node name="player_team_position_0" type="Node2D" parent="."]
+position = Vector2(-1931, 884)
+
+[node name="enemy_team_position_0" type="Node2D" parent="."]
+position = Vector2(1855, 927)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.25, 0.25)
+
+[node name="attack_queue" type="Sprite2D" parent="."]
+position = Vector2(-0.999939, -1520)
+rotation = 1.5708
+scale = Vector2(0.402089, 0.580948)
+texture = ExtResource("2_mjmyh")
+
+[node name="Node2D" type="Node2D" parent="."]
