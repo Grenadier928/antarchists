@@ -25,7 +25,7 @@ position = Vector2(-1925, -729)
 position = Vector2(-1925, -265)
 
 [node name="enemy_team_position_0" type="Node2D" parent="."]
-position = Vector2(1740, 377)
+position = Vector2(1826, 372)
 
 [node name="enemy_team_position_2" type="Node2D" parent="."]
 position = Vector2(1383, -160)

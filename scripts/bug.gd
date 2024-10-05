@@ -45,14 +45,18 @@ func _input_event(viewport, event, shape_idx):
 			
 
 func spawn_bug(params):
+	
 	pass
 
+func takeDamage(amount):
+	health = health - amount
+	$health_icon/health_display.text = str(health)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#$sfx.stream = load("res://sounds/clip/slice.wav")
 	#$sfx.play()
 	
-	
+	takeDamage(0)
 	selection_box = $active_selection
 	selection_box.visible = false
 	

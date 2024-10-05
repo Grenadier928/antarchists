@@ -34,16 +34,22 @@ func _ready():
 	print(data_received)
 	#print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 	var test_ant = basic_bug.instantiate()
+	var test_ant2 = basic_bug.instantiate()
 	test_ant.speed = 1
+	test_ant2.speed = 1
 	test_ant.health = 5
+	test_ant2.health = 1
 	test_ant.player_controlled = true
+	test_ant2.player_controlled = true
 	var attack = preload_attack.new()
 	attack.attack_name = "Super Pinch"
 	
 	var attack2 = preload_attack.new()
 	attack2.attack_name = "Super Duper Pinch"
 	test_ant.attacks_list = [attack, attack2]
+	test_ant2.attacks_list = [attack, attack2]
 	CURRENT_PARTY.append(test_ant)
+	CURRENT_PARTY.append(test_ant2)
 	#print("Asdsdsds")
 	var current_combat = basic_combat_scene.instantiate()
 	var scene_root = get_node("/root/Index/")
@@ -62,6 +68,9 @@ func _ready():
 	evil_ant.health = 2
 	evil_ant2.health = 3
 	evil_ant3.health = 3
+	evil_ant.attacks_list = [attack, attack2]
+	evil_ant2.attacks_list = [attack, attack2]
+	evil_ant3.attacks_list = [attack, attack2]
 	current_combat.spawnEnemyTeam([evil_ant, evil_ant2, evil_ant3])
 	current_combat.initCombatQueue()
 	#print("B")

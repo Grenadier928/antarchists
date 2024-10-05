@@ -9,6 +9,7 @@ var animation_sub_state = null
 var attack_button = preload("res://scenes/attack_button.tscn")
 
 var attack_victim = null
+var chosenAttack = null
 #var queue_animation_done = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,6 +39,7 @@ func startPlayerTurn():
 			temp_button.position = Vector2(-1200, (700 * i) - 700)
 			temp_button.combat_manager = self
 			temp_button.attack_index = i
+			temp_button.attackobj = all_fighters[current_fighter_index].attacks_list[i]
 			pass
 			#var attack_button = Button.new()
 			#attack_button.size = Vector2(3000, 600)
@@ -48,7 +50,8 @@ func startPlayerTurn():
 		$attacks_list_paper.show()
 		
 
-func startTargeting():
+func startTargeting(selectedAttack):
+	chosenAttack = selectedAttack
 	$attacks_list_paper.hide()
 	for i in range (all_fighters.size()):
 		if not all_fighters[i].player_controlled:
@@ -64,6 +67,29 @@ func startAttackMove(victim):
 	victim.shake_counter = 0
 	
 func applyAttackVictimDamage():
+	#print(attack_victim)
+	#print("ABCDE")
+	print(chosenAttack.attack_name)
+	attack_victim.takeDamage(1)
+	
+	if attack_victim.health <= 0:
+		attack_victim.combat_portrait.queue_free()
+		var temp_all_fighters = []
+		var attack_victim_index = 0
+		for i in range (all_fighters.size()):
+			if all_fighters[i] != attack_victim:
+				temp_all_fighters.append(all_fighters[i])
+			else:
+				attack_victim_index = i
+		if attack_victim_index < current_fighter_index:
+			current_fighter_index = current_fighter_index - 1
+		all_fighters = temp_all_fighters
+		attack_victim.queue_free()
+				#print("Victim found")
+				#var temp_all_fighters_a = all_fighters.slice(0,i)
+				#var temp_all_fighters_b = all_fighters.slice(i,all_fighters.size())
+				
+	
 	pass
 	
 func endAttackMove():
@@ -79,8 +105,11 @@ func ChangeTurn():
 	#if current_fighter_index != -1:
 	#	AnimateTurnQueue()
 	current_fighter_index += 1
-	print("================================================================")
+	#print("================================================================")
 	
+	for i in range (all_fighters.size()):
+		all_fighters[i].ai_targeting_frames = 0
+		all_fighters[i].ai_await_frames = 0
 	if current_fighter_index >= all_fighters.size():
 		current_fighter_index = 0
 	
@@ -106,7 +135,12 @@ func startEnemyTurn():
 	var rand_x = rng.randf_range(0, players_dude_indexes.size())
 	attack_victim = all_fighters[players_dude_indexes[rand_x]]
 	
-
+	#chosenAttack
+	var rand_attack = rng.randf_range(0, all_fighters[current_fighter_index].attacks_list.size())
+	chosenAttack = all_fighters[current_fighter_index].attacks_list[rand_attack]
+	
+	#for i in range (all_fighters[current_fighter_index].attacks_list.size()):
+		#.attacks_list.size()
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -138,13 +172,14 @@ func _physics_process(delta):
 
 	if combat_state == "queue_animation":
 		var queue_animation_active = false
-		print(combat_state)
+		#print(combat_state)
 		for i in range (all_fighters.size()):
-			print("Index:" + str(i) + "  -  " + "Figther Index: " + str(current_fighter_index))
+			#print("Index:" + str(i) + "  -  " + "Figther Index: " + str(current_fighter_index))
 			if i == current_fighter_index:
 				var added_motion_vector = Vector2(0,0)
 				var phase_1_active = false
 				var phase_2_active = false
+				queue_speed = 30
 				if all_fighters[i].combat_portrait.position.y < 300 and all_fighters[i].combat_portrait.position.x < 100:
 					added_motion_vector.y += queue_speed
 					phase_1_active = true
@@ -183,7 +218,7 @@ func _physics_process(delta):
 				else: # current_fighter_index > i
 					steps_to_reach_i = (all_fighters.size()-1) -(current_fighter_index - i)
 					
-				print("x: " + str(current_fighter_index) + " i: " + str(i) + " steps_to_reach_i: " + str(steps_to_reach_i))
+				#print("x: " + str(current_fighter_index) + " i: " + str(i) + " steps_to_reach_i: " + str(steps_to_reach_i))
 
 
 				var destined_location_x = 0
@@ -198,7 +233,7 @@ func _physics_process(delta):
 				pass
 		
 		if queue_animation_active == false:
-			print("CHange turn after queue refresh")
+			#print("CHange turn after queue refresh")
 			ChangeTurn()
 		pass
 	
@@ -225,13 +260,13 @@ func _physics_process(delta):
 					motion_vector.x += attacker_move_forward_speed
 				else:
 					animation_sub_state = "victim_shake"
-					applyAttackVictimDamage()
+					#applyAttackVictimDamage()
 			else:
 				if all_fighters[current_fighter_index].position.x > -attacker_move_forward_distance:
 					motion_vector.x -= attacker_move_forward_speed
 				else:
 					animation_sub_state = "victim_shake"
-					applyAttackVictimDamage()
+					#applyAttackVictimDamage()
 		if animation_sub_state == "victim_shake":
 			#animation_sub_state = "victim_shake"
 			if attack_victim.shake_counter < victim_shake_duration:
@@ -243,6 +278,7 @@ func _physics_process(delta):
 				attack_victim.position = Vector2(rand_x, rand_y)
 			else:
 				animation_sub_state = "attacker_withdraw"
+				applyAttackVictimDamage()
 				
 		if animation_sub_state == "attacker_withdraw":
 			if all_fighters[current_fighter_index].player_controlled:
