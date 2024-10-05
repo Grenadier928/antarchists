@@ -12,6 +12,7 @@ var CURRENT_PARTY = []
 func _ready():
 	var test_ant = basic_bug.instantiate()
 	test_ant.speed = 1
+	test_ant.health = 5
 	test_ant.player_controlled = true
 	var attack = preload_attack.new()
 	attack.attack_name = "Super Pinch"
@@ -34,6 +35,10 @@ func _ready():
 	evil_ant.speed = 2
 	evil_ant2.speed = 3
 	evil_ant3.speed = 3
+	
+	evil_ant.health = 2
+	evil_ant2.health = 3
+	evil_ant3.health = 3
 	current_combat.spawnEnemyTeam([evil_ant, evil_ant2, evil_ant3])
 	current_combat.initCombatQueue()
 	#print("B")
