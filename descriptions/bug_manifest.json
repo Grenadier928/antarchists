@@ -12,29 +12,51 @@
 			"strength":1,
 			"quips":[
 				"combat-kill":[
-					"We sure squished you!!!"
+					"We sure squished you!!!",
+					"You’re not going to bug anyone anymore!",
+					"EXTERMINATED",
+					"This. is. a TREE!",
+					"Dodge This",
+					"For the queen!"
 				],
 				"combat-self-death":[
-					"Noooooo :("
+					"Noooooo :(",
+					"I never saved anything for the journey back...",
+					"a roiling night storm / my striving but an illusion / I depart the storm",
+					"Bury me under a peanut butter sandwich",
+					"🎶swing low, sweet picnic basket🎵",
+					"Tell ant #1263 I love her!" 
 				],
 				"combat-friend-death":[
-					"This is so sad, can we hit 50 likes?"
+					"This is so sad, can we hit 50 likes?",
+					"For ant #9287!",
+					"We're gonna need a bigger party...",
+					"Was that ant #3987 or #5913?"
 				],
 				"cannibal-self":[
-					"No, I don't taste good!"
+					"No, I don't taste good!",
+					"I thought you went vegan!",
+					"When they said party-based, I didn't think they meant Donner Party",
+					"Wait, cover me in peanut butter first!"
 				],
 				"cannibal-other":[
-					"Snack time!"
-				]
+					"Snack time!",
+					"a most piquant citrusy, lemon flavor",
+					"Did anyone bring a picnic blanket?",
+					"I feel the need, the need to feed",
+					"Going keto baby!",
+					"Even better than sugar"
+				],
 				"victory":[
-					
+					"Squash this, flatso",
+					"Ants, Assemble!",
+					"FATALITY",
+					"and we didn't even have to call the exterminator"					
 				]
 			],
 			"attacks":[
 				
 			]
 		}
-		
-		
 	]
 }

@@ -7,10 +7,28 @@
 script = ExtResource("1_6hf62")
 
 [node name="player_team_position_0" type="Node2D" parent="."]
-position = Vector2(-1931, 884)
+position = Vector2(-1937, 135)
+
+[node name="player_team_position_1" type="Node2D" parent="."]
+position = Vector2(-1856, 849)
+
+[node name="player_team_position_2" type="Node2D" parent="."]
+position = Vector2(-1925, -729)
+
+[node name="player_team_position_3" type="Node2D" parent="."]
+position = Vector2(-1925, -265)
 
 [node name="enemy_team_position_0" type="Node2D" parent="."]
-position = Vector2(1855, 927)
+position = Vector2(1871, 357)
+
+[node name="enemy_team_position_2" type="Node2D" parent="."]
+position = Vector2(1791, -210)
+
+[node name="enemy_team_position_3" type="Node2D" parent="."]
+position = Vector2(1943, -801)
+
+[node name="enemy_team_position_1" type="Node2D" parent="."]
+position = Vector2(1862, 965)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.25, 0.25)
@@ -35,3 +53,6 @@ text = "Moves List:"
 
 [node name="attack_queue" type="Node2D" parent="."]
 position = Vector2(-710, -1142)
+
+[node name="Node2D" type="Node2D" parent="attack_queue"]
+position = Vector2(-14, 331)
