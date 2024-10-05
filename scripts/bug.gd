@@ -7,7 +7,7 @@ var strength = null
 
 var custom_name = "Antony"
 
-var sprite_path = "basic_brown_ant.png"
+var sprite_path = "LTLEECH.png"
 
 var status_armored = 0
 var status_flying = 0
@@ -15,10 +15,13 @@ var status_blinded = 0
 
 var in_combat = false
 var combat_portrait = null
+var player_controlled = false
 
 var attacks_list = [];
 
-
+var selection_box = null
+var sprite_node = null
+var reticle = null
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -35,10 +38,23 @@ func spawn_bug(params):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$sfx.stream = load("res://sounds/clip/slice.wav")
-	$sfx.play()
-	$active_selection.visible = false
-	$Sprite2D.texture = load("res://textures/bug_sprites/" + sprite_path)
+	#$sfx.stream = load("res://sounds/clip/slice.wav")
+	#$sfx.play()
+	
+	
+	selection_box = $active_selection
+	selection_box.visible = false
+	
+	reticle = $reticle
+	
+	#print(reticle)
+	reticle.visible = false
+	sprite_node = $character_art
+	sprite_node.texture = load("res://textures/bug_sprites/" + sprite_path)
+	print(sprite_path)
+	print(sprite_node.texture)
+	#sprite_node.texture = load("res://textures/bug_sprites/paper.jpg")
+	#print(sprite_node)
 	pass # Replace with function body.
 
 
