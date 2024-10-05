@@ -1,6 +1,8 @@
+Label
+RichTextLabel
+Node2D
 AudioStreamPlayer
 Sprite2D
-Node2D
 Container
 BoxContainer
 CollisionShape2D

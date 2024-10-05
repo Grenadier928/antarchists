@@ -14,6 +14,7 @@ var status_flying = 0
 var status_blinded = 0
 
 var in_combat = false
+var combat_portrait = null
 
 var attacks_list = [];
 
@@ -36,7 +37,7 @@ func spawn_bug(params):
 func _ready():
 	$sfx.stream = load("res://sounds/clip/slice.wav")
 	$sfx.play()
-	$selection.visible = false
+	$active_selection.visible = false
 	$Sprite2D.texture = load("res://textures/bug_sprites/" + sprite_path)
 	pass # Replace with function body.
 

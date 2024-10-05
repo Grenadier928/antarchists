@@ -14,7 +14,7 @@ position = Vector2(-4.49999, 9)
 rotation = -3.14159
 scale = Vector2(1, -1)
 
-[node name="selection" type="Sprite2D" parent="."]
+[node name="active_selection" type="Sprite2D" parent="."]
 position = Vector2(-12, -11)
 scale = Vector2(1.17773, 1.14258)
 texture = ExtResource("3_by5uh")
