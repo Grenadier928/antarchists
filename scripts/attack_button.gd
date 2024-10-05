@@ -1,6 +1,7 @@
 extends Button
 
 var combat_manager = null
+var attack_index = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#connect(self._button_pressed)

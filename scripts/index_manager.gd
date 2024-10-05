@@ -30,9 +30,11 @@ func _ready():
 	
 	var evil_ant = basic_bug.instantiate()
 	var evil_ant2 = basic_bug.instantiate()
+	var evil_ant3 = basic_bug.instantiate()
 	evil_ant.speed = 2
 	evil_ant2.speed = 3
-	current_combat.spawnEnemyTeam([evil_ant, evil_ant2])
+	evil_ant3.speed = 3
+	current_combat.spawnEnemyTeam([evil_ant, evil_ant2, evil_ant3])
 	current_combat.initCombatQueue()
 	#print("B")
 	pass # Replace with function body.

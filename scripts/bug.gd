@@ -13,6 +13,7 @@ var status_armored = 0
 var status_flying = 0
 var status_blinded = 0
 
+var combat_manager = null
 var in_combat = false
 var combat_portrait = null
 var player_controlled = false
@@ -22,6 +23,8 @@ var attacks_list = [];
 var selection_box = null
 var sprite_node = null
 var reticle = null
+
+var shake_counter = 0
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
@@ -61,3 +64,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_reticle_pressed() -> void:
+	#var combat = get_node("/root/Index/combat")
+	#print(combat_manager)
+	combat_manager.startAttackMove(self)
+	pass # Replace with function body.

@@ -10,7 +10,7 @@ script = ExtResource("1_6hf62")
 position = Vector2(-1937, 135)
 
 [node name="player_team_position_1" type="Node2D" parent="."]
-position = Vector2(-1874, 858)
+position = Vector2(-1856, 849)
 
 [node name="player_team_position_2" type="Node2D" parent="."]
 position = Vector2(-1925, -729)
@@ -19,7 +19,7 @@ position = Vector2(-1925, -729)
 position = Vector2(-1925, -265)
 
 [node name="enemy_team_position_0" type="Node2D" parent="."]
-position = Vector2(1893, 514)
+position = Vector2(1871, 357)
 
 [node name="enemy_team_position_2" type="Node2D" parent="."]
 position = Vector2(1791, -210)

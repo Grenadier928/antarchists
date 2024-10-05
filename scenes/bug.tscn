@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c5t0c4nqwdurh"]
 
 [ext_resource type="Script" path="res://scripts/bug.gd" id="1_11c8n"]
-[ext_resource type="Texture2D" uid="uid://y0ng047rv5ha" path="res://textures/bug_sprites/BASICBROWNANT.png" id="2_gbf2p"]
+[ext_resource type="Texture2D" uid="uid://c8wsng2wqdqrg" path="res://textures/bug_sprites/BASICBROWNANT.png" id="2_gbf2p"]
 [ext_resource type="Texture2D" uid="uid://c4vralh465nun" path="res://textures/selection.png" id="3_by5uh"]
 [ext_resource type="Texture2D" uid="uid://rmabr646ak8o" path="res://textures/reticle.png" id="3_rsk7g"]
 
@@ -22,13 +22,18 @@ position = Vector2(-12, -11)
 scale = Vector2(1.17773, 1.14258)
 texture = ExtResource("3_by5uh")
 
-[node name="reticle" type="Sprite2D" parent="."]
-position = Vector2(-12, -11)
+[node name="reticle" type="TextureButton" parent="."]
+offset_left = -334.0
+offset_top = -319.0
+offset_right = 211.0
+offset_bottom = 216.0
 scale = Vector2(1.17773, 1.14258)
-texture = ExtResource("3_rsk7g")
+texture_normal = ExtResource("3_rsk7g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9, -16)
 shape = SubResource("RectangleShape2D_puiih")
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="reticle" to="." method="_on_reticle_pressed"]
