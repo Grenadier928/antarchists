@@ -15,8 +15,5 @@ func _process(delta):
 
 func _on_pressed():
 	print("Pressed")
-	# play sfx
-	$"AudioStreamPlayer OH".play()
-
 	combat_manager.startTargeting()
 	pass # Replace with function body.
