@@ -12,6 +12,7 @@ var CURRENT_PARTY = []
 func _ready():
 	var test_ant = basic_bug.instantiate()
 	test_ant.speed = 1
+	test_ant.health = 5
 	test_ant.player_controlled = true
 	var attack = preload_attack.new()
 	attack.attack_name = "Super Pinch"

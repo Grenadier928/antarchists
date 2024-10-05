@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bhr4c5fhbnvmr"]
+[gd_scene load_steps=3 format=3 uid="uid://bhr4c5fhbnvmr"]
 
 [ext_resource type="Script" path="res://scripts/attack_button.gd" id="1_jktqk"]
+[ext_resource type="AudioStream" uid="uid://cgkeq1yxqxy6e" path="res://sounds/clip/oh1.wav" id="2_k7s60"]
 
 [node name="AttackButton" type="Button"]
 offset_right = 2400.0
@@ -8,5 +9,8 @@ offset_bottom = 600.0
 theme_override_font_sizes/font_size = 200
 text = "PLACEHOLDER"
 script = ExtResource("1_jktqk")
+
+[node name="AudioStreamPlayer OH" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_k7s60")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
