@@ -165,22 +165,27 @@ func _physics_process(delta):
 				var steps_to_reach_i = 0
 				var cur_location = current_fighter_index
 				
-				print("Cur location at start: " + str(cur_location))
-				while true:
-					print("Cur location: " + str(cur_location) + "  -  ISteps: " + str(steps_to_reach_i))
+				#print("Cur location at start: " + str(cur_location))
+				# while true:
+				# 	print("Cur location: " + str(cur_location) + "  -  ISteps: " + str(steps_to_reach_i))
 					
-					if cur_location == i:
-						break
-					cur_location += 1
-					steps_to_reach_i += 1
-					if cur_location > all_fighters.size():
-						cur_location = -1;
-					if steps_to_reach_i > 99:
-						OS.alert("I Steps too large", "ALERT")
+				# 	if cur_location == i:
+				# 		break
+				# 	cur_location += 1
+				# 	steps_to_reach_i += 1
+				# 	if cur_location > all_fighters.size():
+				# 		cur_location = -1;
+				# 	if steps_to_reach_i > 99:
+				# 		OS.alert("I Steps too large", "ALERT")
+				
+				if (current_fighter_index < i):
+					steps_to_reach_i = i - (current_fighter_index + 1)
+				else: # current_fighter_index > i
+					steps_to_reach_i = (all_fighters.size()-1) -(current_fighter_index - i)
 					
-					
-					
-					
+				print("x: " + str(current_fighter_index) + " i: " + str(i) + " steps_to_reach_i: " + str(steps_to_reach_i))
+
+
 				var destined_location_x = 0
 				destined_location_x = steps_to_reach_i * 300
 				

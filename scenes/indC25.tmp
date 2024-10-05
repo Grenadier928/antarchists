@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://doqmbxrv3ga88"]
+
+[ext_resource type="Script" path="res://scripts/index_manager.gd" id="1_7dtfc"]
+
+[node name="Index" type="Node2D"]
+script = ExtResource("1_7dtfc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.25, 0.25)
