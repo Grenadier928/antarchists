@@ -3,7 +3,7 @@
 		{
 			"id":1,
 			"name":"Antony",
-			"sprite":"basic_brown_ant.png",
+			"sprite":"paper.jpg",
 			"min_spawn_level":1,
 			"max_spawn_level":1,
 			"health":1,
