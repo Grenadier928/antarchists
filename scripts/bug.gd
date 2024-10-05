@@ -34,6 +34,8 @@ func spawn_bug(params):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$sfx.stream = load("res://sounds/clip/slice.wav")
+	$sfx.play()
 	$selection.visible = false
 	$Sprite2D.texture = load("res://textures/bug_sprites/" + sprite_path)
 	pass # Replace with function body.
