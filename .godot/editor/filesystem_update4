@@ -1,9 +1,0 @@
-res://scenes/bug.tscn
-res://scripts/bug.gd
-res://scenes/index.tscn
-res://scenes/bugs/antony.tscn
-res://descriptions/bug_manifest.json
-res://scenes/combat.tscn
-res://scripts/combat_manager.gd
-res://scripts/index_manager.gd
-res://scripts/attack.gd
