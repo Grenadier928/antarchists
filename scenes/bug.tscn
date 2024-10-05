@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5t0c4nqwdurh"]
+[gd_scene load_steps=6 format=3 uid="uid://c5t0c4nqwdurh"]
 
 [ext_resource type="Script" path="res://scripts/bug.gd" id="1_11c8n"]
+[ext_resource type="Texture2D" uid="uid://y0ng047rv5ha" path="res://textures/bug_sprites/BASICBROWNANT.png" id="2_gbf2p"]
 [ext_resource type="Texture2D" uid="uid://c4vralh465nun" path="res://textures/selection.png" id="3_by5uh"]
+[ext_resource type="Texture2D" uid="uid://rmabr646ak8o" path="res://textures/reticle.png" id="3_rsk7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_puiih"]
 size = Vector2(549, 525)
@@ -9,15 +11,21 @@ size = Vector2(549, 525)
 [node name="Bug" type="Area2D"]
 script = ExtResource("1_11c8n")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="character_art" type="Sprite2D" parent="."]
 position = Vector2(-4.49999, 9)
 rotation = -3.14159
 scale = Vector2(1, -1)
+texture = ExtResource("2_gbf2p")
 
 [node name="active_selection" type="Sprite2D" parent="."]
 position = Vector2(-12, -11)
 scale = Vector2(1.17773, 1.14258)
 texture = ExtResource("3_by5uh")
+
+[node name="reticle" type="Sprite2D" parent="."]
+position = Vector2(-12, -11)
+scale = Vector2(1.17773, 1.14258)
+texture = ExtResource("3_rsk7g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-9, -16)
