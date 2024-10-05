@@ -11,6 +11,26 @@
 			"evasion":1,
 			"strength":1,
 			"quips":[
+				"combat-kill":[
+					"We sure squished you!!!"
+				],
+				"combat-self-death":[
+					"Noooooo :("
+				],
+				"combat-friend-death":[
+					"This is so sad, can we hit 50 likes?"
+				],
+				"cannibal-self":[
+					"No, I don't taste good!"
+				],
+				"cannibal-other":[
+					"Snack time!"
+				]
+				"victory":[
+					
+				]
+			],
+			"attacks":[
 				
 			]
 		}
