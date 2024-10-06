@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc0r2j4lpcdgx"]
+
+[ext_resource type="Texture2D" uid="uid://do5nokk3nbls0" path="res://icon.svg" id="1_xyi8c"]
+[ext_resource type="Script" path="res://scripts/map_node_scene.gd" id="2_k0lix"]
+
+[node name="MapNode" type="TextureButton"]
+texture_normal = ExtResource("1_xyi8c")
+script = ExtResource("2_k0lix")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
