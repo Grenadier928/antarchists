@@ -58,6 +58,7 @@ func _ready() -> void:
 	MAIN_MENU = preload("res://scenes/main-menu.tscn")
 	OPTIONS = preload("res://scenes/options.tscn")
 	PAUSE = preload("res://scenes/pause-menu.tscn")
+	$options.INDEX = $".."
 	LoadMainMenu()
 	#$"Main-menu".
 
@@ -75,7 +76,6 @@ func LoadMainMenu():
 		current_menu.hide()
 	$"Main-menu".show()
 	current_menu=$"Main-menu"
-	print(current_menu.name)
 	#if not main_menu_instance:
 		#main_menu_instance = MAIN_MENU.instantiate()
 		#
@@ -92,12 +92,10 @@ func LoadOptions():
 	
 	if current_menu:
 		push_scene(current_menu)
-		print(current_menu.name)
 		current_menu.hide()
 	
 	$options.show()
 	current_menu=$options
-	print(current_menu.name)
 	#LoadOnTop(false)
 	#if not options_instance:
 		#options_instance= OPTIONS.instantiate()
@@ -108,9 +106,7 @@ func LoadOptions():
 func UnloadOptions():
 	if current_menu == $options:
 		current_menu.hide()
-	print(scene_stack)
 	current_menu= pop_scene()
-	print(current_menu.name)
 	current_menu.show()
 func LoadPause():
 	if not pause_instance:
@@ -124,7 +120,6 @@ func LoadPause():
 		push_scene(pause_instance)
 		
 func GoBack(full_clear):
-	print(scene_stack)
 	if scene_stack.back() == self:
 		
 		#NOTHING IN THE STACK, NOTHING TO GO BACK
@@ -150,6 +145,14 @@ func Unpause():
 		current_menu.hide()
 		current_menu=null
 		
+func AdjustVolume(vol:float):
+	$"..".volume=vol
+
+func SetSFX(state:bool):
+	$"..".sfx=state
+	
+func SetBG(state:bool):
+	$"..".bg=state
 
 
 		
