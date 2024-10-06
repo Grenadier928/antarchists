@@ -3,6 +3,8 @@ extends Node2D
 var dict_event = null
 var index_manager = null
 
+var is_event_finished = false;
+var exit_event_delay = 60;
 
 var event_button = preload("res://scenes/random_event_button.tscn")
 var added_buttons_count = 0
@@ -65,7 +67,31 @@ func rollResult(selected_option):
 		#if temp_dist < smallest_distance:
 			#best_outcome = outcome
 	
+	for key in (final_outcome.results.keys()):
+		match (key):
+			"add_health_rand":
+				index_manager.add_health_rand(final_outcome.results[key])
+			"remove_health_rand":
+				index_manager.remove_health_rand(final_outcome.results[key])
+			"add_party_member":
+				index_manager.add_party_member(final_outcome.results[key])
+			"remove_part_member":
+				index_manager.remove_party_member(final_outcome.results[key])
+
+	is_event_finished = true;
+	
 	pass
+
+func _physics_process(delta: float) -> void:
+	var delay_before_exit = 60
+
+	if is_event_finished:
+		exit_event_delay -= 1
+
+		if exit_event_delay <= 0 :
+			print("ENDING EVENT")
+			index_manager.endEvent()
+
 	
 func addOptionButton(option):
 	var temp_button = event_button.instantiate()
