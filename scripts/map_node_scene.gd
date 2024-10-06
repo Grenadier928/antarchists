@@ -8,6 +8,8 @@ var grow_big_size = 1.2
 var grow_small_size = 0.9
 var grow_speed = 0.01
 
+var visited_added = false
+
 # Called when the node enters the scene tree for the first time.
 func _physics_process(delta: float) -> void:
 	#print("AASD")
@@ -30,7 +32,14 @@ func _physics_process(delta: float) -> void:
 				scale.x -= grow_speed
 			else:
 				anim_state = "grow"
-				
+
+	if !visited_added and map_node.visited:
+		var marker = Sprite2D.new()
+		marker.texture = load("res://textures/visited_map_node.png")	
+
+		marker.position = get_sprite_size()/2
+		add_child(marker)
+		visited_added = true
 	pass # Replace with function body.
 
 
