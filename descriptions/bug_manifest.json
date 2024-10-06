@@ -65,7 +65,7 @@
 			"sprite_path": "DINOSAURANT.png",
 			"min_spawn_level": 3,
 			"max_spawn_level": 5,
-			"health": 3,
+			"health": 2,
 			"speed": 1,
 			"evasion": 2,
 			"strength": 2,
