@@ -26,6 +26,7 @@ var master_event_dict = null
 var master_combat_encounter_dict = null
 
 var current_combat = null
+var current_event = null
 
 func createAttackFromId(id):
 	var dict_entry = null
@@ -77,7 +78,7 @@ func loadJsonManifest(path):
 
 
 func loadEvent(event_id):
-	var current_event = basic_event_scene.instantiate()
+	current_event = basic_event_scene.instantiate()
 	var scene_root_n = get_node("/root/Index/")
 	scene_root_n.add_child(current_event)
 	
@@ -229,7 +230,38 @@ func endCombat():
 	CURRENT_HEIGHT+=1
 	for c_node in CURRENT_MAP_NODE.children:
 		c_node.travelable = true
-		
+
+
+func endEvent():
+	print("end event called")
+	# var temp_party = []
+	# for party_member in current_combat.all_fighters:
+	# 	if party_member.player_controlled:
+	# 		var temp_bug = basic_bug.instantiate()
+	# 		temp_bug.health = party_member.health
+	# 		temp_bug.speed = party_member.speed
+	# 		temp_bug.evasion = party_member.evasion
+	# 		temp_bug.strength = party_member.strength
+	# 		temp_bug.quips = party_member.quips
+	# 		temp_bug.sprite_path = party_member.sprite_path
+	# 		temp_bug.player_controlled = true
+			
+	# 		for i in range (party_member.attacks_list.size()):
+	# 			temp_bug.attacks_list.append(createAttackFromId(party_member.attacks_list[i].id))
+			
+	# 		temp_party.append(temp_bug)
+			
+	self.remove_child(current_event)
+	current_event.queue_free()
+	
+	CURRENT_MAP_NODE.visited = true
+	for thing in MAP[CURRENT_HEIGHT]:
+		thing.travelable = false
+		thing.map_button.scale.x = 1
+		thing.map_button.scale.y = 1
+	CURRENT_HEIGHT+=1
+	for c_node in CURRENT_MAP_NODE.children:
+		c_node.travelable = true	
 		
 func LoadGame():
 	generate_map_tree(MAP_HEIGHT)
@@ -299,6 +331,32 @@ func _ready():
 	##print("B")
 	#pass # Replace with function body.
 #
+
+# Conditions
+func has_species_in_party(species):
+	for bug in CURRENT_PARTY:
+		if (bug.bug_type == species):
+			return true
+	return false
+func has_room_in_party(required_spaces):
+	return (4 - CURRENT_PARTY.size()) >= required_spaces
+# Rewards
+func selectRandomPartyMember():
+	return randi_range(0, CURRENT_PARTY.size() - 1)
+func add_health_rand(amount):
+	CURRENT_PARTY[selectRandomPartyMember()].health += amount
+func remove_health_rand(amount):
+	var index = selectRandomPartyMember()
+	CURRENT_PARTY[index].health -= amount
+	if CURRENT_PARTY[index].health <= 0:
+		CURRENT_PARTY.pop_at(index)
+	
+func add_party_member(bug_id):
+	if (CURRENT_PARTY.size() >=4):
+		return
+	CURRENT_PARTY.append(master_bug_dict[bug_id])
+func remove_party_member(index):
+	CURRENT_PARTY.pop_at(index)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
