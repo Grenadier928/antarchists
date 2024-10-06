@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://tkksy40cceu8"]
+
+[ext_resource type="Script" path="res://scripts/float_off_text.gd" id="1_76ktv"]
+
+[node name="FloatOffText" type="Label"]
+theme_override_colors/font_color = Color(0.380392, 0.380392, 0.380392, 0.560784)
+theme_override_font_sizes/font_size = 100
+text = "#PLACEHOLDER#"
+script = ExtResource("1_76ktv")

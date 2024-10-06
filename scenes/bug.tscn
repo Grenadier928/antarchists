@@ -38,7 +38,7 @@ shape = SubResource("RectangleShape2D_puiih")
 [node name="sfx" type="AudioStreamPlayer" parent="."]
 
 [node name="health_icon" type="Sprite2D" parent="."]
-position = Vector2(-19, -437)
+position = Vector2(7, -426)
 scale = Vector2(0.479492, 0.472656)
 texture = ExtResource("5_fi2dd")
 

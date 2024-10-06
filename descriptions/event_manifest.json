@@ -1,0 +1,79 @@
+{
+	"events": [
+		{
+			"id": 1,
+			"title": "A stranger approaches",
+			"description": "A lone black ant approaches your party. What do you do?",
+			"options": [
+				{
+					"id": 1,
+					"text": "Eat him!",
+					"results": [
+						{
+							"prob": 0.5,
+							"result": {
+								"title":"Dinner!",
+								"description":"You all ate!",
+								"results":{
+									"add_health_rand":1
+								}
+							}
+						}
+					]
+				},
+				{
+					"id": 2,
+					"text": "Recruit him!",
+					"conditions": {
+						"has_ant_in_party": 1
+					}
+				},
+				{
+					"id": 3,
+					"text": "Leave him alone"
+				}
+			]
+		},
+		{
+			"id": 2,
+			"title": "Fight!",
+			"description": "You see two ants fighting. What do you do?",
+			"options": [
+				{
+					"id": 1,
+					"text": "Twice the food! Eat them!",
+					"conditions": {
+						"has_ant_in_party": 1
+					}
+				},
+				{
+					"id": 2,
+					"text": "Recruit them!"
+				},
+				{
+					"id": 3,
+					"text": "Leave them alone"
+				}
+			]
+		},
+		{
+			"id": 3,
+			"title": "Dinner is served?",
+			"description": "You see some hungry-looking ants have cornered a worm. What do you do?",
+			"options": [
+				{
+					"id": 1,
+					"text": "A free lunch! Join the ants"
+				},
+				{
+					"id": 2,
+					"text": "Save that worm!"
+				},
+				{
+					"id": 3,
+					"text": "Leave them alone"
+				}
+			]
+		}
+	]
+}
