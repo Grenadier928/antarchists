@@ -14,7 +14,9 @@ var MAP_HEIGHT = 16
 var CURRENT_PARTY = []
 var CURRENT_ITEMS = []
 var CURRENT_HEIGHT = 1
-
+var volume: float = 1.0
+var sfx: bool = true
+var bg: bool = true
 var CURRENT_MAP_NODE = null
 
 
@@ -229,9 +231,7 @@ func endCombat():
 		c_node.travelable = true
 		
 		
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func LoadGame():
 	generate_map_tree(MAP_HEIGHT)
 	CURRENT_MAP_NODE = MAP[0][0]
 	
@@ -253,6 +253,9 @@ func _ready():
 	CURRENT_PARTY = [starting_ant]
 	return
 	loadCombatEncounter(1)
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
 # Called when the node enters the scene tree for the first time.
 
 	#
@@ -301,38 +304,13 @@ func _ready():
 func _physics_process(delta):
 	pass
 
+func UpdateSFX(state: bool):
+	sfx=state
+	print("GOT STATE SFX")
+	print(sfx)
 
-# Conditions
-func has_species_in_party(species):
-	for bug in CURRENT_PARTY:
-		if (bug.bug_type == species):
-			return true
-	return false
-
-func has_room_in_party(required_spaces):
-	return (4 - CURRENT_PARTY.size()) >= required_spaces
-
-
-# Rewards
-func selectRandomPartyMember():
-	return randi_range(0, CURRENT_PARTY.size() - 1)
-
-func add_health_rand(amount):
-	CURRENT_PARTY[selectRandomPartyMember()].health += amount
-
-func remove_health_rand(amount):
-	var index = selectRandomPartyMember()
-	CURRENT_PARTY[index].health -= amount
-
-	if CURRENT_PARTY[index].health <= 0:
-		CURRENT_PARTY.pop_at(index)
-
-	
-
-func add_party_member(bug_id):
-	if (CURRENT_PARTY.size() >=4):
-		return
-	CURRENT_PARTY.append(master_bug_dict[bug_id])
-
-func remove_party_member(index):
-	CURRENT_PARTY.pop_at(index)
+func UpdateBG(state: bool):
+	bg=state
+func UpdateVol(vol: float):
+	volume=vol
+	print(volume)

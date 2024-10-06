@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba3pb1nobhlg4"]
+[gd_scene load_steps=6 format=3 uid="uid://ba3pb1nobhlg4"]
 
 [ext_resource type="Script" path="res://scripts/main-menu.gd" id="1_ic812"]
 [ext_resource type="Texture2D" uid="uid://hhqhyev2ea2d" path="res://textures/buttons/BUTTONS_START.png" id="2_mn22g"]
 [ext_resource type="Texture2D" uid="uid://cxcdau3kcl3sn" path="res://textures/buttons/BUTTONS_OPTIONS.png" id="3_14fq3"]
 [ext_resource type="Texture2D" uid="uid://cb6bbcp581l0a" path="res://textures/buttons/BUTTONS_QUIT.png" id="4_0tqry"]
+[ext_resource type="Texture2D" uid="uid://b8aq1mnkiflis" path="res://textures/MAINPAGE.png" id="5_abxrt"]
 
 [node name="Main-menu" type="Control"]
 layout_mode = 3
@@ -58,15 +59,23 @@ offset_right = 40.0
 offset_bottom = 40.0
 alignment = 1
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 714.0
-offset_top = 310.0
-offset_right = 799.0
-offset_bottom = 341.0
-text = "call pause"
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2300.0
+offset_top = -1403.0
+offset_right = -1276.0
+offset_bottom = -379.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4.541, 2.93)
+mouse_filter = 2
+texture = ExtResource("5_abxrt")
+stretch_mode = 5
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
