@@ -12,20 +12,20 @@
 						{
 							"prob": 0.5,
 							"result": {
-								"title":"Dinner!",
-								"description":"You all ate!",
-								"results":{
-									"add_health_rand":1
+								"title": "Dinner!",
+								"description": "You all ate!",
+								"results": {
+									"add_health_rand": 1
 								}
 							}
 						},
 						{
 							"prob": 0.5,
 							"result": {
-								"title":"He fights back!!",
-								"description":"He attacks with valor!",
-								"results":{
-									"remove_health_rand":1
+								"title": "He fights back!!",
+								"description": "He attacks with valor!",
+								"results": {
+									"remove_health_rand": 1
 								}
 							}
 						}
@@ -41,10 +41,10 @@
 						{
 							"prob": 1,
 							"result": {
-								"title":"A new buddy!",
-								"description":"He is fren",
-								"results":{
-									"add_party_member":1
+								"title": "A new buddy!",
+								"description": "He is fren",
+								"results": {
+									"add_party_member": 1
 								}
 							}
 						}
@@ -57,9 +57,9 @@
 						{
 							"prob": 1,
 							"result": {
-								"title":"You leave him be",
-								"description":"Your party move along",
-								"results":{
+								"title": "You leave him be",
+								"description": "Your party move along",
+								"results": {
 									"pass": "pass"
 								}
 							}
@@ -80,9 +80,9 @@
 						{
 							"prob": 0.7,
 							"result": {
-								"title":"Dinner!",
-								"description":"You all ate!",
-								"results":{
+								"title": "Dinner!",
+								"description": "You all ate!",
+								"results": {
 									"add_health_rand": 2
 								}
 							}
@@ -90,9 +90,9 @@
 						{
 							"prob": 0.3,
 							"result": {
-								"title":"They fight back!!",
-								"description":"They forget their differences and attack your party",
-								"results":{
+								"title": "They fight back!!",
+								"description": "They forget their differences and attack your party",
+								"results": {
 									"remove_health_rand": 2
 								}
 							}
@@ -106,10 +106,10 @@
 						{
 							"prob": 1,
 							"result": {
-								"title":"Some new friends",
-								"description":"They join your party",
-								"results":{
-									"add_party_member":2
+								"title": "Some new friends",
+								"description": "They join your party",
+								"results": {
+									"add_party_member": 2
 								}
 							}
 						}
@@ -122,9 +122,9 @@
 						{
 							"prob": 1,
 							"result": {
-								"title":"You leave them be",
-								"description":"Your party moves along and leaves them to their fight",
-								"results":{
+								"title": "You leave them be",
+								"description": "Your party moves along and leaves them to their fight",
+								"results": {
 									"pass": "pass"
 								}
 							}
@@ -143,61 +143,60 @@
 								{
 									"prob": 0.9,
 									"result": {
-										"title":"Dinner!",
-										"description":"You all share the worm!",
-										"results":{
-											"add_health_rand":1
+										"title": "Dinner!",
+										"description": "You all share the worm!",
+										"results": {
+											"add_health_rand": 1
 										}
 									}
 								},
 								{
 									"prob": 0.1,
 									"result": {
-										"title":"He fights back!!",
-										"description":"Wow, that was a tough worm",
-										"results":{
-											"remove_health_rand":1
+										"title": "He fights back!!",
+										"description": "Wow, that was a tough worm",
+										"results": {
+											"remove_health_rand": 1
 										}
 									}
 								}
 							]
-
 						},
 						{
 							"id": 2,
 							"text": "Save that worm!",
 							"conditons": {
-						"has_species_in_party": "worm"
-					},
-					"results": [
-						{
-							"prob": 1,
-							"result": {
-								"title":"A new buddy!",
-								"description":"He is fren",
-								"results":{
-									"add_party_member": "worm"
+								"has_species_in_party": "worm"
+							},
+							"results": [
+								{
+									"prob": 1,
+									"result": {
+										"title": "A new buddy!",
+										"description": "He is fren",
+										"results": {
+											"add_party_member": "worm"
+										}
+									}
 								}
-							}
-						}
-					]
+							]
 						},
 						{
 							"id": 3,
 							"text": "Leave them alone",
-							"description":"You leave the worm at the mercy of the ants",
+							"description": "You leave the worm at the mercy of the ants",
 							"results": [
-						{
-							"prob": 1,
-							"result": {
-								"title":"You leave them to their lunch",
-								"description":"Your party moves along and leaves them to their fight",
-								"results":{
-									"pass": "pass"
+								{
+									"prob": 1,
+									"result": {
+										"title": "You leave them to their lunch",
+										"description": "Your party moves along and leaves them to their fight",
+										"results": {
+											"pass": "pass"
+										}
+									}
 								}
-							}
-						}
-					]
+							]
 						}
 					]
 				},
@@ -213,44 +212,42 @@
 								{
 									"prob": 0.5,
 									"result": {
-										"title":"Munchables™",
-										"description":"You all share the Munchables™!",
-										"results":{
-											"add_health_rand":2
+										"title": "Munchables™",
+										"description": "You all share the Munchables™!",
+										"results": {
+											"add_health_rand": 2
 										}
 									}
 								},
 								{
 									"prob": 0.5,
 									"result": {
-										"title":"Munchables™ are gross",
-										"description":"There's a lot of preservatives in Munchables™. You should be eating healthier",
-										"results":{
-											"remove_health_rand":1
+										"title": "Munchables™ are gross",
+										"description": "There's a lot of preservatives in Munchables™. You should be eating healthier",
+										"results": {
+											"remove_health_rand": 1
 										}
 									}
 								}
 							]
-
 						},
 						{
 							"id": 2,
 							"text": "No such thing a free lunch",
-							"description":"Munchables™ sound suss. Buy name brand next time.",
+							"description": "Munchables™ sound suss. Buy name brand next time.",
 							"results": [
 								{
 									"prob": 1,
 									"result": {
-										"title":"You leave them be",
-										"description":"Your party moves along and leaves them to their fight",
-										"results":{
+										"title": "You leave them be",
+										"description": "Your party moves along and leaves them to their fight",
+										"results": {
 											"pass": "pass"
 										}
 									}
 								}
 							]
 						}
-					
 					]
 				},
 				{
@@ -265,20 +262,20 @@
 								{
 									"prob": 0.4,
 									"result": {
-										"title":"Dinner!",
-										"description":"It's delicious! You all ate!",
-										"results":{
-											"add_health_rand":1
+										"title": "Dinner!",
+										"description": "It's delicious! You all ate!",
+										"results": {
+											"add_health_rand": 1
 										}
 									}
 								},
 								{
 									"prob": 0.4,
 									"result": {
-										"title":"It's a parasitic fungus!",
-										"description":"Ophiocordyceps unilateralis infects a member of your party",
-										"results":{
-											"remove_party_member":1,
+										"title": "It's a parasitic fungus!",
+										"description": "Ophiocordyceps unilateralis infects a member of your party",
+										"results": {
+											"remove_party_member": 1,
 											"add_party_member": "zombie"
 										}
 									}
@@ -286,10 +283,10 @@
 								{
 									"prob": 0.2,
 									"result": {
-										"title":"It's poisonous",
-										"description":"The mushroom is deadly. You lose a comrade",
-										"results":{
-											"remove_party_member":1
+										"title": "It's poisonous",
+										"description": "The mushroom is deadly. You lose a comrade",
+										"results": {
+											"remove_party_member": 1
 										}
 									}
 								}
@@ -302,9 +299,9 @@
 								{
 									"prob": 1,
 									"result": {
-										"title":"You it be",
-										"description":"Your party move along",
-										"results":{
+										"title": "You it be",
+										"description": "Your party move along",
+										"results": {
 											"pass": "pass"
 										}
 									}
@@ -325,20 +322,20 @@
 								{
 									"prob": 0.4,
 									"result": {
-										"title":"Dinner!",
-										"description":"You all ate!",
-										"results":{
-											"add_health_rand":1
+										"title": "Dinner!",
+										"description": "You all ate!",
+										"results": {
+											"add_health_rand": 1
 										}
 									}
 								},
 								{
 									"prob": 0.6,
 									"result": {
-										"title":"He fights back!!",
-										"description":"He's fiestier than you thought!",
-										"results":{
-											"remove_health_rand":2
+										"title": "He fights back!!",
+										"description": "He's fiestier than you thought!",
+										"results": {
+											"remove_health_rand": 2
 										}
 									}
 								}
@@ -354,9 +351,9 @@
 								{
 									"prob": 1,
 									"result": {
-										"title":"A fancy friend!",
-										"description":"You're party is a little more fancy",
-										"results":{
+										"title": "A fancy friend!",
+										"description": "You're party is a little more fancy",
+										"results": {
 											"add_party_member": "shield_ant"
 										}
 									}
@@ -370,9 +367,9 @@
 								{
 									"prob": 1,
 									"result": {
-										"title":"You leave him be",
-										"description":"Your party move along",
-										"results":{
+										"title": "You leave him be",
+										"description": "Your party move along",
+										"results": {
 											"pass": "pass"
 										}
 									}
@@ -380,10 +377,8 @@
 							]
 						}
 					]
-				
 				}
 			]
-					
 		}
 	]
 }

@@ -10,6 +10,7 @@ var map_controller = null
 var map_object
 var map_array
 
+var INDEX_CONTROLLER = null
 #pixel distance between the floor rows
 var DISTANCE_BETWEEN_FLOORS = 300
 var MAX_TREE_WIDTH
@@ -38,6 +39,8 @@ func draw_map(map):
 	map_object = map
 	draw_map_nodes()
 	recursive_map_connect(map_object[0][0])
+	for c_node in INDEX_CONTROLLER.CURRENT_MAP_NODE.children:
+		c_node.travelable = true
 	self.queue_redraw()
 	
 
@@ -76,5 +79,13 @@ func recursive_map_connect(node):
 			, child.map_button.position + (child.map_button.get_sprite_size() / 2)])
 
 
-func testFunc():
-	print("Map.gd TEST")
+func testFunc(map_node):
+	#print("Map.gd TEST")
+	if not map_node.travelable:
+		return
+	#print(map_node.node_type)
+	INDEX_CONTROLLER.CURRENT_MAP_NODE = map_node
+	if map_node.node_type == "combat":
+		INDEX_CONTROLLER.loadCombatEncounter(null)
+	elif map_node.node_type == "event":
+		INDEX_CONTROLLER.loadEvent(null)

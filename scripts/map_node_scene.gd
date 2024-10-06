@@ -3,15 +3,37 @@ extends TextureButton
 var map_controller = null
 var map_node
 
+var anim_state = "grow"
+var grow_big_size = 1.2
+var grow_small_size = 0.9
+var grow_speed = 0.01
+
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	
+func _physics_process(delta: float) -> void:
+	#print("AASD")
+	if map_node.travelable:
+		#print("anmate")
+		#scale.y = 1000
+		#scale.x = 1000
+		#return
+		if anim_state == "grow":
+			if scale.x <= grow_big_size:
+				#print("Big")
+				scale.y += grow_speed
+				scale.x += grow_speed
+			else:
+				anim_state = "shrink"
+		if anim_state == "shrink":
+			if scale.x >= grow_small_size:
+				#print("Small")
+				scale.y -= grow_speed
+				scale.x -= grow_speed
+			else:
+				anim_state = "grow"
+				
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func add_node(node):
 	map_node = node
@@ -22,4 +44,4 @@ func get_sprite_size():
 	return texture_normal.get_size() * get_scale();
 
 func _on_pressed() -> void:
-	map_controller.testFunc()
+	map_controller.testFunc(map_node)

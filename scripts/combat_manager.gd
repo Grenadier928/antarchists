@@ -7,11 +7,11 @@ var combat_state = "intro"
 var animation_sub_state = null
 
 var attack_button = preload("res://scenes/attack_button.tscn")
-
+var index_manager = null
 var attack_victim = null
 var chosenAttack = null
 var attack_will_hit = null
-
+var reward_screen_delay_counter = 0;
 
 func AnimateTurnQueue():
 	combat_state = "queue_animation"
@@ -95,6 +95,8 @@ func applyAttackVictimDamage():
 		$combat_banner_defeat.visible = true
 	if not enemy_team_left:
 		combat_state = "win"
+		$combat_banner_win.visible = true
+		#print("ADSSDADASDASDSADASDADSDSADDA")
 				#print("Victim found")
 				#var temp_all_fighters_a = all_fighters.slice(0,i)
 				#var temp_all_fighters_b = all_fighters.slice(i,all_fighters.size())
@@ -147,6 +149,13 @@ func startEnemyTurn():
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	var delay_before_reward_screen = 60
+	
+	if combat_state == "win":
+		reward_screen_delay_counter += 1
+		
+		if reward_screen_delay_counter >= delay_before_reward_screen:
+			$reward_screen.visible = true
 	
 	var bob_amount = 40
 	var bob_speed = 4
@@ -326,10 +335,25 @@ func initCombatQueue():
 
 func spawnPlayerTeam(player_team):
 	#print(player_team)
+	var player_spawns = [
+		$player_team_position_0,
+		$player_team_position_1,
+		$player_team_position_2,
+		$player_team_position_3
+	]
+	
+
 	for i in range (player_team.size()):
 		all_fighters.append(player_team[i])
-		
-		get_node("/root/Index/Combat/player_team_position_" + str(i)).add_child(player_team[i])
+		#$player_team_position_0
+		print("Player team index i:")
+		print(player_team[i])
+		player_spawns[i].add_child(player_team[i])
+
+		#get_node("/root/Index/Combat/player_team_position_" + str(i)).add_child(player_team[i])
+		player_team[i].combat_manager = null
+		print("Com managwer:")
+		print(player_team[i].combat_manager)
 		player_team[i].combat_manager = self
 	#$player_team_position_1.add_child(player_team[0])
 	#print($player_team_position_1.position)
@@ -340,9 +364,23 @@ func spawnPlayerTeam(player_team):
 	
 func spawnEnemyTeam(enemy_team):
 	#print("AAAAFDSDFASDSSSSSSSSSSSSSSSSSSSSSSS")
+	
+	var enemy_spawns = [
+		$enemy_team_position_0,
+		$enemy_team_position_1,
+		$enemy_team_position_2,
+		$enemy_team_position_3
+	]
+	
 	for i in range (enemy_team.size()):
 	#	print("AAAAFDSDFASD")
 		all_fighters.append(enemy_team[i])
 		enemy_team[i].combat_manager = self
-		get_node("/root/Index/Combat/enemy_team_position_" + str(i)).add_child(enemy_team[i])
+		#get_node("/root/Index/Combat/enemy_team_position_" + str(i)).add_child(enemy_team[i])
+		enemy_spawns[i].add_child(enemy_team[i])
 	pass
+
+
+func _on_continue_pressed() -> void:
+	index_manager.endCombat()
+	pass # Replace with function body.
