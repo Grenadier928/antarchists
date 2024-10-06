@@ -99,7 +99,7 @@
 			]
 		},
 		{
-			"id": 2,
+			"id": 3,
 			"name": "Caldsworth",
 			"sprite_path": "DINOSAURWORM.png",
 			"min_spawn_level": 1,
@@ -139,7 +139,7 @@
 			]
 		},
 		{
-			"id": 2,
+			"id": 4,
 			"name": "Danii",
 			"sprite_path": "DINOTEACHER.png",
 			"min_spawn_level": 1,
