@@ -10,6 +10,7 @@ var CURRENT_PARTY = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	var test_ant = basic_bug.instantiate()
 	test_ant.speed = 1
 	CURRENT_PARTY.append(test_ant)
