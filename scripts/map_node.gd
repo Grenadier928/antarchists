@@ -1,10 +1,17 @@
 extends Node
 
 var NODE_DISTRIBUTION = {
-	"combat": .75,
-	"event": .25
+	"combat": .6,
+	"event": .4
 	# "shop": .1
 }
+
+var NODE_ICONS = {
+	"combat": "res://textures/combat_temp.png/",
+	"event": "res://textures/event_temp.png/",
+	"boss": "res://textures/boss_temp.png/"
+}
+
 var parent
 var children = []
 
@@ -30,12 +37,24 @@ func set_parent(parent_node):
 
 
 
+# func randomize_node_type():
+
+# 	var weight_sum = 0;
+# 	for weight in NODE_DISTRIBUTION.values():
+# 		weight_sum += weight
+# 	var random_val = randf() * weight_sum
+	
+# 	for key in self.NODE_DISTRIBUTION.keys():
+# 		var weight = NODE_DISTRIBUTION[key]
+
+# 		if (weight >= random_val):
+# 			self.set_node_type(key)
+# 			break
+# 			random_val -= weight
+
 func randomize_node_type():
 
-	var weight_sum = 0;
-	for weight in NODE_DISTRIBUTION.values():
-		weight_sum += weight
-	var random_val = randf() * weight_sum
+	var random_val = randf() * 1
 	
 	for key in self.NODE_DISTRIBUTION.keys():
 		var weight = NODE_DISTRIBUTION[key]
@@ -43,7 +62,7 @@ func randomize_node_type():
 		if (weight >= random_val):
 			self.set_node_type(key)
 			break
-			random_val -= weight
+		random_val -= weight
 
 func set_node_type(type):
 	# @todo - Set node image / init depending on key

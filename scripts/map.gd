@@ -15,7 +15,7 @@ var DISTANCE_BETWEEN_FLOORS = 300
 var MAX_TREE_WIDTH
 
 # how far in any direction a node may be randomly skewed
-var MAX_VARIANCE = 50
+var MAX_VARIANCE = 75
 
 var LINE_COLOR = Color(0, 1, 0)
 
@@ -23,20 +23,16 @@ var LINES = []
 
 func _ready() -> void:
 	
-	MAX_TREE_WIDTH = get_viewport().size.x
-
+	MAX_TREE_WIDTH = get_viewport().size.x 
 	camera = get_node("Camera2D")
 
-	print("MAP READY")
 
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP :
-			print("SCROLL")
-			print(camera.position)
-			camera.position = camera.position - Vector2(0, SCROLL_SPEED)
+			self.position.y += SCROLL_SPEED
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN :
-			camera.position = camera.position + Vector2(0, SCROLL_SPEED)
+			self.position.y -= SCROLL_SPEED
 
 func draw_map(map):
 	map_object = map
@@ -51,7 +47,7 @@ func _draw() -> void:
 
 func draw_map_nodes():
 	for row_number in range(map_object.size()):
-		var row_height = DISTANCE_BETWEEN_FLOORS * row_number
+		var row_height = -DISTANCE_BETWEEN_FLOORS * row_number
 
 		var x_delta = 0
 		var x_position = 0

@@ -10,15 +10,17 @@ var map_node = preload("res://scripts/map_node.gd")
 var CURRENT_PARTY = []
 
 var MAP
+var MAP_HEIGHT = 16
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	
-	generate_map_tree(5)
+	generate_map_tree(MAP_HEIGHT)
 	# walkMap(MAP)
 
 	var map_object = map.instantiate()
 	get_node("/root/Index").add_child(map_object)
+	map_object.draw_map(MAP)
 	
 	
 	# var test_ant = basic_bug.instantiate()
@@ -69,10 +71,12 @@ func generate_map_tree(floors):
 	var max_tree_width = 5;
 	var min_tree_width = 2;
 
-	MAP = map_node.new()
-	MAP.name = "MapNode_0"
+	var root_node = map_node.new()
+	root_node.name = "MapNode_0"
+
+	var map_object = []
 	
-	var previous_floor = [MAP]
+	var previous_floor = [root_node]
 	var node_counter = 1;
 	# save room for spawn+boss floors
 	for floor_number in range(floors - 2):
@@ -82,6 +86,7 @@ func generate_map_tree(floors):
 		for j in range(next_floor_width):
 			var new_node = map_node.new()
 			new_node.randomize_node_type()
+			print(new_node.node_type)
 			new_node.name = "MapNode_" + str(node_counter)
 			next_floor.append(new_node)
 			node_counter += 1
@@ -106,12 +111,19 @@ func generate_map_tree(floors):
 			if !next_floor[index].parent:
 				next_floor[index].set_parent(previous_floor[clamp(index, 0, previous_floor.size() - 1)])
 		
+		map_object.append(previous_floor)
 		previous_floor = next_floor
+
+	map_object.append(previous_floor)
 
 	var BOSS_FLOOR = map_node.new();
 	BOSS_FLOOR.set_node_type("boss")
 	for node in previous_floor:
 		node.set_children([BOSS_FLOOR])
+
+	map_object.append([BOSS_FLOOR])
+
+	MAP = map_object
 
 
 	

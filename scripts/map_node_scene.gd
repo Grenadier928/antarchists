@@ -5,7 +5,7 @@ var map_node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("ready")
+	
 	pass # Replace with function body.
 
 
@@ -16,6 +16,7 @@ func _process(delta: float) -> void:
 func add_node(node):
 	map_node = node
 	node.map_button = self
+	texture_normal = load(node.NODE_ICONS[node.node_type])
 
 func get_sprite_size():
 	return texture_normal.get_size() * get_scale();
