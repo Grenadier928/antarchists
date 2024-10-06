@@ -1,6 +1,7 @@
 extends Node2D
 
 var basic_combat_scene = preload("res://scenes/combat.tscn")
+var basic_event_scene = preload("res://scenes/random_event.tscn")
 
 var basic_bug = preload("res://scenes/bug.tscn")
 var preload_attack = preload("res://scripts/attack.gd")
@@ -8,6 +9,7 @@ var preload_attack = preload("res://scripts/attack.gd")
 var CURRENT_PARTY = []
 var master_bug_dict = null
 var master_attack_dict = null
+var master_event_dict = null
 
 func creatAttackFromId(id):
 	var dict_entry = null
@@ -42,23 +44,22 @@ func createBugFromId(id):
 	#temp_bug.init()
 	return temp_bug
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	var raw_bugs_file = FileAccess.open("res://descriptions/bug_manifest.json", FileAccess.READ)
-	var raw_json = raw_bugs_file.get_as_text()
-	raw_bugs_file.close()
+func loadJsonManifest(path):
+	var raw_file = FileAccess.open(path, FileAccess.READ)
+	var raw_json = raw_file.get_as_text()
+	raw_file.close()
 	var json_reader = JSON.new()
 	var temp_json = json_reader.parse(raw_json)
 	var data_received = json_reader.data#.attacks[0]
-	master_bug_dict = json_reader.data.bugs
-	
-	var raw_attacks_file = FileAccess.open("res://descriptions/attack_manifest.json", FileAccess.READ)
-	raw_json = raw_attacks_file.get_as_text()
-	raw_attacks_file.close()
-	temp_json = json_reader.parse(raw_json)
-	data_received = json_reader.data
-	master_attack_dict = json_reader.data.attacks
+	return data_received
+	#master_bug_dict = json_reader.data.bugs
+	#pass
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	master_bug_dict = loadJsonManifest("res://descriptions/bug_manifest.json").bugs
+	master_attack_dict = loadJsonManifest("res://descriptions/attack_manifest.json").attacks
+	master_event_dict = loadJsonManifest("res://descriptions/event_manifest.json").events
 	#createBugFromId(1)
 	#print(master_bug_dict)
 	#print(data_received)
@@ -67,6 +68,20 @@ func _ready():
 	#data_received = json_reader.data.attacks[0].name
 	#print(data_received)
 	#print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+	
+	var current_event = basic_event_scene.instantiate()
+	var scene_root_n = get_node("/root/Index/")
+	scene_root_n.add_child(current_event)
+	
+	var rng = RandomNumberGenerator.new()
+	var randNum = rng.randi_range(0, master_event_dict.size() - 1)
+	var p_event = master_event_dict[randNum]
+	
+	current_event.init(p_event, self)
+	#print(master_event_dict[randNum])
+	return
+	
+	
 	var test_ant = createBugFromId(1)
 	var test_ant2 = createBugFromId(1)
 	test_ant.health = 4
