@@ -13,6 +13,43 @@ var chosenAttack = null
 var attack_will_hit = null
 var reward_screen_delay_counter = 0;
 
+var quip_state = "hide"
+var full_quip_string = null
+var quip_creation_counter = 0
+var quip_display_counter = 0
+
+func createQuip(quipDict):
+	
+	if quip_state == "show":
+		return
+	var display_quip_chance = .4
+	var rng = RandomNumberGenerator.new()
+	var value = rng.randf_range(0, 1)
+	print(value)
+	if not value < display_quip_chance:
+		print("No quip due to chance")
+		return
+	
+	print("Quips dict in function")
+	print(quipDict)
+	full_quip_string = quipDict[rng.randi_range(0, quipDict.size()-1)]
+	
+	print("Quip Dict Size:")
+	print(quipDict.size())
+	
+	#print
+	
+	if full_quip_string == null:
+		print("No quips found for ant")
+		return
+	$quips_holder.show()
+	$quips_holder/quip.text = ""
+	quip_state = "show"
+	#full_quip_string = null
+	quip_creation_counter = 0
+	quip_display_counter = 0
+	pass
+
 func AnimateTurnQueue():
 	combat_state = "queue_animation"
 	pass
@@ -70,6 +107,10 @@ func applyAttackVictimDamage():
 	attack_victim.takeDamage(1)
 	attack_victim.spawnFloatText("-1")
 	if attack_victim.health <= 0:
+		createQuip(attack_victim.quips["combat-self-death"])
+		print("Victim Quips:")
+		print(attack_victim.quips["combat-self-death"])
+		createQuip(all_fighters[current_fighter_index].quips["combat-kill"])
 		attack_victim.combat_portrait.queue_free()
 		var temp_all_fighters = []
 		var attack_victim_index = 0
@@ -149,6 +190,34 @@ func startEnemyTurn():
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
+	
+	
+	#full_quip_string = quipDict.pick_random()
+	#$quips_holder.show()
+	#$quips_holder/quip.text = ""
+	#quip_state = "show"
+	#full_quip_string = null
+	#quip_creation_counter = 0
+	#quip_display_counter = 0
+	var delay_to_add_character = 4
+	var display_full_quip_time = 70
+	
+	if quip_state == "show":
+		quip_creation_counter += 1
+		if quip_creation_counter > delay_to_add_character:
+			quip_creation_counter = 0
+			$quips_holder/quip.text = full_quip_string.substr(0, $quips_holder/quip.text.length() + 1)
+		
+		print(full_quip_string.length())
+		print($quips_holder/quip.text.length())
+		if $quips_holder/quip.text.length() >= full_quip_string.length() - 1:
+			quip_display_counter += 1
+		if quip_display_counter >= display_full_quip_time:
+			quip_state == "hide"
+			$quips_holder.hide()
+	
+	
+	
 	var delay_before_reward_screen = 60
 	
 	if combat_state == "win":
