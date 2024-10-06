@@ -53,7 +53,7 @@
 					"and we didn't even have to call the exterminator"
 				]
 			},
-			"attacks": [
+			"attacks_list": [
 				1,
 				2
 			]
@@ -93,7 +93,7 @@
 					"We win this round to fight another"
 				]
 			},
-			"attacks": [
+			"attacks_list": [
 				1,
 				2
 			]

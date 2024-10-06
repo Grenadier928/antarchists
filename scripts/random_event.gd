@@ -23,10 +23,13 @@ func loadEventData(title, description):
 	spawnChoiceButtons()
 	
 func evaluateOptionValid(option):
+	print(option)
+	print(option.has('conditions'))
 	if not option.has('conditions'):
 		return true
 	else:
 		print("AAAAA")
+		return true
 	
 func spawnChoiceButtons():
 	for i in range (dict_event.options.size()):
@@ -42,5 +45,8 @@ func addOptionButton(option):
 	$choices_holder.add_child(temp_button)
 	temp_button.text = option.text
 	added_buttons_count += 1
+	if option.has('conditions'):
+		print("BBB")
+		temp_button.set("theme_override_colors/font_color", Color(0.0,0.0,1.0,1))
 	temp_button.position = Vector2(0, 250 * added_buttons_count)
 	pass

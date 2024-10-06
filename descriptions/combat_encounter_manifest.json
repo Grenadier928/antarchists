@@ -1,0 +1,13 @@
+{
+	"encounters":[
+		{
+			"id":1,
+			"enemy_list":[
+				2,
+				2
+			],
+			"min_floor":0,
+			"max_floor":3
+		}
+	]
+}
