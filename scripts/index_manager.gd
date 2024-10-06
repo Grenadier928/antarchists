@@ -187,14 +187,32 @@ func endCombat():
 	#current_combat.combat_state = "intro"
 	#current_combat.animation_sub_state = null
 	#current_combat.reward_screen_delay_counter = 0;
-	for bug in CURRENT_PARTY:
-		bug.combat_manager = null
-		print(bug)
-		print(bug.combat_manager)
+	var temp_party = []
+	for party_member in current_combat.all_fighters:
+		if party_member.player_controlled:
+			var temp_bug = basic_bug.instantiate()
+			temp_bug.health = party_member.health
+			temp_bug.speed = party_member.speed
+			temp_bug.evasion = party_member.evasion
+			temp_bug.strength = party_member.strength
+			temp_bug.quips = party_member.quips
+			temp_bug.sprite_path = party_member.sprite_path
+			temp_bug.player_controlled = true
+			for i in range (party_member.attacks_list.size()):
+				temp_bug.attacks_list.append(createAttackFromId(party_member.attacks_list[i].id))
+			temp_party.append(temp_bug)
+			
+	CURRENT_PARTY = temp_party
+	print("=========================================")
+	print("Party before memory clear:")
+	print(CURRENT_PARTY)
 	
+
 	self.remove_child(current_combat)
 	current_combat.queue_free()
 	
+	print("Party after memory clear:")
+	print(CURRENT_PARTY)
 	
 	CURRENT_MAP_NODE.visited = true
 	for thing in MAP[CURRENT_HEIGHT]:
@@ -204,6 +222,7 @@ func endCombat():
 	CURRENT_HEIGHT+=1
 	for c_node in CURRENT_MAP_NODE.children:
 		c_node.travelable = true
+		
 		
 
 # Called when the node enters the scene tree for the first time.
