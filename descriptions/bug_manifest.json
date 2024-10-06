@@ -132,8 +132,8 @@
 					"She was my best friend, after ant #4..."
 				],
 				"cannibal-self": [
-					"Yummy or no?",
-					"Enjoy!",
+					"I'm way past my expiration date!",
+					"Uh... Enjoy!",
 					"Are you really going to eat a worm? Gross."
 				],
 				"cannibal-other": [
@@ -178,27 +178,107 @@
 				],
 				"combat-friend-death": [
 					"She's excused!",
-					"Wait, was that #8132 or #8441?",
 					"I think you need a hall pass for that...",
 					"We have a zero tolerance policy for bullying!"
 				],
 				"cannibal-self": [
-					"An apple a day, so they say...",
-					"I get a 30 minute lunch",
 					"I was expecting a thank you card!",
 					"I'm calling your parents",
 					"That means detention"
 				],
 				"cannibal-other": [
-					"I give it a B+",
-					"Talk about an easy A!",
 					"Best school lunch I've had in a while",
 					"There goes my teacher of the year award..."
 				],
 				"victory": [
-					"We win again!",
+					"Talk about an easy A!",
 					"Another successful lesson",
 					"Everyone put a gold star next to your names!"
+				]
+			},
+			"attacks": [
+				1,
+				2
+			]
+		},
+		{
+			"id": 5,
+			"name": "Queen E.",
+			"sprite_path": "LADY_BUG.png",
+			"min_spawn_level": 1,
+			"max_spawn_level": 1,
+			"health": 1,
+			"speed": 1,
+			"evasion": 1,
+			"strength": 1,
+			"quips": {
+				"combat-kill": [
+					"Bow to your queen!",
+					"Subjects must bow!"
+				],
+				"combat-self-death": [
+					"My legacy lives on!",
+					"The sun must not set on my Empire..."
+				],
+				"combat-friend-death": [
+					"They got spotted in the red...",
+					"Many drones were lost today...",
+					"It's fine. They grow back."
+				],
+				"cannibal-self": [
+					"You wouldn't dare!",
+					"What do you mean 'Eat the Rich??'"
+				],
+				"cannibal-other": [
+					"Waste not, want not, darling.",
+					"Recycling is important, even for royalty."
+				],
+				"victory": [
+					"For the crown!",
+					"My empire lives on!"
+				]
+			},
+			"attacks": [
+				1,
+				2
+			]
+		},
+		{
+			"id": 6,
+			"name": "Francis",
+			"sprite_path": "LTLEECH.png",
+			"min_spawn_level": 1,
+			"max_spawn_level": 1,
+			"health": 1,
+			"speed": 1,
+			"evasion": 1,
+			"strength": 1,
+			"quips": {
+				"combat-kill": [
+					"Squashed like a bug!",
+					"Sticky!"
+				],
+				"combat-self-death": [
+					"My legacy lives on!",
+					"I feel, a-salt-ed!"
+				],
+				"combat-friend-death": [
+					"Oh. My. God. #4265 is DEAD!!",
+					"Big bummer over here"
+				],
+				"cannibal-self": [
+					"Oh, I DO look like a snack!",
+					"I would eat me too!",
+					"Small bites, please!"
+				],
+				"cannibal-other": [
+					"Eat the rich!",
+					"Yummy (J. Beebs 2020)",
+					"Yummy!!"
+				],
+				"victory": [
+					"Squashed like bugs!",
+					"Onward and upward."
 				]
 			},
 			"attacks": [
