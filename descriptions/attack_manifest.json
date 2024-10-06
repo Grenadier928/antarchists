@@ -2,7 +2,15 @@
 	"attacks":[
 		{
 			"id":1,
-			"name":"pinch"
+			"name":"Pinch",
+			"base_damage":1,
+			"sound_effect":""
+		},
+		{
+			"id":2,
+			"name":"Super Pinch",
+			"base_damage":1,
+			"sound_effect":""
 		}
 	]
 }

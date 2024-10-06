@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c5t0c4nqwdurh"]
+[gd_scene load_steps=7 format=3 uid="uid://c5t0c4nqwdurh"]
 
 [ext_resource type="Script" path="res://scripts/bug.gd" id="1_11c8n"]
 [ext_resource type="Texture2D" uid="uid://c8wsng2wqdqrg" path="res://textures/bug_sprites/BASICBROWNANT.png" id="2_gbf2p"]
 [ext_resource type="Texture2D" uid="uid://c4vralh465nun" path="res://textures/selection.png" id="3_by5uh"]
 [ext_resource type="Texture2D" uid="uid://rmabr646ak8o" path="res://textures/reticle.png" id="3_rsk7g"]
+[ext_resource type="Texture2D" uid="uid://cs1lm0nuw352j" path="res://textures/HEART_ICON.png" id="5_fi2dd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_puiih"]
 size = Vector2(549, 525)
@@ -35,5 +36,18 @@ position = Vector2(-9, -16)
 shape = SubResource("RectangleShape2D_puiih")
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
+
+[node name="health_icon" type="Sprite2D" parent="."]
+position = Vector2(-19, -437)
+scale = Vector2(0.479492, 0.472656)
+texture = ExtResource("5_fi2dd")
+
+[node name="health_display" type="Label" parent="health_icon"]
+offset_left = -91.7637
+offset_top = -118.479
+offset_right = 56.2363
+offset_bottom = 154.521
+theme_override_font_sizes/font_size = 200
+text = "5"
 
 [connection signal="pressed" from="reticle" to="." method="_on_reticle_pressed"]
