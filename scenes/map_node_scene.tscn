@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dc0r2j4lpcdgx"]
+[gd_scene load_steps=3 format=3 uid="uid://bth1ekga1amnt"]
 
 [ext_resource type="Texture2D" uid="uid://do5nokk3nbls0" path="res://icon.svg" id="1_xyi8c"]
 [ext_resource type="Script" path="res://scripts/map_node_scene.gd" id="2_k0lix"]
 
 [node name="MapNode" type="TextureButton"]
+offset_right = 128.0
+offset_bottom = 128.0
+pivot_offset = Vector2(64, 64)
 texture_normal = ExtResource("1_xyi8c")
 script = ExtResource("2_k0lix")
 

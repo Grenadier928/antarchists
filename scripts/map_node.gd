@@ -18,6 +18,11 @@ var children = []
 var map_button;
 
 var node_type = "combat"
+
+
+var travelable = false
+var current = false
+var visited = false
 #
 # @param MapNode[] - children_array 
 #

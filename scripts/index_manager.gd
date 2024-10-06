@@ -5,15 +5,25 @@ var basic_event_scene = preload("res://scenes/random_event.tscn")
 
 var basic_bug = preload("res://scenes/bug.tscn")
 var preload_attack = preload("res://scripts/attack.gd")
+var map = preload("res://scenes/map.tscn")
+var map_node = preload("res://scripts/map_node.gd")
+
+var MAP
+var MAP_HEIGHT = 16
 
 var CURRENT_PARTY = []
 var CURRENT_ITEMS = []
-var CURRENT_FLOOR = 0
+var CURRENT_HEIGHT = 1
+
+var CURRENT_MAP_NODE = null
+
 
 var master_bug_dict = null
 var master_attack_dict = null
 var master_event_dict = null
 var master_combat_encounter_dict = null
+
+var current_combat = null
 
 func createAttackFromId(id):
 	var dict_entry = null
@@ -81,13 +91,19 @@ func loadEvent(event_id):
 	
 	
 func loadCombatEncounter(combat_encounter_id):
+	
+	if combat_encounter_id == null:
+		var rng = RandomNumberGenerator.new()
+		combat_encounter_id = rng.randi_range(0, master_combat_encounter_dict.size() - 1)
 	var dict_entry = null
+	print("Encounter id: " + str(combat_encounter_id))
 	for i in range (master_combat_encounter_dict.size()):
 		#print(master_bug_dict[i])
 		if master_combat_encounter_dict[i].id == combat_encounter_id:
 			dict_entry = master_combat_encounter_dict[i]
 			break
-	var current_combat = basic_combat_scene.instantiate()
+	current_combat = basic_combat_scene.instantiate()
+	current_combat.index_manager = self
 	var scene_root = get_node("/root/Index/")
 	scene_root.add_child(current_combat)
 	current_combat.spawnPlayerTeam(CURRENT_PARTY)
@@ -102,16 +118,116 @@ func loadCombatEncounter(combat_encounter_id):
 	#current_combat.spawnEnemyTeam([evil_ant, evil_ant2, evil_ant3])
 	current_combat.initCombatQueue()
 #func testCombatEncounter():
+
+func generate_map_tree(floors):
+	
+	var max_tree_width = 5;
+	var min_tree_width = 2;
+
+	var root_node = map_node.new()
+	root_node.name = "MapNode_0"
+
+	var map_object = []
+	
+	var previous_floor = [root_node]
+	var node_counter = 1;
+	# save room for spawn+boss floors
+	for floor_number in range(floors - 2):
+		var next_floor_width = randi_range(min_tree_width, max_tree_width)
+
+		var next_floor = []
+		for j in range(next_floor_width):
+			var new_node = map_node.new()
+			new_node.randomize_node_type()
+			print(new_node.node_type)
+			new_node.name = "MapNode_" + str(node_counter)
+			next_floor.append(new_node)
+			node_counter += 1
 		
+		for current_index in previous_floor.size():
+			var next_width = next_floor.size()
+
+			var children = []
+			if (randf() > .5) && current_index > 0 && current_index - 1 < next_width:
+				# 50% chance this floor will connect w/ the floor indexed before it from previous row
+				children.append(next_floor[current_index - 1])
+			
+			children.append(next_floor[min(current_index, next_width - 1)] )
+			
+			if randf() > .5 && current_index > 0 && current_index + 1 < next_width:
+				# 50% chance this floor will connect w/ the floor indexed before it from previous row
+				children.append(next_floor[current_index + 1])
+				
+			previous_floor[current_index].set_children(children)
+
+		for index in next_floor.size():
+			if !next_floor[index].parent:
+				next_floor[index].set_parent(previous_floor[clamp(index, 0, previous_floor.size() - 1)])
+		
+		map_object.append(previous_floor)
+		previous_floor = next_floor
+
+	map_object.append(previous_floor)
+
+	var BOSS_FLOOR = map_node.new();
+	BOSS_FLOOR.set_node_type("boss")
+	for node in previous_floor:
+		node.set_children([BOSS_FLOOR])
+
+	map_object.append([BOSS_FLOOR])
+
+	MAP = map_object
+
+func endCombat():
+	#current_combat.hide()
+	#
+	#current_combat.all_fighters = []
+	#current_combat.current_fighter_index = 0;
+	##var playing_queue_animation = false
+	#current_combat.combat_state = "intro"
+	#current_combat.animation_sub_state = null
+	#current_combat.reward_screen_delay_counter = 0;
+	for bug in CURRENT_PARTY:
+		bug.combat_manager = null
+		print(bug)
+		print(bug.combat_manager)
+	
+	self.remove_child(current_combat)
+	current_combat.queue_free()
+	
+	
+	CURRENT_MAP_NODE.visited = true
+	for thing in MAP[CURRENT_HEIGHT]:
+		thing.travelable = false
+		thing.map_button.scale.x = 1
+		thing.map_button.scale.y = 1
+	CURRENT_HEIGHT+=1
+	for c_node in CURRENT_MAP_NODE.children:
+		c_node.travelable = true
+		
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	generate_map_tree(MAP_HEIGHT)
+	CURRENT_MAP_NODE = MAP[0][0]
+	
+	# walkMap(MAP)
+
+	var map_object = map.instantiate()
+	map_object.INDEX_CONTROLLER = self
+	get_node("/root/Index").add_child(map_object)
+	map_object.draw_map(MAP)
+	
+	
 	master_bug_dict = loadJsonManifest("res://descriptions/bug_manifest.json").bugs
 	master_attack_dict = loadJsonManifest("res://descriptions/attack_manifest.json").attacks
 	master_event_dict = loadJsonManifest("res://descriptions/event_manifest.json").events
 	master_combat_encounter_dict = loadJsonManifest("res://descriptions/combat_encounter_manifest.json").encounters
 	
 	var starting_ant = createBugFromId(1, true)
+	starting_ant.health = 9
 	CURRENT_PARTY = [starting_ant]
+	return
 	loadCombatEncounter(1)
 	#
 	#var test_ant2 = createBugFromId(1)
