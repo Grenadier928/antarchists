@@ -2,7 +2,7 @@
 	"bugs": [
 		{
 			"id": 1,
-            "description":"This is the starting ant",
+			"description":"This is the starting ant",
 			"name": "Antony",
 			"sprite_path": "BASICBROWNANT.png",
 			"min_spawn_level": 1,
@@ -223,7 +223,6 @@
 				],
 				"combat-friend-death": [
 					"They got spotted in the red...",
-					"Many drones were lost today...",
 					"It's fine. They grow back."
 				],
 				"cannibal-self": [
@@ -260,7 +259,6 @@
 					"Sticky!"
 				],
 				"combat-self-death": [
-					"My legacy lives on!",
 					"I feel, a-salt-ed!"
 				],
 				"combat-friend-death": [
@@ -280,6 +278,171 @@
 				"victory": [
 					"Squashed like bugs!",
 					"Onward and upward."
+				]
+			},
+			"attacks": [
+				1,
+				2
+			]
+		},
+		{
+			"id": 7,
+			"name": "Glinda",
+			"sprite_path": "MERBEE.png",
+			"min_spawn_level": 1,
+			"max_spawn_level": 1,
+			"health": 1,
+			"speed": 1,
+			"evasion": 1,
+			"strength": 1,
+			"quips": {
+				"combat-kill": [
+					"Does that sting?",
+					"Get stung, loser",
+					"Buzz you too!"
+				],
+				"combat-self-death": [
+					"My soul returns to Atlantis...",
+					"My soul return to the Hive"
+				],
+				"combat-friend-death": [
+					"She was so young!"
+				],
+				"cannibal-self": [
+					"Help! A pescatarian!",
+					"At least dip me in soy-sauce!"
+				],
+				"cannibal-other": [
+					"I'm falling for you hook, line, and stinger!"
+				],
+				"victory": [
+					"Upwards to Atlantis!"
+				]
+			},
+			"attacks": [
+				1,
+				2
+			]
+		},
+		{
+			"id": 8,
+			"name": "Hildavore",
+			"sprite_path": "REDFIREANT.png",
+			"min_spawn_level": 1,
+			"max_spawn_level": 1,
+			"health": 1,
+			"speed": 1,
+			"evasion": 1,
+			"strength": 1,
+			"quips": {
+				"combat-kill": [
+					"Burn in hell",
+					"I will scatter your ashes",
+					"For the Flame!!"
+				],
+				"combat-self-death": [
+					"You can't stop the Effervescent Flame",
+					"Even in death, I fan the Flame",
+					"For the Fl"
+				],
+				"combat-friend-death": [
+					"We will return each injury ten-fold",
+					"I require vengeance!",
+					"We live on in the Effervescent Flame",
+					"For the Flame!!"
+				],
+				"cannibal-self": [
+					"I'll scald your insides!",
+					"You can't handle the heat!"
+				],
+				"cannibal-other": [
+					"May the Effervescent Flame bless this meal!",
+					"You will live on through the Flame"
+				],
+				"victory": [
+					"For the Flame!!"
+				]
+			},
+			"attacks": [
+				1,
+				2
+			]
+		},
+		{
+			"id": 9,
+			"name": "Isaac",
+			"sprite_path": "TOPHATSHIELDANT.png",
+			"min_spawn_level": 1,
+			"max_spawn_level": 1,
+			"health": 1,
+			"speed": 1,
+			"evasion": 1,
+			"strength": 1,
+			"quips": {
+				"combat-kill": [
+					"Now settle down there, son",
+					"Okay, kiddo, it's past your bed time",
+					"Nap time!"
+				],
+				"combat-self-death": [
+					"Tell the kids... I love... picnic baskets.",
+					"At least... the hat... is safe..."
+				],
+				"combat-friend-death": [
+					"No! Not my buddy!",
+					"She had a family, you know!"
+				],
+				"cannibal-self": [
+					"Better me than the kids.",
+					"Guess I'm the picnic now.",
+					"Just don't eat the hat!"
+				],
+				"cannibal-other": [
+					"Sorry, old pal. Gotta do what I gotta do.",
+					"Waste not, want not.",
+					"Do you come with sides?"
+				],
+				"victory": [
+					"Well done everyone!",
+					"Good game!"
+				]
+			},
+			"attacks": [
+				1,
+				2
+			]
+		},
+		{
+			"id": 10,
+			"name": "Jonkler",
+			"sprite_path": "ZOMBIEANT.png",
+			"min_spawn_level": 1,
+			"max_spawn_level": 1,
+			"health": 1,
+			"speed": 1,
+			"evasion": 1,
+			"strength": 1,
+			"quips": {
+				"combat-kill": [
+					"..."
+				],
+				"combat-self-death": [
+					"I...",
+					"We...",
+					"You...",
+					"Wait I..."
+				],
+				"combat-friend-death": [
+					"..."
+				],
+				"cannibal-self": [
+					"..."
+				],
+				"cannibal-other": [
+					"..."
+				],
+				"victory": [
+					"..."
 				]
 			},
 			"attacks": [
