@@ -1,6 +1,7 @@
 extends TextureButton
 
 var map_controller = null
+var map_node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,6 +13,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
+func add_node(node):
+	map_node = node
+	node.map_button = self
+
+func get_sprite_size():
+	return texture_normal.get_size() * get_scale();
 
 func _on_pressed() -> void:
 	map_controller.testFunc()

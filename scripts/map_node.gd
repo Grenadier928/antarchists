@@ -8,6 +8,8 @@ var NODE_DISTRIBUTION = {
 var parent
 var children = []
 
+var map_button;
+
 var node_type = "combat"
 #
 # @param MapNode[] - children_array 
