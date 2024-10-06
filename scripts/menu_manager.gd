@@ -13,9 +13,9 @@ func push_scene(scene_path):
 	scene_stack.append(scene_path)
 
 func pop_scene():
-	if scene_stack.size() > 1:
-		scene_stack.pop_back()
-		return scene_stack.back()
+	if scene_stack.size() > 0:
+		var last=scene_stack.pop_back()
+		return last
 	return null
 
 func clear_scene(full_clear,remove):
@@ -58,37 +58,60 @@ func _ready() -> void:
 	MAIN_MENU = preload("res://scenes/main-menu.tscn")
 	OPTIONS = preload("res://scenes/options.tscn")
 	PAUSE = preload("res://scenes/pause-menu.tscn")
-	push_scene(self)
 	LoadMainMenu()
 	#$"Main-menu".
 
-
+func StartGame():
+	if current_menu:
+		current_menu.hide()
+		current_menu=null
+	$"..".LoadGame()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
 func LoadMainMenu():
-	if not main_menu_instance:
-		main_menu_instance = MAIN_MENU.instantiate()
-		
-	#if get_tree().current_scene:
-		#get_tree().current_scene.queue_free()
-	if main_menu_instance:
-		add_child(main_menu_instance)
-		current_menu = main_menu_instance
-		push_scene(main_menu_instance)
+	if current_menu:
+		current_menu.hide()
+	$"Main-menu".show()
+	current_menu=$"Main-menu"
+	print(current_menu.name)
+	#if not main_menu_instance:
+		#main_menu_instance = MAIN_MENU.instantiate()
+		#
+	##if get_tree().current_scene:
+		##get_tree().current_scene.queue_free()
+	#if main_menu_instance:
+		#add_child(main_menu_instance)
+		#current_menu = main_menu_instance
+		#push_scene(main_menu_instance)
 		
 
 
 func LoadOptions():
-	LoadOnTop(false)
-	if not options_instance:
-		options_instance= OPTIONS.instantiate()
-		
-	if options_instance:
-		add_child(options_instance)
-		push_scene(options_instance)
-
+	
+	if current_menu:
+		push_scene(current_menu)
+		print(current_menu.name)
+		current_menu.hide()
+	
+	$options.show()
+	current_menu=$options
+	print(current_menu.name)
+	#LoadOnTop(false)
+	#if not options_instance:
+		#options_instance= OPTIONS.instantiate()
+		#
+	#if options_instance:
+		#add_child(options_instance)
+		#push_scene(options_instance)
+func UnloadOptions():
+	if current_menu == $options:
+		current_menu.hide()
+	print(scene_stack)
+	current_menu= pop_scene()
+	print(current_menu.name)
+	current_menu.show()
 func LoadPause():
 	if not pause_instance:
 		pause_instance = PAUSE.instantiate()
@@ -122,7 +145,11 @@ func GoBack(full_clear):
 			prev_scene.show()  #ASSUMING THIS IS NEVER FULL CLEARED
 			
 	
-	
+func Unpause():
+	if current_menu == $"pause-menu":
+		current_menu.hide()
+		current_menu=null
+		
 
 
 		

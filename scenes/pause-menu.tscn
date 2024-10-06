@@ -27,12 +27,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 433.0
-offset_top = 87.0
+offset_top = -800.0
 offset_right = 1457.0
-offset_bottom = 1759.0
+offset_bottom = 872.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.233, 0.235)
+scale = Vector2(0.991, 1)
 
 [node name="ResumeButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2

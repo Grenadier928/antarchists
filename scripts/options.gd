@@ -12,4 +12,8 @@ func _process(delta: float) -> void:
 
 
 func _on_done_button_pressed() -> void:
-	$"..".GoBack(false)
+	$"..".UnloadOptions()
+
+
+func _on_volume_slider_value_changed(value: float) -> void:
+	pass

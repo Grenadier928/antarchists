@@ -18,18 +18,11 @@ script = ExtResource("1_ic812")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 433.0
-offset_top = 137.0
-offset_right = 1557.0
-offset_bottom = 1709.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.232923, 0.234683)
+offset_left = -523.0
+offset_top = -800.0
+offset_right = 601.0
+offset_bottom = 872.0
+pivot_offset = Vector2(525, 832)
 
 [node name="StartButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
@@ -52,11 +45,9 @@ layout_mode = 2
 texture_normal = ExtResource("4_0tqry")
 
 [node name="Heading" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 445.0
-offset_top = 59.0
-offset_right = 673.0
-offset_bottom = 97.0
+layout_mode = 1
+offset_right = 228.0
+offset_bottom = 38.0
 bbcode_enabled = true
 text = "[center]ANTARCHISTS[/center]
 "

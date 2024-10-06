@@ -226,9 +226,7 @@ func endCombat():
 	for c_node in CURRENT_MAP_NODE.children:
 		c_node.travelable = true
 		
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
+func LoadGame():
 	generate_map_tree(MAP_HEIGHT)
 	CURRENT_MAP_NODE = MAP[0][0]
 	
@@ -250,6 +248,9 @@ func _ready():
 	CURRENT_PARTY = [starting_ant]
 	return
 	loadCombatEncounter(1)
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
 	#
 	#var test_ant2 = createBugFromId(1)
 	#test_ant.health = 4
