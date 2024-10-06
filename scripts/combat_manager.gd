@@ -10,22 +10,11 @@ var attack_button = preload("res://scenes/attack_button.tscn")
 
 var attack_victim = null
 var chosenAttack = null
-#var queue_animation_done = false
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	#$combat_banner_defeat.visible = true
-	#print("YAYA")
-	#$attacks_list_paper.visible = false
-	pass # Replace with function body.
+var attack_will_hit = null
+
 
 func AnimateTurnQueue():
-	#queue_animation_done = false
-	#playing_queue_animation = true
 	combat_state = "queue_animation"
-	#all_fighters[current_fighter_index].combat_portrait.position = Vector2(all_fighters.size() * 300,0)
-	#for i in range (all_fighters.size()):
-	#	all_fighters[i].combat_portrait.position = Vector2(all_fighters[i].position.x + 300,0)
-	#current_fighter_index += 1
 	pass
 
 func startPlayerTurn():
@@ -42,12 +31,6 @@ func startPlayerTurn():
 			temp_button.attack_index = i
 			temp_button.attackobj = all_fighters[current_fighter_index].attacks_list[i]
 			pass
-			#var attack_button = Button.new()
-			#attack_button.size = Vector2(3000, 600)
-			#attack_button.text = all_fighters[current_fighter_index].attacks_list[i].attack_name
-			#attack_button.position = Vector2(-1500, -1500)
-			#attack_button.add_theme_font_size_override("font_size", 200)
-			#$attacks_list_paper.add_child(attack_button)
 		$attacks_list_paper.show()
 		
 
@@ -66,13 +49,26 @@ func startAttackMove(victim):
 		all_fighters[i].selection_box.visible = false
 	attack_victim = victim
 	victim.shake_counter = 0
+	attack_will_hit = true
+	var upper_bound = 10
+	var lower_bound = victim.evasion
+	
+	if lower_bound > 5:
+		lower_bound = 5
+		
+	var rng = RandomNumberGenerator.new()
+	var hit_prob = rng.randi_range(0, 10)
+	
+	if hit_prob < lower_bound:
+		attack_will_hit = false
+	
 	
 func applyAttackVictimDamage():
 	#print(attack_victim)
 	#print("ABCDE")
 	print(chosenAttack.attack_name)
 	attack_victim.takeDamage(1)
-	
+	attack_victim.spawnFloatText("-1")
 	if attack_victim.health <= 0:
 		attack_victim.combat_portrait.queue_free()
 		var temp_all_fighters = []
@@ -103,23 +99,16 @@ func applyAttackVictimDamage():
 				#var temp_all_fighters_a = all_fighters.slice(0,i)
 				#var temp_all_fighters_b = all_fighters.slice(i,all_fighters.size())
 				
-	
 	pass
 	
 func endAttackMove():
 	animation_sub_state = ""
 	combat_state = "queue_animation"
-	#ChangeTurn()
+
 	
 func ChangeTurn():
-	#print("QQ")
-	#pass
-	#all_fighters.size()
-	#pass
-	#if current_fighter_index != -1:
-	#	AnimateTurnQueue()
 	current_fighter_index += 1
-	#print("================================================================")
+
 	
 	for i in range (all_fighters.size()):
 		all_fighters[i].ai_targeting_frames = 0
@@ -213,20 +202,7 @@ func _physics_process(delta):
 				
 				var steps_to_reach_i = 0
 				var cur_location = current_fighter_index
-				
-				#print("Cur location at start: " + str(cur_location))
-				# while true:
-				# 	print("Cur location: " + str(cur_location) + "  -  ISteps: " + str(steps_to_reach_i))
-					
-				# 	if cur_location == i:
-				# 		break
-				# 	cur_location += 1
-				# 	steps_to_reach_i += 1
-				# 	if cur_location > all_fighters.size():
-				# 		cur_location = -1;
-				# 	if steps_to_reach_i > 99:
-				# 		OS.alert("I Steps too large", "ALERT")
-				
+
 				if (current_fighter_index < i):
 					steps_to_reach_i = i - (current_fighter_index + 1)
 				else: # current_fighter_index > i
@@ -252,40 +228,31 @@ func _physics_process(delta):
 		pass
 	
 	elif combat_state == "attack_animation":
-		var attacker_move_forward_distance = 160
+		var attacker_move_forward_frames = 40
 		
+		var attacker_move_forward_speed = 15
 		
-		#if all_fighters[current_fighter_index].player_controlled:
-		#	attacker_move_forward_distance = -attacker_move_forward_distance
+		if not all_fighters[current_fighter_index].player_controlled:
+			attacker_move_forward_speed = -attacker_move_forward_speed
 		
-		
-		var attacker_move_forward_speed = 20
 		
 		var victim_shake_magnitude = 100
 
 		var victim_shake_duration = 20
 		var motion_vector = Vector2(0,0)
 		
-		
-		
 		if animation_sub_state == "attacker_move_forward":
-			if all_fighters[current_fighter_index].player_controlled:
-				if all_fighters[current_fighter_index].position.x < attacker_move_forward_distance:
-					motion_vector.x += attacker_move_forward_speed
-				else:
-					animation_sub_state = "victim_shake"
-					#applyAttackVictimDamage()
+			if all_fighters[current_fighter_index].moved_forward_frames < attacker_move_forward_frames:
+				all_fighters[current_fighter_index].moved_forward_frames+=1
+				motion_vector.x += attacker_move_forward_speed
 			else:
-				if all_fighters[current_fighter_index].position.x > -attacker_move_forward_distance:
-					motion_vector.x -= attacker_move_forward_speed
-				else:
-					animation_sub_state = "victim_shake"
-					#applyAttackVictimDamage()
+				animation_sub_state = "victim_shake"
 		if animation_sub_state == "victim_shake":
-			#animation_sub_state = "victim_shake"
-			if attack_victim.shake_counter < victim_shake_duration:
+			if not attack_will_hit:
+				animation_sub_state = "attacker_withdraw"
+				attack_victim.spawnFloatText("Miss!")
+			elif attack_victim.shake_counter < victim_shake_duration:
 				attack_victim.shake_counter += 1
-				#attack_victim.position = Vector2(0,0)
 				var rng = RandomNumberGenerator.new()
 				var rand_x = rng.randf_range(-victim_shake_magnitude, victim_shake_magnitude)
 				var rand_y = rng.randf_range(-victim_shake_magnitude, victim_shake_magnitude)
@@ -295,18 +262,12 @@ func _physics_process(delta):
 				applyAttackVictimDamage()
 				
 		if animation_sub_state == "attacker_withdraw":
-			if all_fighters[current_fighter_index].player_controlled:
-				if all_fighters[current_fighter_index].position.x > 0:
-					motion_vector.x -= attacker_move_forward_speed
-				else:
-					endAttackMove()
-					print("Ended player attack move")
+			if all_fighters[current_fighter_index].moved_forward_frames > 0:
+				motion_vector.x -= attacker_move_forward_speed
+				all_fighters[current_fighter_index].moved_forward_frames-=1
 			else:
-				if all_fighters[current_fighter_index].position.x < 0:
-					motion_vector.x += attacker_move_forward_speed
-				else:
-					endAttackMove()
-					print("Ended AI attack move")
+				endAttackMove()
+				print("Ended AI attack move")
 		all_fighters[current_fighter_index].position += motion_vector
 		#all_fighters[current_fighter_index]
 	
@@ -324,12 +285,7 @@ func _physics_process(delta):
 			startAttackMove(attack_victim)
 	pass
 	
-func _input(ev):
-	if Input.is_key_pressed(KEY_K):
-		combat_state = "queue_animation"
-		#playing_queue_animation = true
-		#print("BBBBBBBB")
-		
+
 func initCombatQueue():
 	#var sorter = Sorter.new()
 	all_fighters.sort_custom(func(a,b): return a.speed > b.speed)

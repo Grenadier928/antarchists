@@ -7,12 +7,23 @@
 			"options": [
 				{
 				"id": 1,
-				"text": "Eat him!"
-				}
+				"text": "Eat him!",
+				"results":[
+					{
+						"prob": .5,
+						"result":{
+							
+						}
+					}
+				]
+				},
 				{
 				"id": 2,
 				"text": "Recruit him!"
-				}
+				"conditons":[
+					"has_ant_in_party":1
+				]
+				},
 				{
 				"id": 3,
 				"text": "Leave him alone"

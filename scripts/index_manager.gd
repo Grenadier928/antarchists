@@ -7,6 +7,23 @@ var preload_attack = preload("res://scripts/attack.gd")
 
 var CURRENT_PARTY = []
 var master_bug_dict = null
+var master_attack_dict = null
+
+func creatAttackFromId(id):
+	var dict_entry = null
+	for i in range (master_bug_dict.size()):
+		#print(master_bug_dict[i])
+		if master_bug_dict[i].id == id:
+			dict_entry = master_bug_dict[i]
+			break
+	var temp_attack = preload_attack.new()
+	temp_attack.base_damage = dict_entry.base_damage
+	temp_attack.attack_damage = dict_entry.attack_damage
+	temp_attack.id = dict_entry.id
+	temp_attack.sound_effect = dict_entry.sound_effect
+	temp_attack.description = dict_entry.description
+	return temp_attack
+
 
 func createBugFromId(id):
 	var dict_entry = null
@@ -18,6 +35,7 @@ func createBugFromId(id):
 	var temp_bug = basic_bug.instantiate()
 	temp_bug.health = dict_entry.health
 	temp_bug.speed = dict_entry.speed
+	temp_bug.evasion = dict_entry.evasion
 	temp_bug.strength = dict_entry.strength
 	temp_bug.quips = dict_entry.quips
 	temp_bug.sprite_path = dict_entry.sprite_path
@@ -27,13 +45,20 @@ func createBugFromId(id):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var raw_file = FileAccess.open("res://descriptions/bug_manifest.json", FileAccess.READ)
-	var raw_json = raw_file.get_as_text()
-	raw_file.close()
+	var raw_bugs_file = FileAccess.open("res://descriptions/bug_manifest.json", FileAccess.READ)
+	var raw_json = raw_bugs_file.get_as_text()
+	raw_bugs_file.close()
 	var json_reader = JSON.new()
 	var temp_json = json_reader.parse(raw_json)
 	var data_received = json_reader.data#.attacks[0]
 	master_bug_dict = json_reader.data.bugs
+	
+	var raw_attacks_file = FileAccess.open("res://descriptions/attack_manifest.json", FileAccess.READ)
+	raw_json = raw_attacks_file.get_as_text()
+	raw_attacks_file.close()
+	temp_json = json_reader.parse(raw_json)
+	data_received = json_reader.data
+	master_attack_dict = json_reader.data.attacks
 	#createBugFromId(1)
 	#print(master_bug_dict)
 	#print(data_received)
@@ -44,7 +69,8 @@ func _ready():
 	#print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 	var test_ant = createBugFromId(1)
 	var test_ant2 = createBugFromId(1)
-
+	test_ant.health = 4
+	test_ant2.health = 4
 	test_ant.player_controlled = true
 	test_ant2.player_controlled = true
 	var attack = preload_attack.new()

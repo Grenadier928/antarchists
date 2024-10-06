@@ -4,7 +4,7 @@ var health = null
 var speed = null
 var evasion = null
 var strength = null
-
+var block = null
 var quips = null
 var custom_name = "Antony"
 
@@ -20,9 +20,9 @@ var combat_portrait = null
 var player_controlled = false
 
 var const_ai_await_frames = 70
-var const_ai_targeting_frames = 20
+var const_ai_targeting_frames = 50
 
-
+var moved_forward_frames = 0
 var ai_await_frames = 0
 var ai_targeting_frames = 0
 var ai_targeting_node = null
@@ -34,6 +34,14 @@ var sprite_node = null
 var reticle = null
 
 var shake_counter = 0
+
+
+var preload_float_off_text = preload("res://scenes/float_off_text.tscn")
+
+func spawnFloatText(msg):
+	var temp = preload_float_off_text.instantiate()
+	self.add_child(temp)
+	temp.text = msg
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton:
