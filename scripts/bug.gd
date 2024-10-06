@@ -7,6 +7,7 @@ var strength = null
 var block = null
 var quips = null
 var custom_name = "Antony"
+var bug_type = null
 
 var sprite_path = null
 

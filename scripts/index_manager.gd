@@ -274,3 +274,39 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
 	pass
+
+
+# Conditions
+func has_species_in_party(species):
+	for bug in CURRENT_PARTY:
+		if (bug.bug_type == species):
+			return true
+	return false
+
+func has_room_in_party(required_spaces):
+	return (4 - CURRENT_PARTY.size()) >= required_spaces
+
+
+# Rewards
+func selectRandomPartyMember():
+	return randi_range(0, CURRENT_PARTY.size() - 1)
+
+func add_health_rand(amount):
+	CURRENT_PARTY[selectRandomPartyMember()].health += amount
+
+func remove_health_rand(amount):
+	var index = selectRandomPartyMember()
+	CURRENT_PARTY[index].health -= amount
+
+	if CURRENT_PARTY[index].health <= 0:
+		CURRENT_PARTY.pop_at(index)
+
+	
+
+func add_party_member(bug_id):
+	if (CURRENT_PARTY.size() >=4):
+		return
+	CURRENT_PARTY.append(master_bug_dict[bug_id])
+
+func remove_party_member(index):
+	CURRENT_PARTY.pop_at(index)
