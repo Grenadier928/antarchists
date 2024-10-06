@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba3pb1nobhlg4"]
+
+[ext_resource type="Script" path="res://scenes/main-menu.gd" id="1_xcnud"]
+
+[node name="Main-menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 48.0
+offset_right = 15.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xcnud")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+text = "Start Game"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../StartButton")
+text = "Quit Game"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 59.0
+offset_right = 754.0
+offset_bottom = 145.0
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]ANTARCHISTS[/center]
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.013
+anchor_top = -0.072
+anchor_right = -0.013
+anchor_bottom = -0.072
+offset_left = 562.976
+offset_top = 53.656
+offset_right = 1150.98
+offset_bottom = 93.656
+scale = Vector2(0.663877, 0.567642)
+alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
