@@ -5,9 +5,10 @@ var speed = null
 var evasion = null
 var strength = null
 
+var quips = null
 var custom_name = "Antony"
 
-var sprite_path = "LTLEECH.png"
+var sprite_path = null
 
 var status_armored = 0
 var status_flying = 0
@@ -52,6 +53,9 @@ func takeDamage(amount):
 	health = health - amount
 	$health_icon/health_display.text = str(health)
 # Called when the node enters the scene tree for the first time.
+
+func drawSprite():
+	sprite_node.texture = load("res://textures/bug_sprites/" + sprite_path)
 func _ready():
 	#$sfx.stream = load("res://sounds/clip/slice.wav")
 	#$sfx.play()
@@ -65,7 +69,7 @@ func _ready():
 	#print(reticle)
 	reticle.visible = false
 	sprite_node = $character_art
-	sprite_node.texture = load("res://textures/bug_sprites/" + sprite_path)
+	
 	#print(sprite_path)
 	#print(sprite_node.texture)
 	#sprite_node.texture = load("res://textures/bug_sprites/paper.jpg")

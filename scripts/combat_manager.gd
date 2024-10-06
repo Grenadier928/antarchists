@@ -13,6 +13,7 @@ var chosenAttack = null
 #var queue_animation_done = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#$combat_banner_defeat.visible = true
 	#print("YAYA")
 	#$attacks_list_paper.visible = false
 	pass # Replace with function body.
@@ -85,6 +86,19 @@ func applyAttackVictimDamage():
 			current_fighter_index = current_fighter_index - 1
 		all_fighters = temp_all_fighters
 		attack_victim.queue_free()
+	
+	var player_team_left = false
+	var enemy_team_left = false
+	for i in range (all_fighters.size()):
+		if all_fighters[i].player_controlled:
+			player_team_left = true
+		else:
+			enemy_team_left = true
+	if not player_team_left:
+		combat_state = "defeat"
+		$combat_banner_defeat.visible = true
+	if not enemy_team_left:
+		combat_state = "win"
 				#print("Victim found")
 				#var temp_all_fighters_a = all_fighters.slice(0,i)
 				#var temp_all_fighters_b = all_fighters.slice(i,all_fighters.size())
@@ -318,7 +332,7 @@ func _input(ev):
 		
 func initCombatQueue():
 	#var sorter = Sorter.new()
-	all_fighters.sort_custom(func(a,b): return a.speed < b.speed)
+	all_fighters.sort_custom(func(a,b): return a.speed > b.speed)
 
 	for i in range (all_fighters.size()):
 		var port_bg = Sprite2D.new()
@@ -333,7 +347,7 @@ func initCombatQueue():
 		
 		$attack_queue.add_child(port_bg)
 		all_fighters[i].combat_portrait = port_bg
-		
+		all_fighters[i].drawSprite()
 		var sub_port = Sprite2D.new()
 		sub_port.texture = load("res://textures/bug_sprites/" + all_fighters[i].sprite_path)
 		sub_port.position = Vector2(0,0)
@@ -346,7 +360,11 @@ func initCombatQueue():
 			all_fighters[i].sprite_node.scale.x = -1
 	#	all_fighters_temp.append(all_fighters[i])
 	current_fighter_index = 0
-	startPlayerTurn()
+	
+	if all_fighters[0].player_controlled:
+		startPlayerTurn()
+	else:
+		startEnemyTurn()
 	#ChangeTurn()
 	pass
 

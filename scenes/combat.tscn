@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://w2hysgo1h6s"]
+[gd_scene load_steps=7 format=3 uid="uid://w2hysgo1h6s"]
 
 [ext_resource type="Script" path="res://scripts/combat_manager.gd" id="1_6hf62"]
 [ext_resource type="Texture2D" uid="uid://c2i57ok5smfio" path="res://textures/COMBATSCREEN_DUSK.png" id="2_2jbtc"]
 [ext_resource type="Texture2D" uid="uid://dcxwy2doqqan5" path="res://textures/paper.jpg" id="2_mjmyh"]
+[ext_resource type="Texture2D" uid="uid://dksgjlmr4be3m" path="res://textures/COMBATBANNER_DEFEAT.png" id="4_nnnbv"]
+[ext_resource type="Texture2D" uid="uid://bwg7l48glhcwb" path="res://textures/COMBATBANNER_VICTORY.png" id="5_jlclb"]
+[ext_resource type="Texture2D" uid="uid://f3m7w08o603x" path="res://textures/DIALOG_BOX.png" id="6_pvu1g"]
 
 [node name="Combat" type="Node2D"]
 script = ExtResource("1_6hf62")
@@ -45,6 +48,7 @@ scale = Vector2(0.630969, 0.559903)
 texture = ExtResource("2_mjmyh")
 
 [node name="attacks_list_paper" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(5, -1)
 scale = Vector2(0.283671, 0.268247)
 texture = ExtResource("2_mjmyh")
@@ -59,3 +63,26 @@ text = "Moves List:"
 
 [node name="attack_queue" type="Node2D" parent="."]
 position = Vector2(-701, -1088)
+
+[node name="combat_banner_defeat" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-89, -21)
+texture = ExtResource("4_nnnbv")
+
+[node name="CombatbannerVictory" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-132, 11)
+texture = ExtResource("5_jlclb")
+
+[node name="quips_holder" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, 1063)
+texture = ExtResource("6_pvu1g")
+
+[node name="quip" type="Label" parent="quips_holder"]
+offset_left = -969.0
+offset_top = -161.0
+offset_right = 975.0
+offset_bottom = 177.0
+theme_override_font_sizes/font_size = 100
+text = "This is a quip"

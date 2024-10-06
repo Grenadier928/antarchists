@@ -2,7 +2,11 @@
 	"attacks":[
 		{
 			"id":1,
-			"name":"pinch"
+			"name":"Pinch"
+		},
+		{
+			"id":2,
+			"name":"Super Pinch"
 		}
 	]
 }

@@ -6,39 +6,45 @@ var basic_bug = preload("res://scenes/bug.tscn")
 var preload_attack = preload("res://scripts/attack.gd")
 
 var CURRENT_PARTY = []
+var master_bug_dict = null
 
-func loadData(FilePath):
-	if FileAccess.file_exists(FilePath):
-		var data = FileAccess.open(FilePath, FileAccess.READ)
-		var ParsedResults = JSON.parse_string(data.get_as_text())
+func createBugFromId(id):
+	var dict_entry = null
+	for i in range (master_bug_dict.size()):
+		#print(master_bug_dict[i])
+		if master_bug_dict[i].id == id:
+			dict_entry = master_bug_dict[i]
+			break
+	var temp_bug = basic_bug.instantiate()
+	temp_bug.health = dict_entry.health
+	temp_bug.speed = dict_entry.speed
+	temp_bug.strength = dict_entry.strength
+	temp_bug.quips = dict_entry.quips
+	temp_bug.sprite_path = dict_entry.sprite_path
+	#temp_bug.init()
+	return temp_bug
 
-		if ParsedResults is Dictionary:
-			return ParsedResults
-		else:
-			print("File read error!")
-	else:
-		print("No such file!")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var test = FileAccess.open("res://descriptions/attack_manifest.json", FileAccess.READ)
-	var json_text = test.get_as_text()
-	test.close()
-	var json = JSON.new()
-	var temp_json = json.parse(json_text)
-	var data_received = json.data#.attacks[0]
-	print(data_received)
-	data_received = json.data.attacks[0]
-	print(data_received)
-	data_received = json.data.attacks[0].name
-	print(data_received)
+	var raw_file = FileAccess.open("res://descriptions/bug_manifest.json", FileAccess.READ)
+	var raw_json = raw_file.get_as_text()
+	raw_file.close()
+	var json_reader = JSON.new()
+	var temp_json = json_reader.parse(raw_json)
+	var data_received = json_reader.data#.attacks[0]
+	master_bug_dict = json_reader.data.bugs
+	#createBugFromId(1)
+	#print(master_bug_dict)
+	#print(data_received)
+	#data_received = json_reader.data.attacks[0]
+	#print(data_received)
+	#data_received = json_reader.data.attacks[0].name
+	#print(data_received)
 	#print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
-	var test_ant = basic_bug.instantiate()
-	var test_ant2 = basic_bug.instantiate()
-	test_ant.speed = 1
-	test_ant2.speed = 1
-	test_ant.health = 5
-	test_ant2.health = 1
+	var test_ant = createBugFromId(1)
+	var test_ant2 = createBugFromId(1)
+
 	test_ant.player_controlled = true
 	test_ant2.player_controlled = true
 	var attack = preload_attack.new()
@@ -58,9 +64,9 @@ func _ready():
 	
 	current_combat.spawnPlayerTeam(CURRENT_PARTY)
 	
-	var evil_ant = basic_bug.instantiate()
-	var evil_ant2 = basic_bug.instantiate()
-	var evil_ant3 = basic_bug.instantiate()
+	var evil_ant = createBugFromId(1)
+	var evil_ant2 = createBugFromId(1)
+	var evil_ant3 = createBugFromId(1)
 	evil_ant.speed = 2
 	evil_ant2.speed = 3
 	evil_ant3.speed = 3
