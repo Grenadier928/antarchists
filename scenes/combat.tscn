@@ -75,6 +75,57 @@ visible = false
 position = Vector2(-132, 11)
 texture = ExtResource("5_jlclb")
 
+[node name="reward_screen" type="Node2D" parent="."]
+visible = false
+
+[node name="LeafPortraitFrameGreen" type="Sprite2D" parent="reward_screen"]
+position = Vector2(284, 121)
+scale = Vector2(8.69824, 5.39746)
+texture = ExtResource("7_5vaeo")
+
+[node name="Label" type="Label" parent="reward_screen"]
+offset_left = -1090.98
+offset_top = -1048.9
+offset_right = -892.982
+offset_bottom = -1007.9
+theme_override_font_sizes/font_size = 150
+text = "Victory! What will you do?"
+
+[node name="consume_enemy" type="Button" parent="reward_screen"]
+offset_left = -1008.0
+offset_top = -783.0
+offset_right = 541.0
+offset_bottom = -501.0
+theme_override_font_sizes/font_size = 100
+text = "Consume slain foes
+(Heal all party members by one)"
+
+[node name="consume_friend" type="Button" parent="reward_screen"]
+offset_left = -872.0
+offset_top = -467.0
+offset_right = 1142.0
+offset_bottom = -185.0
+theme_override_font_sizes/font_size = 100
+text = "Consume a party member
+(Upgrade a random stat for all remaining)"
+
+[node name="recruit" type="Button" parent="reward_screen"]
+offset_left = -720.0
+offset_top = -163.0
+offset_right = 1294.0
+offset_bottom = 119.0
+theme_override_font_sizes/font_size = 100
+text = "Recruit a party member
+(Add a new bug to your cause!)"
+
+[node name="continue" type="Button" parent="reward_screen"]
+offset_left = -166.0
+offset_top = 173.0
+offset_right = 1200.0
+offset_bottom = 454.0
+theme_override_font_sizes/font_size = 150
+text = "Skip and Continue!"
+
 [node name="quips_holder" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(1, 1063)
@@ -87,21 +138,6 @@ offset_right = 975.0
 offset_bottom = 177.0
 theme_override_font_sizes/font_size = 100
 text = "This is a quip"
-
-[node name="reward_screen" type="Node2D" parent="."]
-visible = false
-
-[node name="LeafPortraitFrameGreen" type="Sprite2D" parent="reward_screen"]
-position = Vector2(91.2499, 53.25)
-scale = Vector2(8.15332, 5.10254)
-texture = ExtResource("7_5vaeo")
-
-[node name="continue" type="Button" parent="reward_screen"]
-offset_left = -357.0
-offset_top = -13.0
-offset_right = 819.0
-offset_bottom = 337.0
-theme_override_font_sizes/font_size = 200
-text = "Continue!"
+autowrap_mode = 3
 
 [connection signal="pressed" from="reward_screen/continue" to="." method="_on_continue_pressed"]

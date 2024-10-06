@@ -106,6 +106,11 @@ func loadCombatEncounter(combat_encounter_id):
 	current_combat.index_manager = self
 	var scene_root = get_node("/root/Index/")
 	scene_root.add_child(current_combat)
+	if CURRENT_PARTY.size() == 0:
+		OS.alert("Attempted to start a combat, but player team size is 0", "ALERT")
+	
+	print("CURRENT PARTY:")
+	print(CURRENT_PARTY)
 	current_combat.spawnPlayerTeam(CURRENT_PARTY)
 	var enemy_team = []
 	
@@ -248,6 +253,8 @@ func _ready():
 	CURRENT_PARTY = [starting_ant]
 	return
 	loadCombatEncounter(1)
+# Called when the node enters the scene tree for the first time.
+
 	#
 	#var test_ant2 = createBugFromId(1)
 	#test_ant.health = 4

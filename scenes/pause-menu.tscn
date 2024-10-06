@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://268dn7nkiiru"]
 
-[ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_gp4ya"]
+[ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_ppwcw"]
 [ext_resource type="Texture2D" uid="uid://bwuhh5edu2c8j" path="res://textures/buttons/BUTTONS_CONTINUE.png" id="2_j2u4i"]
 [ext_resource type="Texture2D" uid="uid://cxcdau3kcl3sn" path="res://textures/buttons/BUTTONS_OPTIONS.png" id="3_w0obx"]
 [ext_resource type="Texture2D" uid="uid://cb6bbcp581l0a" path="res://textures/buttons/BUTTONS_QUIT.png" id="4_22j3u"]
@@ -17,7 +17,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_gp4ya")
+script = ExtResource("1_ppwcw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -27,12 +27,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 433.0
-offset_top = 87.0
+offset_top = -800.0
 offset_right = 1457.0
-offset_bottom = 1759.0
+offset_bottom = 872.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.233, 0.235)
+scale = Vector2(0.991, 1)
 
 [node name="ResumeButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2

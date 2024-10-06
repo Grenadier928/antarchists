@@ -346,7 +346,10 @@ func spawnPlayerTeam(player_team):
 	for i in range (player_team.size()):
 		all_fighters.append(player_team[i])
 		#$player_team_position_0
+		print("Player team index i:")
+		print(player_team[i])
 		player_spawns[i].add_child(player_team[i])
+
 		#get_node("/root/Index/Combat/player_team_position_" + str(i)).add_child(player_team[i])
 		player_team[i].combat_manager = null
 		print("Com managwer:")
