@@ -18,19 +18,53 @@
 									"add_health_rand":1
 								}
 							}
+						},
+						{
+							"prob": 0.5,
+							"result": {
+								"title":"He fights back!!",
+								"description":"He attacks with valor!",
+								"results":{
+									"remove_health_rand":1
+								}
+							}
 						}
 					]
 				},
 				{
 					"id": 2,
 					"text": "Recruit him!",
-					"conditions": {
-						"has_ant_in_party": 1
-					}
+					"conditons": {
+						"has_species_in_party": "ant"
+					},
+					"results": [
+						{
+							"prob": 1,
+							"result": {
+								"title":"A new buddy!",
+								"description":"He is fren",
+								"results":{
+									"add_party_member":1
+								}
+							}
+						}
+					]
 				},
 				{
 					"id": 3,
-					"text": "Leave him alone"
+					"text": "Leave him alone",
+					"results": [
+						{
+							"prob": 1,
+							"result": {
+								"title":"You leave him be",
+								"description":"Your party move along",
+								"results":{
+									"pass": "pass"
+								}
+							}
+						}
+					]
 				}
 			]
 		},
@@ -42,38 +76,314 @@
 				{
 					"id": 1,
 					"text": "Twice the food! Eat them!",
-					"conditions": {
-						"has_ant_in_party": 1
-					}
+					"results": [
+						{
+							"prob": 0.7,
+							"result": {
+								"title":"Dinner!",
+								"description":"You all ate!",
+								"results":{
+									"add_health_rand": 2
+								}
+							}
+						},
+						{
+							"prob": 0.3,
+							"result": {
+								"title":"They fight back!!",
+								"description":"They forget their differences and attack your party",
+								"results":{
+									"remove_health_rand": 2
+								}
+							}
+						}
+					]
 				},
 				{
 					"id": 2,
-					"text": "Recruit them!"
+					"text": "Recruit them!",
+					"results": [
+						{
+							"prob": 1,
+							"result": {
+								"title":"Some new friends",
+								"description":"They join your party",
+								"results":{
+									"add_party_member":2
+								}
+							}
+						}
+					]
 				},
 				{
 					"id": 3,
-					"text": "Leave them alone"
-				}
-			]
-		},
-		{
-			"id": 3,
-			"title": "Dinner is served?",
-			"description": "You see some hungry-looking ants have cornered a worm. What do you do?",
-			"options": [
-				{
-					"id": 1,
-					"text": "A free lunch! Join the ants"
-				},
-				{
-					"id": 2,
-					"text": "Save that worm!"
+					"text": "Leave them alone",
+					"results": [
+						{
+							"prob": 1,
+							"result": {
+								"title":"You leave them be",
+								"description":"Your party moves along and leaves them to their fight",
+								"results":{
+									"pass": "pass"
+								}
+							}
+						}
+					]
 				},
 				{
 					"id": 3,
-					"text": "Leave them alone"
+					"title": "Dinner is served?",
+					"description": "You see some hungry-looking ants have cornered a worm. What do you do?",
+					"options": [
+						{
+							"id": 1,
+							"text": "A free lunch! Join the ants",
+							"results": [
+								{
+									"prob": 0.9,
+									"result": {
+										"title":"Dinner!",
+										"description":"You all share the worm!",
+										"results":{
+											"add_health_rand":1
+										}
+									}
+								},
+								{
+									"prob": 0.1,
+									"result": {
+										"title":"He fights back!!",
+										"description":"Wow, that was a tough worm",
+										"results":{
+											"remove_health_rand":1
+										}
+									}
+								}
+							]
+
+						},
+						{
+							"id": 2,
+							"text": "Save that worm!",
+							"conditons": {
+						"has_species_in_party": "worm"
+					},
+					"results": [
+						{
+							"prob": 1,
+							"result": {
+								"title":"A new buddy!",
+								"description":"He is fren",
+								"results":{
+									"add_party_member": "worm"
+								}
+							}
+						}
+					]
+						},
+						{
+							"id": 3,
+							"text": "Leave them alone",
+							"description":"You leave the worm at the mercy of the ants",
+							"results": [
+						{
+							"prob": 1,
+							"result": {
+								"title":"You leave them to their lunch",
+								"description":"Your party moves along and leaves them to their fight",
+								"results":{
+									"pass": "pass"
+								}
+							}
+						}
+					]
+						}
+					]
+				},
+				{
+					"id": 4,
+					"title": "Munchables™",
+					"description": "Some dumb kid left behind his Munchables™. What do you want to do?",
+					"options": [
+						{
+							"id": 1,
+							"text": "A free lunch!",
+							"results": [
+								{
+									"prob": 0.5,
+									"result": {
+										"title":"Munchables™",
+										"description":"You all share the Munchables™!",
+										"results":{
+											"add_health_rand":2
+										}
+									}
+								},
+								{
+									"prob": 0.5,
+									"result": {
+										"title":"Munchables™ are gross",
+										"description":"There's a lot of preservatives in Munchables™. You should be eating healthier",
+										"results":{
+											"remove_health_rand":1
+										}
+									}
+								}
+							]
+
+						},
+						{
+							"id": 2,
+							"text": "No such thing a free lunch",
+							"description":"Munchables™ sound suss. Buy name brand next time.",
+							"results": [
+								{
+									"prob": 1,
+									"result": {
+										"title":"You leave them be",
+										"description":"Your party moves along and leaves them to their fight",
+										"results":{
+											"pass": "pass"
+										}
+									}
+								}
+							]
+						}
+					
+					]
+				},
+				{
+					"id": 5,
+					"title": "Magic mushroom",
+					"description": "You notice a strange fungus. What do you want to do?",
+					"options": [
+						{
+							"id": 1,
+							"text": "Eat it!",
+							"results": [
+								{
+									"prob": 0.4,
+									"result": {
+										"title":"Dinner!",
+										"description":"It's delicious! You all ate!",
+										"results":{
+											"add_health_rand":1
+										}
+									}
+								},
+								{
+									"prob": 0.4,
+									"result": {
+										"title":"It's a parasitic fungus!",
+										"description":"Ophiocordyceps unilateralis infects a member of your party",
+										"results":{
+											"remove_party_member":1,
+											"add_party_member": "zombie"
+										}
+									}
+								},
+								{
+									"prob": 0.2,
+									"result": {
+										"title":"It's poisonous",
+										"description":"The mushroom is deadly. You lose a comrade",
+										"results":{
+											"remove_party_member":1
+										}
+									}
+								}
+							]
+						},
+						{
+							"id": 2,
+							"text": "Leave that mushroom alone",
+							"results": [
+								{
+									"prob": 1,
+									"result": {
+										"title":"You it be",
+										"description":"Your party move along",
+										"results":{
+											"pass": "pass"
+										}
+									}
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": 6,
+					"title": "A fancy ant",
+					"description": "A strange ant in a top hat approaches your party. What do you do?",
+					"options": [
+						{
+							"id": 1,
+							"text": "Fancy dinner!",
+							"results": [
+								{
+									"prob": 0.4,
+									"result": {
+										"title":"Dinner!",
+										"description":"You all ate!",
+										"results":{
+											"add_health_rand":1
+										}
+									}
+								},
+								{
+									"prob": 0.6,
+									"result": {
+										"title":"He fights back!!",
+										"description":"He's fiestier than you thought!",
+										"results":{
+											"remove_health_rand":2
+										}
+									}
+								}
+							]
+						},
+						{
+							"id": 2,
+							"text": "Recruit him!",
+							"conditons": {
+								"has_species_in_party": "ant"
+							},
+							"results": [
+								{
+									"prob": 1,
+									"result": {
+										"title":"A fancy friend!",
+										"description":"You're party is a little more fancy",
+										"results":{
+											"add_party_member": "shield_ant"
+										}
+									}
+								}
+							]
+						},
+						{
+							"id": 3,
+							"text": "Leave him alone",
+							"results": [
+								{
+									"prob": 1,
+									"result": {
+										"title":"You leave him be",
+										"description":"Your party move along",
+										"results":{
+											"pass": "pass"
+										}
+									}
+								}
+							]
+						}
+					]
+				
 				}
 			]
+					
 		}
 	]
 }
