@@ -3,7 +3,7 @@
 		{
 			"id": 1,
 			"name": "Antony",
-			"sprite_path": "LADY_BUG.png",
+			"sprite_path": "BASICBROWNANT.png",
 			"min_spawn_level": 1,
 			"max_spawn_level": 1,
 			"health": 1,
@@ -14,7 +14,6 @@
 				"combat-kill": [
 					"We sure squished you!!!",
 					"You’re not going to bug anyone anymore!",
-					"EXTERMINATED",
 					"This. is. a TREE!",
 					"Dodge This",
 					"For the queen!"
@@ -52,6 +51,126 @@
 					"Ants, Assemble!",
 					"FATALITY",
 					"and we didn't even have to call the exterminator"
+				]
+			},
+			"attacks": [
+				1,
+				2
+			]
+		},
+		{
+			"id": 2,
+			"name": "Barbarasaur",
+			"sprite_path": "DINOSAURANT.png",
+			"min_spawn_level": 1,
+			"max_spawn_level": 1,
+			"health": 1,
+			"speed": 1,
+			"evasion": 1,
+			"strength": 1,
+			"quips": {
+				"combat-kill": [
+					"EXTERMINATED",
+					"No, YOU are extinct!"
+				],
+				"combat-self-death": [
+					"Revive me from amber!",
+					"I've died before..."
+				],
+				"combat-friend-death": [
+					"Now all my friends are dead!",
+					"Shame. I remember ant number #4..."
+				],
+				"cannibal-self": [
+					"I'm way past my experation date",
+					"So you weren't really vegan..."
+				],
+				"cannibal-other": [
+					"Snack time!",
+					"Delicious"
+				],
+				"victory": [
+					"We win this round to fight another"
+				]
+			},
+			"attacks": [
+				1,
+				2
+			]
+		},
+		{
+			"id": 2,
+			"name": "Caldsworth",
+			"sprite_path": "DINOSAURWORM.png",
+			"min_spawn_level": 1,
+			"max_spawn_level": 1,
+			"health": 1,
+			"speed": 1,
+			"evasion": 1,
+			"strength": 1,
+			"quips": {
+				"combat-kill": [
+					"I'll dig up your bones!",
+					"Now you decompose..."
+				],
+				"combat-self-death": [
+					"Ashes to ashes, dirt to dirt...",
+					"Fairwell friends"
+				],
+				"combat-friend-death": [
+					"Goodby forever!",
+					"She was my best friend, after ant #4..."
+				],
+				"cannibal-self": [
+					"Yummy or no?",
+					"Enjoy!"
+				],
+				"cannibal-other": [
+					"Uh... Thank you...",
+					"Better you than me!"
+				],
+				"victory": [
+					"Did we just win??"
+				]
+			},
+			"attacks": [
+				1,
+				2
+			]
+		},
+		{
+			"id": 2,
+			"name": "Danii",
+			"sprite_path": "DINOTEACHER.png",
+			"min_spawn_level": 1,
+			"max_spawn_level": 1,
+			"health": 1,
+			"speed": 1,
+			"evasion": 1,
+			"strength": 1,
+			"quips": {
+				"combat-kill": [
+					"That'ill teach you to study",
+					"Have you learned your lesson?"
+				],
+				"combat-self-death": [
+					"See me after class!",
+					"There's still homework tomorrow!"
+				],
+				"combat-friend-death": [
+					"She's excused!",
+					"Wait, was that #8132 or #8441?"
+				],
+				"cannibal-self": [
+					"An apple a day, so they say...",
+					"I get a 30 minute lunch"
+				],
+				"cannibal-other": [
+					"I give it a B+",
+					"Talk about an easy A!"
+				],
+				"victory": [
+					"We win again!"
 				]
 			},
 			"attacks": [
