@@ -71,26 +71,33 @@
 			"quips": {
 				"combat-kill": [
 					"EXTERMINATED",
-					"No, YOU are extinct!"
+					"No, YOU are extinct!",
+					" Can't suppress 65 million years of gut instinct."
 				],
 				"combat-self-death": [
 					"Revive me from amber!",
-					"I've died before..."
+					"I've died before...",
+					"Clever girl..."
 				],
 				"combat-friend-death": [
 					"Now all my friends are dead!",
-					"Shame. I remember ant number #4..."
+					"Shame. I remember ant number #4...",
+					"Someone call John Hammond"
 				],
 				"cannibal-self": [
 					"I'm way past my experation date",
-					"So you weren't really vegan..."
+					"So you weren't really vegan...",
+					"How does dinosaur taste?"
 				],
 				"cannibal-other": [
 					"Snack time!",
-					"Delicious"
+					"Delicious",
+					"I'm a meat eater"
 				],
 				"victory": [
-					"We win this round to fight another"
+					"We win this round to fight another",
+					"Dinos are back baby!",
+					"It take an asteriod to kill me!"
 				]
 			},
 			"attacks_list": [
@@ -111,26 +118,33 @@
 			"quips": {
 				"combat-kill": [
 					"I'll dig up your bones!",
-					"Now you decompose..."
+					"Now you decompose...",
+					"Spineless loser",
+					"You're worm-food!"
 				],
 				"combat-self-death": [
 					"Ashes to ashes, dirt to dirt...",
-					"Fairwell friends"
+					"Fairwell friends",
+					"I want to be reincarnated as something else"
 				],
 				"combat-friend-death": [
-					"Goodby forever!",
+					"Goodbye forever!",
 					"She was my best friend, after ant #4..."
 				],
 				"cannibal-self": [
 					"Yummy or no?",
-					"Enjoy!"
+					"Enjoy!",
+					"Are you really going to eat a worm? Gross."
 				],
 				"cannibal-other": [
 					"Uh... Thank you...",
-					"Better you than me!"
+					"Better you than me!",
+					"We appreciate your sacrifice"
 				],
 				"victory": [
-					"Did we just win??"
+					"Did we just win??",
+					"Dinos are back baby!",
+					"It take an asteriod to kill me!"
 				]
 			},
 			"attacks": [
@@ -150,27 +164,41 @@
 			"strength": 1,
 			"quips": {
 				"combat-kill": [
-					"That'ill teach you to study",
-					"Have you learned your lesson?"
+					"That'll teach you to study",
+					"Have you learned your lesson?",
+					"Pay attention!",
+					"Now stay dead or you'll get detention"
 				],
 				"combat-self-death": [
 					"See me after class!",
-					"There's still homework tomorrow!"
+					"There's still homework tomorrow!",
+					"5 paragraph essay on my life, due tomorrow.",
+					"You're going to see the principle mister!",
+					"No stickers for you"
 				],
 				"combat-friend-death": [
 					"She's excused!",
-					"Wait, was that #8132 or #8441?"
+					"Wait, was that #8132 or #8441?",
+					"I think you need a hall pass for that...",
+					"We have a zero tolerance policy for bullying!"
 				],
 				"cannibal-self": [
 					"An apple a day, so they say...",
-					"I get a 30 minute lunch"
+					"I get a 30 minute lunch",
+					"I was expecting a thank you card!",
+					"I'm calling your parents",
+					"That means detention"
 				],
 				"cannibal-other": [
 					"I give it a B+",
-					"Talk about an easy A!"
+					"Talk about an easy A!",
+					"Best school lunch I've had in a while",
+					"There goes my teacher of the year award..."
 				],
 				"victory": [
-					"We win again!"
+					"We win again!",
+					"Another successful lesson",
+					"Everyone put a gold star next to your names!"
 				]
 			},
 			"attacks": [
