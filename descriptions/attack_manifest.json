@@ -4,15 +4,22 @@
 			"id":1,
 			"attack_name":"Pinch",
 			"base_damage":1,
-			"sound_effect":"",
-			"description":""
+			"sound_effect":"clink1.wav",
+			"description":"Pinches an enemy"
 		},
 		{
 			"id":2,
 			"attack_name":"Super Pinch",
-			"base_damage":1,
-			"sound_effect":"",
-			"description":""
+			"base_damage":2,
+			"sound_effect":"clink1.wav",
+			"description":"An extra strong pinch attack"
+		},
+		{
+			"id":3,
+			"attack_name":"Squish",
+			"base_damage":2,
+			"sound_effect":"crunch1.wav",
+			"description":"Try to crush an enemy with sheer weight"
 		}
 	]
 }
