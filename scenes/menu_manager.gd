@@ -4,9 +4,11 @@ var scene_stack = []
 var current_menu=null
 var main_menu_instance = null
 var options_instance = null
+var pause_instance = null
 var MANAGER = null
 var MAIN_MENU
 var OPTIONS
+var PAUSE
 func push_scene(scene_path):
 	scene_stack.append(scene_path)
 
@@ -17,7 +19,6 @@ func pop_scene():
 	return null
 
 func clear_scene(full_clear,remove):
-	print(scene_stack)
 	if scene_stack.back() == self:
 		
 		#NOTHING IN THE STACK, NOTHING TO POP
@@ -56,6 +57,7 @@ func _ready() -> void:
 	
 	MAIN_MENU = preload("res://scenes/main-menu.tscn")
 	OPTIONS = preload("res://scenes/options.tscn")
+	PAUSE = preload("res://scenes/pause-menu.tscn")
 	push_scene(self)
 	LoadMainMenu()
 	#$"Main-menu".
@@ -86,6 +88,17 @@ func LoadOptions():
 	if options_instance:
 		add_child(options_instance)
 		push_scene(options_instance)
+
+func LoadPause():
+	if not pause_instance:
+		pause_instance = PAUSE.instantiate()
+		
+	#if get_tree().current_scene:
+		#get_tree().current_scene.queue_free()
+	if pause_instance:
+		add_child(pause_instance)
+		current_menu = pause_instance
+		push_scene(pause_instance)
 		
 func GoBack(full_clear):
 	print(scene_stack)

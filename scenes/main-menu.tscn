@@ -31,43 +31,25 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.232923, 0.234683)
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
-visible = false
-layout_mode = 2
-focus_neighbor_top = NodePath("../QuitButton")
-icon = ExtResource("2_mn22g")
-
-[node name="StartButton2" type="TextureButton" parent="VBoxContainer"]
+[node name="StartButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_mn22g")
 
 [node name="Control" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 66.08)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
-[node name="OptionsButton" type="Button" parent="VBoxContainer"]
-visible = false
-layout_mode = 2
-icon = ExtResource("3_14fq3")
-
-[node name="OptionButton" type="TextureButton" parent="VBoxContainer"]
+[node name="OptionsButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("3_14fq3")
 
 [node name="Control2" type="Control" parent="VBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 66.08)
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
-[node name="OptionButton2" type="TextureButton" parent="VBoxContainer"]
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_0tqry")
-
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-visible = false
-layout_mode = 2
-focus_neighbor_bottom = NodePath("../StartButton")
-icon = ExtResource("4_0tqry")
 
 [node name="Heading" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -85,8 +67,15 @@ offset_right = 40.0
 offset_bottom = 40.0
 alignment = 1
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 714.0
+offset_top = 310.0
+offset_right = 799.0
+offset_bottom = 341.0
+text = "call pause"
+
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/StartButton2" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionButton2" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

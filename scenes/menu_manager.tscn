@@ -9,6 +9,7 @@
 script = ExtResource("1_7o611")
 
 [node name="pause-menu" parent="." instance=ExtResource("2_hu0al")]
+visible = false
 
 [node name="Main-menu" parent="." instance=ExtResource("2_qsgi8")]
 visible = false

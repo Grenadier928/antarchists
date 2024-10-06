@@ -14,6 +14,7 @@ func _process(delta):
 
 
 func _on_start_button_pressed() -> void:
+	$"..".clear_scene(false,true)
 	get_tree().change_scene_to_file("res://scenes/dialogue-scene.tscn")
 
 
@@ -24,3 +25,8 @@ func _on_quit_button_pressed() -> void:
 func _on_options_button_pressed() -> void:
 	$"..".LoadOptions()
 	pass
+
+
+func _on_button_pressed() -> void:
+	get_tree().paused=false
+	$"..".LoadPause()# Replace with function body.

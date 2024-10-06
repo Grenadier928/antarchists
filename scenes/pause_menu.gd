@@ -13,17 +13,18 @@ func _process(delta: float) -> void:
 
 func _on_resume_button_pressed() -> void:
 	get_tree().paused =false
+	print("BUTTON PRESED")
 	$"..".clear_scene(false,true)
 	
 
 
-func _on_options_button_pressed() -> void:
-	pass # Replace with function body.
+func _on_options_button_pressed() -> void:# Replace with function body.
 	$"..".LoadOptions()
 
 
 
 func _on_quit_button_pressed() -> void:
+	print("HE CLLA")
 	$confirm.show()
 	$VBoxContainer.hide()
 	
@@ -31,7 +32,7 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_no_pressed() -> void:
-	$confirmpass.hide()
+	$confirm.hide()
 	$VBoxContainer.show()
 
 
