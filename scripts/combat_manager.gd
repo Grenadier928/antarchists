@@ -22,7 +22,7 @@ func createQuip(quipDict):
 	
 	if quip_state == "show":
 		return
-	var display_quip_chance = .4
+	var display_quip_chance = .3
 	var rng = RandomNumberGenerator.new()
 	var value = rng.randf_range(0, 1)
 	print(value)
