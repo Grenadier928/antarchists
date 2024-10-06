@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://jx7xcv1ochof"]
 
-[ext_resource type="Script" path="res://scenes/menu_manager.gd" id="1_7o611"]
+[ext_resource type="Script" path="res://scripts/menu_manager.gd" id="1_e25ri"]
 [ext_resource type="PackedScene" uid="uid://268dn7nkiiru" path="res://scenes/pause-menu.tscn" id="2_hu0al"]
 [ext_resource type="PackedScene" uid="uid://ba3pb1nobhlg4" path="res://scenes/main-menu.tscn" id="2_qsgi8"]
 [ext_resource type="PackedScene" uid="uid://dkjk6hxa6xtb3" path="res://scenes/options.tscn" id="3_mli24"]
 
 [node name="Menu-manager" type="Node2D"]
-script = ExtResource("1_7o611")
+script = ExtResource("1_e25ri")
 
 [node name="pause-menu" parent="." instance=ExtResource("2_hu0al")]
 visible = false
