@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba3pb1nobhlg4"]
+[gd_scene load_steps=9 format=3 uid="uid://ba3pb1nobhlg4"]
 
 [ext_resource type="Script" path="res://scripts/main-menu.gd" id="1_ic812"]
 [ext_resource type="Texture2D" uid="uid://hhqhyev2ea2d" path="res://textures/buttons/BUTTONS_START.png" id="2_mn22g"]
 [ext_resource type="Texture2D" uid="uid://cxcdau3kcl3sn" path="res://textures/buttons/BUTTONS_OPTIONS.png" id="3_14fq3"]
+[ext_resource type="Texture2D" uid="uid://djwcooev3lpu4" path="res://textures/buttons/BUTTONS_START_HOVER.png" id="3_nd1vk"]
 [ext_resource type="Texture2D" uid="uid://cb6bbcp581l0a" path="res://textures/buttons/BUTTONS_QUIT.png" id="4_0tqry"]
 [ext_resource type="Texture2D" uid="uid://b8aq1mnkiflis" path="res://textures/MAINPAGE.png" id="5_abxrt"]
+[ext_resource type="Texture2D" uid="uid://dm7s2q757hvi8" path="res://textures/buttons/BUTTONS_OPTIONS_HOVER.png" id="5_t8wny"]
+[ext_resource type="Texture2D" uid="uid://drynnb1aiyil4" path="res://textures/buttons/BUTTONS_QUITGAME_HOVER.png" id="7_lrwq3"]
 
 [node name="Main-menu" type="Control"]
 layout_mode = 3
@@ -28,6 +31,7 @@ pivot_offset = Vector2(525, 832)
 [node name="StartButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("2_mn22g")
+texture_hover = ExtResource("3_nd1vk")
 
 [node name="Control" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
@@ -36,6 +40,7 @@ layout_mode = 2
 [node name="OptionsButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("3_14fq3")
+texture_hover = ExtResource("5_t8wny")
 
 [node name="Control2" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 60)
@@ -44,8 +49,10 @@ layout_mode = 2
 [node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_0tqry")
+texture_hover = ExtResource("7_lrwq3")
 
 [node name="Heading" type="RichTextLabel" parent="."]
+visible = false
 layout_mode = 1
 offset_right = 228.0
 offset_bottom = 38.0

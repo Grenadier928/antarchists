@@ -364,11 +364,8 @@ func _physics_process(delta):
 
 func UpdateSFX(state: bool):
 	sfx=state
-	print("GOT STATE SFX")
-	print(sfx)
 
 func UpdateBG(state: bool):
 	bg=state
 func UpdateVol(vol: float):
 	volume=vol
-	print(volume)
