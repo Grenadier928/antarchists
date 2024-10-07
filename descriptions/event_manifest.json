@@ -221,8 +221,8 @@
 					"results": [
 						{
 							"prob": 1,
-							"title": "You leave them be",
-							"description": "Your party moves along and leaves them to their fight",
+							"title": "You leave it be",
+							"description": "Your party moves along and leaves Munchables™ for someone else",
 							"results": {
 								"pass": "pass"
 							}
@@ -273,7 +273,7 @@
 					"results": [
 						{
 							"prob": 1,
-							"title": "You it be",
+							"title": "You leave it be",
 							"description": "Your party move along",
 							"results": {
 								"pass": "pass"
@@ -320,7 +320,7 @@
 						{
 							"prob": 1,
 							"title": "A fancy friend!",
-							"description": "You're party is a little more fancy",
+							"description": "Your party is a little more fancy",
 							"results": {
 								"add_party_member": 1
 							}
