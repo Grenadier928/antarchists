@@ -20,6 +20,63 @@
 			"base_damage":2,
 			"sound_effect":"crunch1.wav",
 			"description":"Try to crush an enemy with sheer weight"
-		}
+		},
+		{
+			"id":4,
+			"attack_name":"Acid Spray",
+			"base_damage":3,
+			"sound_effect":"crunch1.wav",
+			"description":"Spray Acid at the Enemy"
+		},
+		{
+			"id":5,
+			"attack_name":"Swarm",
+			"base_damage":1,
+			"sound_effect":"crunch1.wav",
+			"description":"Swarm the enemy and cause mental damange"
+		},
+		{
+			"id":6,
+			"attack_name":"Glare",
+			"base_damage":1,
+			"sound_effect":"crunch1.wav",
+			"description":"Frighten the enemy and cause mental damage"
+		},
+		{
+			"id":7,
+			"attack_name":"Shame",
+			"base_damage":4,
+			"sound_effect":"crunch1.wav",
+			"description":"Shames you publicly causing extreme embarassment"
+		},
+		{
+			"id":8,
+			"attack_name":"Burning Bite",
+			"base_damage":4,
+			"sound_effect":"crunch1.wav",
+			"description":"Bite the enemy causing burning pain"
+		},
+		{
+			"id":9,
+			"attack_name":"Sting",
+			"base_damage":3,
+			"sound_effect":"crunch1.wav",
+			"description":"Float like a butterfly, sting like bee"
+		},
+		{
+			"id":10,
+			"attack_name":"Bulldoze",
+			"base_damage":4,
+			"sound_effect":"crunch1.wav",
+			"description":"Run into the enemy headstrong"
+		},
+		{
+			"id":11,
+			"attack_name":"Eat",
+			"base_damage":3,
+			"sound_effect":"crunch1.wav",
+			"description":"Attempt to eat the enemy"
+		},
+		
 	]
 }
