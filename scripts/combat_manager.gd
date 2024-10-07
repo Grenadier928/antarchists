@@ -61,7 +61,7 @@ func startPlayerTurn():
 		all_fighters[current_fighter_index].selection_box.visible = true
 		for i in range (all_fighters[current_fighter_index].attacks_list.size()):
 			var temp_button = attack_button.instantiate()
-			temp_button.text = all_fighters[current_fighter_index].attacks_list[i].attack_name
+			temp_button.text = all_fighters[current_fighter_index].attacks_list[i].attack_name + " ("+str(all_fighters[current_fighter_index].attacks_list[i].base_damage)+")"
 			$attacks_list_paper.add_child(temp_button)
 			temp_button.position = Vector2(-1200, (700 * i) - 700)
 			temp_button.combat_manager = self
