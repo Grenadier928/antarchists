@@ -28,6 +28,14 @@ var master_combat_encounter_dict = null
 var current_combat = null
 var current_event = null
 
+var end_scene = preload("res://scenes/end_scene.tscn")
+
+func endGame():
+	var end_game = end_scene.instantiate()
+	var scene_root_n = get_node("/root/Index/")
+	scene_root_n.add_child(end_game)
+	pass
+
 func createAttackFromId(id):
 	var dict_entry = null
 	for i in range (master_attack_dict.size()):
@@ -304,6 +312,10 @@ func LoadGame():
 	loadCombatEncounter(1)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	#endGame()
+	
+	#return
 	get_tree().paused=false
 	pass
 # Called when the node enters the scene tree for the first time.
