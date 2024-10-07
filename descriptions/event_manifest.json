@@ -473,6 +473,70 @@
 					]
 				}
 			]
+		},
+		{
+			"id": 9,
+			"title": "Daki's flammin' hot Dheetos™",
+			"description": "A wrapper for Daki's flammin' hot Dheetos™ has blown into the tree.",
+			"options": [
+				{
+					"id": 1,
+					"text": "Mmmmm Dheetos™'s dust...",
+					"conditions": {
+						"has_species_in_party": "ant",
+						"has_room_in_party": 1
+					},
+					"results": [
+						{
+							"prob": 0.3,
+							"results": {
+								"title": "I love Daki's flammin' hot Dheetos™",
+								"description": "You all ate!",
+								"results": {
+									"add_health_rand": 1
+								}
+							}
+						},
+						{
+							"prob": 0.3,
+							"results": {
+								"title": "My mouth is on fire!",
+								"description": "Why are you just eating Dheetos™'s dust? What's wrong with you?",
+								"results": {
+									"remove_health_rand": 1
+								}
+							}
+						},
+						{
+							"prob": 0.4,
+							"results": {
+								"title": "Transformed by the flame",
+								"description": "One of your party members is transformed by the purifying flame of Dheetos™'s dust.",
+								"results": {
+									"remove_party_member": 1,
+									"add_party_member": 1
+								}
+							}
+						}
+					]
+				},
+				{
+					"id": 2,
+					"text": "Too spicy",
+					"results": [
+						{
+							"prob": 1,
+							"results": {
+								"title": "No Dheetos™ dust for me",
+								"description": "Your party move along",
+								"results": {
+									"pass": "pass"
+								}
+							}
+						}
+					]
+				}
+			]
 		}
 	]
 }
