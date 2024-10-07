@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://w2hysgo1h6s"]
+[gd_scene load_steps=10 format=3 uid="uid://w2hysgo1h6s"]
 
 [ext_resource type="Script" path="res://scripts/combat_manager.gd" id="1_6hf62"]
 [ext_resource type="Texture2D" uid="uid://c2i57ok5smfio" path="res://textures/COMBATSCREEN_DUSK.png" id="2_2jbtc"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bwg7l48glhcwb" path="res://textures/COMBATBANNER_VICTORY.png" id="5_jlclb"]
 [ext_resource type="Texture2D" uid="uid://f3m7w08o603x" path="res://textures/DIALOG_BOX.png" id="6_pvu1g"]
 [ext_resource type="Texture2D" uid="uid://w7be1336dit7" path="res://textures/LEAF_PORTRAIT_FRAME_GREEN.png" id="7_5vaeo"]
+[ext_resource type="Texture2D" uid="uid://bobrr0etadv57" path="res://textures/buttons/BUTTONS_PAUSE.png" id="8_n8mrw"]
+[ext_resource type="Texture2D" uid="uid://bd74agdnk5v5b" path="res://textures/buttons/BUTTONS_PAUSE_HOVER.png" id="9_iaxsd"]
 
 [node name="Combat" type="Node2D"]
 script = ExtResource("1_6hf62")
@@ -140,4 +142,22 @@ theme_override_font_sizes/font_size = 100
 text = "This is a quip"
 autowrap_mode = 3
 
+[node name="PauseButton" type="TextureButton" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = 880.0
+offset_right = 512.0
+offset_bottom = 1392.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(512, 256)
+texture_normal = ExtResource("8_n8mrw")
+texture_hover = ExtResource("9_iaxsd")
+
 [connection signal="pressed" from="reward_screen/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]

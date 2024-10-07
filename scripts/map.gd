@@ -32,8 +32,10 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP :
 			self.position.y += SCROLL_SPEED
+			$PauseButton.position.y-=SCROLL_SPEED
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN :
 			self.position.y -= SCROLL_SPEED
+			$PauseButton.position.y+=SCROLL_SPEED
 
 func draw_map(map):
 	map_object = map
@@ -89,3 +91,7 @@ func testFunc(map_node):
 		INDEX_CONTROLLER.loadCombatEncounter(null)
 	elif map_node.node_type == "event":
 		INDEX_CONTROLLER.loadEvent(null)
+
+
+func _on_pause_button_pressed() -> void:
+	INDEX_CONTROLLER.PauseGame()

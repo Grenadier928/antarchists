@@ -28,5 +28,5 @@ func _on_options_button_pressed() -> void:
 
 
 func _on_button_pressed() -> void:
-	get_tree().paused=false
+	#get_tree().paused=true
 	$"..".LoadPause()# Replace with function body.

@@ -457,3 +457,7 @@ func spawnEnemyTeam(enemy_team):
 func _on_continue_pressed() -> void:
 	index_manager.endCombat()
 	pass # Replace with function body.
+
+
+func _on_pause_button_pressed() -> void:
+	index_manager.PauseGame()

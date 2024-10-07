@@ -287,6 +287,7 @@ func LoadGame():
 	loadCombatEncounter(1)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_tree().paused=false
 	pass
 # Called when the node enters the scene tree for the first time.
 
@@ -367,11 +368,13 @@ func _physics_process(delta):
 
 func UpdateSFX(state: bool):
 	sfx=state
-	print("GOT STATE SFX")
-	print(sfx)
 
 func UpdateBG(state: bool):
 	bg=state
 func UpdateVol(vol: float):
 	volume=vol
-	print(volume)
+
+func PauseGame():
+	
+	$"Menu-manager".LoadPause()
+	get_tree().paused=true

@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://268dn7nkiiru"]
+[gd_scene load_steps=12 format=3 uid="uid://268dn7nkiiru"]
 
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_ppwcw"]
 [ext_resource type="Texture2D" uid="uid://bwuhh5edu2c8j" path="res://textures/buttons/BUTTONS_CONTINUE.png" id="2_j2u4i"]
-[ext_resource type="Texture2D" uid="uid://g7yw1f0afb7q" path="res://textures/buttons/BUTTONS_CONTINUE_HOVER.png" id="3_t8b6r"]
+[ext_resource type="Texture2D" uid="uid://cl34waajernjt" path="res://textures/buttons/BUTTONS_CONTINUE_HOVER.png" id="3_t8b6r"]
 [ext_resource type="Texture2D" uid="uid://cxcdau3kcl3sn" path="res://textures/buttons/BUTTONS_OPTIONS.png" id="3_w0obx"]
 [ext_resource type="Texture2D" uid="uid://cb6bbcp581l0a" path="res://textures/buttons/BUTTONS_QUIT.png" id="4_22j3u"]
 [ext_resource type="Texture2D" uid="uid://brq6rgep7og6q" path="res://textures/buttons/BUTTONS_NO.png" id="5_67vmq"]
 [ext_resource type="Texture2D" uid="uid://ckhj01gslmavi" path="res://textures/AREYOUSURE_BOX.png" id="5_askwp"]
-[ext_resource type="Texture2D" uid="uid://dm7s2q757hvi8" path="res://textures/buttons/BUTTONS_OPTIONS_HOVER.png" id="5_jhu3f"]
+[ext_resource type="Texture2D" uid="uid://dj3ge2kl2wl3r" path="res://textures/buttons/BUTTONS_OPTIONS_HOVER.png" id="5_jhu3f"]
 [ext_resource type="Texture2D" uid="uid://de57a8q2rhx2e" path="res://textures/buttons/BUTTONS_YES.png" id="6_p7vld"]
-[ext_resource type="Texture2D" uid="uid://drynnb1aiyil4" path="res://textures/buttons/BUTTONS_QUITGAME_HOVER.png" id="7_14e3d"]
+[ext_resource type="Texture2D" uid="uid://catnfhlaj3non" path="res://textures/buttons/BUTTONS_QUITGAME_HOVER.png" id="7_14e3d"]
+[ext_resource type="Texture2D" uid="uid://cq718g1ulpyj" path="res://textures/PAUSEMENU.png" id="11_h17au"]
 
 [node name="pause-menu" type="Control"]
 layout_mode = 3
@@ -23,43 +24,31 @@ grow_vertical = 2
 script = ExtResource("1_ppwcw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 433.0
-offset_top = -800.0
-offset_right = 1457.0
-offset_bottom = 872.0
+offset_left = 1462.0
+offset_top = -489.0
+offset_right = 2486.0
+offset_bottom = 1183.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.991, 1)
 
-[node name="ResumeButton" type="TextureButton" parent="VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-texture_normal = ExtResource("2_j2u4i")
-texture_hover = ExtResource("3_t8b6r")
-
 [node name="Control" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+custom_minimum_size = Vector2(0, -5.36)
 layout_mode = 2
-
-[node name="OptionsButton2" type="TextureButton" parent="VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("3_w0obx")
-texture_hover = ExtResource("5_jhu3f")
 
 [node name="Control3" type="Control" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+custom_minimum_size = Vector2(0, -5.36)
 layout_mode = 2
 
-[node name="QuitButton3" type="TextureButton" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_22j3u")
-texture_hover = ExtResource("7_14e3d")
 
 [node name="Heading" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -79,12 +68,13 @@ alignment = 1
 
 [node name="confirm" type="TextureRect" parent="."]
 visible = false
+z_index = 3
 layout_mode = 0
-offset_left = 348.0
-offset_top = 92.0
-offset_right = 2828.0
-offset_bottom = 1572.0
-scale = Vector2(0.174, 0.2)
+offset_left = 974.0
+offset_top = -400.0
+offset_right = 3454.0
+offset_bottom = 1080.0
+scale = Vector2(0.75, 0.735)
 texture = ExtResource("5_askwp")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="confirm"]
@@ -104,6 +94,7 @@ scale = Vector2(0.75, 0.986)
 alignment = 1
 
 [node name="NoButton" type="TextureButton" parent="confirm/HBoxContainer"]
+process_mode = 3
 layout_mode = 2
 texture_normal = ExtResource("5_67vmq")
 
@@ -112,11 +103,62 @@ custom_minimum_size = Vector2(45.93, 0)
 layout_mode = 2
 
 [node name="YesButton" type="TextureButton" parent="confirm/HBoxContainer"]
+process_mode = 3
 layout_mode = 2
 texture_normal = ExtResource("6_p7vld")
 
-[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionsButton2" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/QuitButton3" to="." method="_on_quit_button_pressed"]
+[node name="BackGround" type="TextureRect" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = -1354.98
+offset_top = -1391.77
+offset_right = 693.015
+offset_bottom = -239.77
+scale = Vector2(2.378, 2.377)
+mouse_filter = 2
+texture = ExtResource("11_h17au")
+stretch_mode = 5
+
+[node name="Buttons" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ResumeButton" type="TextureButton" parent="Buttons"]
+process_mode = 3
+z_index = 3
+layout_mode = 2
+offset_left = 1719.0
+offset_top = -382.0
+offset_right = 2743.0
+offset_bottom = 130.0
+texture_normal = ExtResource("2_j2u4i")
+texture_hover = ExtResource("3_t8b6r")
+
+[node name="OptionsButton2" type="TextureButton" parent="Buttons"]
+process_mode = 3
+z_index = 3
+layout_mode = 2
+offset_left = 714.0
+offset_top = 14.0
+offset_right = 1738.0
+offset_bottom = 526.0
+texture_normal = ExtResource("3_w0obx")
+texture_hover = ExtResource("5_jhu3f")
+
+[node name="QuitButton3" type="TextureButton" parent="Buttons"]
+process_mode = 3
+z_index = 3
+layout_mode = 2
+offset_left = 1690.0
+offset_top = 352.0
+offset_right = 2714.0
+offset_bottom = 864.0
+texture_normal = ExtResource("4_22j3u")
+texture_hover = ExtResource("7_14e3d")
+
 [connection signal="pressed" from="confirm/HBoxContainer/NoButton" to="." method="_on_no_pressed"]
 [connection signal="pressed" from="confirm/HBoxContainer/YesButton" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="Buttons/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Buttons/OptionsButton2" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Buttons/QuitButton3" to="." method="_on_quit_button_pressed"]
