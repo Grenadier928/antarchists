@@ -470,3 +470,22 @@ func _on_pause_button_pressed() -> void:
 
 func _on_retry_pressed() -> void:
 	index_manager.restart_game()
+
+
+func _on_consume_enemy_pressed() -> void:
+	for bug in all_fighters:
+		bug.health += 1
+
+
+func _on_consume_friend_pressed() -> void:
+	
+	index_manager.remove_party_member(index_manager.selectRandomPartyMember())
+	var stats = ["health", "speed", "evasion", "strength"]
+	
+	bug.stats[randi_range(0 , 4)] += 1
+
+
+func _on_recruit_pressed() -> void:
+	 index_manager.add_party_member(randi_range[0, 4])
+	
+	# Replace with function body.
