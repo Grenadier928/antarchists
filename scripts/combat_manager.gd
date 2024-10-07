@@ -479,13 +479,13 @@ func _on_consume_enemy_pressed() -> void:
 
 func _on_consume_friend_pressed() -> void:
 	
-	index_manager.remove_party_member(index_manager.selectRandomPartyMember())
 	var stats = ["health", "speed", "evasion", "strength"]
 	
-	bug.stats[randi_range(0 , 4)] += 1
+	for bug in all_fighters:
+		bug.stats[randi_range(0 , 4)] += 1
+	
+	index_manager.remove_party_member(index_manager.selectRandomPartyMember())
 
 
 func _on_recruit_pressed() -> void:
-	 index_manager.add_party_member(randi_range[0, 4])
-	
-	# Replace with function body.
+	index_manager.add_party_member(randi_range(0, 4))
