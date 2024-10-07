@@ -104,8 +104,9 @@ func applyAttackVictimDamage():
 	#print(attack_victim)
 	#print("ABCDE")
 	print(chosenAttack.attack_name)
-	attack_victim.takeDamage(1)
-	attack_victim.spawnFloatText("-1")
+	var total_damage = chosenAttack.base_damage + all_fighters[current_fighter_index].strength
+	attack_victim.takeDamage(total_damage)
+	attack_victim.spawnFloatText(str(total_damage))
 	if attack_victim.health <= 0:
 		createQuip(attack_victim.quips["combat-self-death"])
 		print("Victim Quips:")
@@ -337,6 +338,9 @@ func _physics_process(delta):
 				attack_victim.position = Vector2(rand_x, rand_y)
 			else:
 				animation_sub_state = "attacker_withdraw"
+				all_fighters[current_fighter_index].sfx.stream = load("res://sounds/clip/" + chosenAttack.sound_effect)
+				all_fighters[current_fighter_index].sfx.play()
+				print("Playing sound!")
 				applyAttackVictimDamage()
 				
 		if animation_sub_state == "attacker_withdraw":

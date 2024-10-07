@@ -50,7 +50,7 @@ func createBugFromId(id, player_controlled):
 	var dict_entry = null
 	for i in range (master_bug_dict.size()):
 		#print(master_bug_dict[i])
-		if master_bug_dict[i].id == id:
+		if master_bug_dict[i].id == int(id):
 			dict_entry = master_bug_dict[i]
 			break
 	var temp_bug = basic_bug.instantiate()
@@ -354,7 +354,10 @@ func remove_health_rand(amount):
 func add_party_member(bug_id):
 	if (CURRENT_PARTY.size() >=4):
 		return
-	CURRENT_PARTY.append(master_bug_dict[bug_id])
+	var temp_bug = createBugFromId(bug_id, true)
+	CURRENT_PARTY.append(temp_bug)
+	
+	
 func remove_party_member(index):
 	CURRENT_PARTY.pop_at(index)
 
@@ -364,8 +367,11 @@ func _physics_process(delta):
 
 func UpdateSFX(state: bool):
 	sfx=state
+	print("GOT STATE SFX")
+	print(sfx)
 
 func UpdateBG(state: bool):
 	bg=state
 func UpdateVol(vol: float):
 	volume=vol
+	print(volume)
