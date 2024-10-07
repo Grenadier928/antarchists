@@ -11,7 +11,7 @@
 					"results": [
 						{
 							"prob": 0.5,
-							"result": {
+							"results": {
 								"title": "Dinner!",
 								"description": "You all ate!",
 								"results": {
@@ -21,7 +21,7 @@
 						},
 						{
 							"prob": 0.5,
-							"result": {
+							"results": {
 								"title": "He fights back!!",
 								"description": "He attacks with valor!",
 								"results": {
@@ -41,7 +41,7 @@
 					"results": [
 						{
 							"prob": 1,
-							"result": {
+							"results": {
 								"title": "A new buddy!",
 								"description": "He is fren",
 								"results": {
@@ -57,7 +57,7 @@
 					"results": [
 						{
 							"prob": 1,
-							"result": {
+							"results": {
 								"title": "You leave him be",
 								"description": "Your party move along",
 								"results": {
