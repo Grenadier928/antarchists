@@ -95,15 +95,33 @@ func loadEvent(event_id):
 	
 func loadCombatEncounter(combat_encounter_id):
 	
+	var possible_encounters_based_on_floor = []
+	for encounter in master_combat_encounter_dict:
+		print("Min floor")
+		print(encounter.min_floor)
+		print("Max Floor")
+		print(encounter.max_floor)
+		print("Current Height:")
+		print(CURRENT_HEIGHT)
+		if int(encounter.min_floor) <= CURRENT_HEIGHT:
+			print("Check 1 okay")
+		if int(encounter.max_floor) >= CURRENT_HEIGHT:
+			print("Check 2 okay")
+		if int(encounter.min_floor) <= CURRENT_HEIGHT and int(encounter.max_floor) >= CURRENT_HEIGHT:
+			possible_encounters_based_on_floor.append(encounter)
+			print("Added possible encounter@")
+	print("Possible encounters size:")
+	print(possible_encounters_based_on_floor.size())
 	if combat_encounter_id == null:
 		var rng = RandomNumberGenerator.new()
-		combat_encounter_id = rng.randi_range(0, master_combat_encounter_dict.size() - 1)
+		combat_encounter_id = possible_encounters_based_on_floor[rng.randi_range(0, possible_encounters_based_on_floor.size())].id
+		#combat_encounter_id = 
 	var dict_entry = null
 	print("Encounter id: " + str(combat_encounter_id))
-	for i in range (master_combat_encounter_dict.size()):
+	for i in range (possible_encounters_based_on_floor.size()):
 		#print(master_bug_dict[i])
-		if master_combat_encounter_dict[i].id == combat_encounter_id:
-			dict_entry = master_combat_encounter_dict[i]
+		if possible_encounters_based_on_floor[i].id == combat_encounter_id:
+			dict_entry = possible_encounters_based_on_floor[i]
 			break
 	current_combat = basic_combat_scene.instantiate()
 	current_combat.index_manager = self
