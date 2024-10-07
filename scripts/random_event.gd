@@ -54,13 +54,13 @@ func rollResult(selected_option):
 			final_outcome = outcome
 			break
 		random_val -= weight
-	if selected_option.results.size() == 1:
-		final_outcome = selected_option.results[0]
-		results = final_outcome.results
-		print("FINAL OUTCOME")
-		print(final_outcome.keys())
-		if "results" in results.keys():
-			final_outcome=results.results
+	#if selected_option.results.size() == 1:
+		#final_outcome = selected_option.results[0]
+		#results = final_outcome.results
+		#print("FINAL OUTCOME")
+		#print(final_outcome.keys())
+		#if "results" in results.keys():
+			#final_outcome=results.results
 	$description.text = final_outcome.description
 	$title.text = final_outcome.title
 	$choices_holder.hide()
