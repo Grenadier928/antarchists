@@ -7,9 +7,9 @@ var NODE_DISTRIBUTION = {
 }
 
 var NODE_ICONS = {
-	"combat": "res://textures/combat_temp.png/",
-	"event": "res://textures/event_temp.png/",
-	"boss": "res://textures/boss_temp.png/"
+	"combat": "res://textures/map_icons/MAPNODE_COMBAT.png/",
+	"event": "res://textures/map_icons/MAPNODE_EVENT.png/",
+	"boss": "res://textures/map_icons/MAPNODE_BOSS.png/",
 }
 
 var parent
