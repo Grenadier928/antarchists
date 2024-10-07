@@ -483,8 +483,7 @@
 					"id": 1,
 					"text": "Mmmmm Dheetos™'s dust...",
 					"conditions": {
-						"has_species_in_party": "ant",
-						"has_room_in_party": 1
+						"has_species_in_party": "ant"
 					},
 					"results": [
 						{
@@ -511,7 +510,7 @@
 							"prob": 0.4,
 							"results": {
 								"title": "Transformed by the flame",
-								"description": "One of your party members is transformed by the purifying flame of Dheetos™'s dust.",
+								"description": "One of your party members is transformed by the purifying flame of Dheetos™'s dust. Long live the flame.",
 								"results": {
 									"remove_party_member": 1,
 									"add_party_member": 1
