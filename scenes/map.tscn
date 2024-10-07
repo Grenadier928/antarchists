@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvotsoyj4bhp2"]
+[gd_scene load_steps=6 format=3 uid="uid://bvotsoyj4bhp2"]
 
 [ext_resource type="Script" path="res://scripts/map.gd" id="1_d6h5m"]
-[ext_resource type="Texture2D" uid="uid://dvlpfglbc5d3c" path="res://textures/plains.jpg" id="2_vwkin"]
-[ext_resource type="Texture2D" uid="uid://c1oto78io5y3p" path="res://textures/tree.png" id="3_dc22e"]
+[ext_resource type="Texture2D" uid="uid://bobrr0etadv57" path="res://textures/buttons/BUTTONS_PAUSE.png" id="2_5axsl"]
+[ext_resource type="Texture2D" uid="uid://dwebf1tvsca8s" path="res://textures/plains.jpg" id="2_vwkin"]
+[ext_resource type="Texture2D" uid="uid://dccu16y24sbor" path="res://textures/tree.png" id="3_dc22e"]
+[ext_resource type="Texture2D" uid="uid://bd74agdnk5v5b" path="res://textures/buttons/BUTTONS_PAUSE_HOVER.png" id="3_imgkt"]
 
 [node name="Map" type="Node2D"]
 script = ExtResource("1_d6h5m")
@@ -20,3 +22,20 @@ scale = Vector2(3.716, 3.831)
 texture = ExtResource("3_dc22e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="PauseButton" type="TextureButton" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -2408.0
+offset_top = 790.0
+offset_right = -1384.0
+offset_bottom = 1302.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(512, 256)
+texture_normal = ExtResource("2_5axsl")
+texture_hover = ExtResource("3_imgkt")
