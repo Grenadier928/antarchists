@@ -73,7 +73,7 @@
 				"combat-kill": [
 					"EXTERMINATED",
 					"No, YOU are extinct!",
-					" Can't suppress 65 million years of gut instinct."
+					"Can't suppress 65 million years of gut instinct."
 				],
 				"combat-self-death": [
 					"Revive me from amber!",
@@ -168,7 +168,8 @@
 					"That'll teach you to study",
 					"Have you learned your lesson?",
 					"Pay attention!",
-					"Now stay dead or you'll get detention"
+					"Now stay dead or you'll get detention",
+					"Watch and learn"
 				],
 				"combat-self-death": [
 					"See me after class!",
@@ -185,11 +186,13 @@
 				"cannibal-self": [
 					"I was expecting a thank you card!",
 					"I'm calling your parents",
-					"That means detention"
+					"That means detention",
+					"I knew we shouldn't have read 'Lord of the Flies'..."
 				],
 				"cannibal-other": [
 					"Best school lunch I've had in a while",
-					"There goes my teacher of the year award..."
+					"There goes my teacher of the year award...",
+					"Just like in 'Lord of the Flies'!"
 				],
 				"victory": [
 					"Talk about an easy A!",
@@ -215,7 +218,8 @@
 			"quips": {
 				"combat-kill": [
 					"Bow to your queen!",
-					"Subjects must bow!"
+					"Subjects must bow!",
+					"God Save the Queen!"
 				],
 				"combat-self-death": [
 					"My legacy lives on!",
@@ -228,15 +232,17 @@
 				],
 				"cannibal-self": [
 					"You wouldn't dare!",
-					"What do you mean 'Eat the Rich??'"
+					"What do you mean 'Eat the Rich'??'"
 				],
 				"cannibal-other": [
 					"Waste not, want not, darling.",
-					"Recycling is important, even for royalty."
+					"Recycling is important, even for royalty.",
+					"We all must sacrifice for the realm... (some more than others)"
 				],
 				"victory": [
 					"For the crown!",
-					"My empire lives on!"
+					"My empire lives on!",
+					"Hail to the Queen!"
 				]
 			},
 			"attacks": [
@@ -269,12 +275,14 @@
 				"cannibal-self": [
 					"Oh, I DO look like a snack!",
 					"I would eat me too!",
-					"Small bites, please!"
+					"Small bites, please!",
+					"No salt please!"
 				],
 				"cannibal-other": [
 					"Eat the rich!",
 					"Yummy (J. Beebs 2020)",
-					"Yummy!!"
+					"Yummy!!",
+					"I vant your blood!"
 				],
 				"victory": [
 					"Squashed like bugs!",
@@ -418,7 +426,8 @@
 				"combat-kill": [
 					"Does that sting?",
 					"Get stung, loser",
-					"Buzz you too!"
+					"Buzz you too!",
+					"Buzz off!"
 				],
 				"combat-self-death": [
 					"My soul returns to Atlantis...",
@@ -462,7 +471,7 @@
 				"combat-self-death": [
 					"You can't stop the Effervescent Flame",
 					"Even in death, I fan the Flame",
-					"For the Fl"
+					"For the Flame!!"
 				],
 				"combat-friend-death": [
 					"We will return each injury ten-fold",
@@ -476,7 +485,8 @@
 				],
 				"cannibal-other": [
 					"May the Effervescent Flame bless this meal!",
-					"You will live on through the Flame"
+					"You will live on through the Flame",
+					"Barbeque time!"
 				],
 				"victory": [
 					"For the Flame!!"
@@ -523,7 +533,8 @@
 				],
 				"victory": [
 					"Well done everyone!",
-					"Good game!"
+					"Good game!",
+					"Good show chaps!"
 				]
 			},
 			"attacks": [
@@ -549,7 +560,8 @@
 					"I...",
 					"We...",
 					"You...",
-					"Wait I..."
+					"Wait I...",
+					"Wha..."
 				],
 				"combat-friend-death": [
 					"..."
@@ -558,7 +570,8 @@
 					"..."
 				],
 				"cannibal-other": [
-					"..."
+					"...",
+					"[Heavy Breathing]"
 				],
 				"victory": [
 					"..."
