@@ -480,7 +480,7 @@
 			"health": 1,
 			"speed": 1,
 			"evasion": 1,
-			"strength": 1,
+			"strength": 3,
 			"quips": {
 				"combat-kill": [
 					"Burn in hell",

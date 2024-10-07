@@ -17,6 +17,44 @@
 			],
 			"min_floor":0,
 			"max_floor":2
+		},
+		{
+			"id":3,
+			"enemy_list":[
+				3
+			],
+			"min_floor":1,
+			"max_floor":5
+		},
+		{
+			"id":4,
+			"enemy_list":[
+				6
+			],
+			"min_floor":1,
+			"max_floor":4
+		},
+		{
+			"id":5,
+			"enemy_list":[
+				7,
+				2,
+				7,
+				8
+			],
+			"min_floor":5,
+			"max_floor":100
+		},
+		{
+			"id":6,
+			"enemy_list":[
+				10,
+				11,
+				10,
+				11
+			],
+			"min_floor":5,
+			"max_floor":100
 		}
 	]
 }

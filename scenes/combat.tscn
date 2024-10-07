@@ -6,11 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dksgjlmr4be3m" path="res://textures/COMBATBANNER_DEFEAT.png" id="4_nnnbv"]
 [ext_resource type="Texture2D" uid="uid://bwg7l48glhcwb" path="res://textures/COMBATBANNER_VICTORY.png" id="5_jlclb"]
 [ext_resource type="Texture2D" uid="uid://bf72wupcmrrd" path="res://textures/buttons/BUTTONS_RETRY.png" id="5_ujfvl"]
-[ext_resource type="Texture2D" uid="uid://usmcmgrn5miu" path="res://textures/buttons/BUTTONS_RETRY_HOVER.png" id="6_m1b4w"]
+[ext_resource type="Texture2D" uid="uid://b25o0voi1qho8" path="res://textures/buttons/BUTTONS_RETRY_HOVER.png" id="6_m1b4w"]
 [ext_resource type="Texture2D" uid="uid://f3m7w08o603x" path="res://textures/DIALOG_BOX.png" id="6_pvu1g"]
 [ext_resource type="Texture2D" uid="uid://w7be1336dit7" path="res://textures/LEAF_PORTRAIT_FRAME_GREEN.png" id="7_5vaeo"]
-[ext_resource type="Texture2D" uid="uid://bobrr0etadv57" path="res://textures/buttons/BUTTONS_PAUSE.png" id="8_n8mrw"]
-[ext_resource type="Texture2D" uid="uid://bd74agdnk5v5b" path="res://textures/buttons/BUTTONS_PAUSE_HOVER.png" id="9_iaxsd"]
+[ext_resource type="Texture2D" uid="uid://bhi786ciec0cv" path="res://textures/buttons/BUTTONS_PAUSE.png" id="8_n8mrw"]
+[ext_resource type="Texture2D" uid="uid://buwykohejlynd" path="res://textures/buttons/BUTTONS_PAUSE_HOVER.png" id="9_iaxsd"]
 
 [node name="Combat" type="Node2D"]
 script = ExtResource("1_6hf62")
@@ -181,5 +181,8 @@ texture_normal = ExtResource("8_n8mrw")
 texture_hover = ExtResource("9_iaxsd")
 
 [connection signal="pressed" from="combat_banner_defeat/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="reward_screen/consume_enemy" to="." method="_on_consume_enemy_pressed"]
+[connection signal="pressed" from="reward_screen/consume_friend" to="." method="_on_consume_friend_pressed"]
+[connection signal="pressed" from="reward_screen/recruit" to="." method="_on_recruit_pressed"]
 [connection signal="pressed" from="reward_screen/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]
