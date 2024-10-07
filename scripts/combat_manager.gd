@@ -61,7 +61,8 @@ func startPlayerTurn():
 		all_fighters[current_fighter_index].selection_box.visible = true
 		for i in range (all_fighters[current_fighter_index].attacks_list.size()):
 			var temp_button = attack_button.instantiate()
-			temp_button.text = all_fighters[current_fighter_index].attacks_list[i].attack_name + " ("+str(all_fighters[current_fighter_index].attacks_list[i].base_damage)+")"
+			temp_button.text = all_fighters[current_fighter_index].attacks_list[i].attack_name + " ("+str(all_fighters[current_fighter_index].attacks_list[i].base_damage++ all_fighters[current_fighter_index].strength)+")"
+
 			$attacks_list_paper.add_child(temp_button)
 			temp_button.position = Vector2(-1200, (700 * i) - 700)
 			temp_button.combat_manager = self
@@ -475,6 +476,7 @@ func _on_retry_pressed() -> void:
 func _on_consume_enemy_pressed() -> void:
 	for bug in all_fighters:
 		bug.health += 1
+	index_manager.endCombat()
 
 
 func _on_consume_friend_pressed() -> void:
@@ -482,10 +484,12 @@ func _on_consume_friend_pressed() -> void:
 	var stats = ["health", "speed", "evasion", "strength"]
 	
 	for bug in all_fighters:
-		bug.stats[randi_range(0 , 4)] += 1
+		bug[stats[randi_range(0 , 4)]] += 1
 	
 	index_manager.remove_party_member(index_manager.selectRandomPartyMember())
+	index_manager.endCombat()
 
 
 func _on_recruit_pressed() -> void:
-	index_manager.add_party_member(randi_range(0, 4))
+	all_fighters.append(index_manager.createBugFromId(randi_range(1, 11), true))
+	index_manager.endCombat()

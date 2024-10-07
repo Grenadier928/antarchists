@@ -152,7 +152,7 @@
 					"It take an asteriod to kill me!"
 				]
 			},
-			"attacks": [
+			"attacks_list": [
 				1,
 				2,
 				6,
@@ -206,7 +206,7 @@
 					"Everyone put a gold star next to your names!"
 				]
 			},
-			"attacks": [
+			"attacks_list": [
 				1,
 				2,
 				6,
@@ -253,7 +253,7 @@
 					"Hail to the Queen!"
 				]
 			},
-			"attacks": [
+			"attacks_list": [
 				1,
 				2,
 				6,
@@ -299,7 +299,7 @@
 					"Onward and upward."
 				]
 			},
-			"attacks": [
+			"attacks_list": [
 				1,
 				2,
 				3,
@@ -464,7 +464,7 @@
 					"Upwards to Atlantis!"
 				]
 			},
-			"attacks": [
+			"attacks_list": [
 				1,
 				2,
 				9,
@@ -511,7 +511,7 @@
 					"For the Flame!!"
 				]
 			},
-			"attacks": [
+			"attacks_list": [
 				1,
 				2,
 				8,
@@ -558,7 +558,7 @@
 					"Good show chaps!"
 				]
 			},
-			"attacks": [
+			"attacks_list": [
 				1,
 				2,
 				3,
@@ -600,7 +600,7 @@
 					"..."
 				]
 			},
-			"attacks": [
+			"attacks_list": [
 				1,
 				2,
 				11,

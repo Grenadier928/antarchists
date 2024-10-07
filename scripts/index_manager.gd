@@ -114,8 +114,7 @@ func loadCombatEncounter(combat_encounter_id):
 	print(possible_encounters_based_on_floor.size())
 	if combat_encounter_id == null:
 		var rng = RandomNumberGenerator.new()
-		combat_encounter_id = possible_encounters_based_on_floor[rng.randi_range(0, possible_encounters_based_on_floor.size())].id
-		#combat_encounter_id = 
+		combat_encounter_id = possible_encounters_based_on_floor[rng.randi_range(0, possible_encounters_based_on_floor.size() - 1)].id
 	var dict_entry = null
 	print("Encounter id: " + str(combat_encounter_id))
 	for i in range (possible_encounters_based_on_floor.size()):
