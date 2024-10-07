@@ -109,15 +109,22 @@ func UnloadOptions():
 	current_menu= pop_scene()
 	current_menu.show()
 func LoadPause():
-	if not pause_instance:
-		pause_instance = PAUSE.instantiate()
-		
-	#if get_tree().current_scene:
-		#get_tree().current_scene.queue_free()
-	if pause_instance:
-		add_child(pause_instance)
-		current_menu = pause_instance
-		push_scene(pause_instance)
+	
+	if current_menu:
+		push_scene(current_menu)
+		current_menu.hide()
+	print("HERE")
+	$"pause-menu".show()
+	current_menu=$"pause-menu"
+	#if not pause_instance:
+		#pause_instance = PAUSE.instantiate()
+		#
+	##if get_tree().current_scene:
+		##get_tree().current_scene.queue_free()
+	#if pause_instance:
+		#add_child(pause_instance)
+		#current_menu = pause_instance
+		#push_scene(pause_instance)
 		
 func GoBack(full_clear):
 	if scene_stack.back() == self:

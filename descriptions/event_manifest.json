@@ -11,7 +11,7 @@
 					"results": [
 						{
 							"prob": 0.5,
-							"result": {
+							"results": {
 								"title": "Dinner!",
 								"description": "You all ate!",
 								"results": {
@@ -21,7 +21,7 @@
 						},
 						{
 							"prob": 0.5,
-							"result": {
+							"results": {
 								"title": "He fights back!!",
 								"description": "He attacks with valor!",
 								"results": {
@@ -41,7 +41,7 @@
 					"results": [
 						{
 							"prob": 1,
-							"result": {
+							"results": {
 								"title": "A new buddy!",
 								"description": "He is fren",
 								"results": {
@@ -57,7 +57,7 @@
 					"results": [
 						{
 							"prob": 1,
-							"result": {
+							"results": {
 								"title": "You leave him be",
 								"description": "Your party move along",
 								"results": {
@@ -165,7 +165,7 @@
 							"title": "A new buddy!",
 							"description": "He is fren",
 							"results": {
-								"add_party_member": "worm"
+								"add_party_member": 2
 							}
 						}
 					]
@@ -221,8 +221,8 @@
 					"results": [
 						{
 							"prob": 1,
-							"title": "You leave them be",
-							"description": "Your party moves along and leaves them to their fight",
+							"title": "You leave it be",
+							"description": "Your party moves along and leaves Munchables™ for someone else",
 							"results": {
 								"pass": "pass"
 							}
@@ -254,7 +254,7 @@
 							"description": "Ophiocordyceps unilateralis infects a member of your party",
 							"results": {
 								"remove_party_member": 1,
-								"add_party_member": "zombie"
+								"add_party_member": 3
 							}
 						},
 						{
@@ -273,7 +273,7 @@
 					"results": [
 						{
 							"prob": 1,
-							"title": "You it be",
+							"title": "You leave it be",
 							"description": "Your party move along",
 							"results": {
 								"pass": "pass"
@@ -320,9 +320,9 @@
 						{
 							"prob": 1,
 							"title": "A fancy friend!",
-							"description": "You're party is a little more fancy",
+							"description": "Your party is a little more fancy",
 							"results": {
-								"add_party_member": "shield_ant"
+								"add_party_member": 1
 							}
 						}
 					]
@@ -337,6 +337,200 @@
 							"description": "Your party move along",
 							"results": {
 								"pass": "pass"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": 7,
+			"title": "Braaiins!",
+			"description": "A zombie ant slowly shuffles towards your party",
+			"options": [
+				{
+					"id": 1,
+					"text": "We're eating your brains sucker!",
+					"results": [
+						{
+							"prob": 0.2,
+							"title": "Dinner!",
+							"description": "You all ate!",
+							"results": {
+								"add_health_rand": 1
+							}
+						},
+						{
+							"prob": 0.4,
+							"title": "He fights back!!",
+							"description": "He bites a member of your party. They become infected.",
+							"results": {
+								"remove_party_member": 1,
+								"add_party_member": 1
+							}
+						},
+						{
+							"prob": 0.4,
+							"title": "Some ants become infected",
+							"description": "Some party members become infected. Why do you always try to eat everything? ",
+							"results": {
+								"remove_party_member": 2,
+								"add_party_member": 2
+							}
+						}
+					]
+				},
+				{
+					"id": 2,
+					"text": "Recruit him!",
+					"conditions": {
+						"has_species_in_party": "ant"
+					},
+					"results": [
+						{
+							"prob": 1,
+							"title": "Not a fan",
+							"description": "He VERY predictably bites a member of your party",
+							"results": {
+								"remove_party_member": 1,
+								"add_party_member": 1
+							}
+						}
+					]
+				},
+				{
+					"id": 3,
+					"text": "Leave him alone",
+					"results": [
+						{
+							"prob": 1,
+							"title": "You leave him be",
+							"description": "Obviously. He's a zombie. Your party move along",
+							"results": {
+								"pass": "pass"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": 8,
+			"title": "Golden oldie",
+			"description": "An ancient ant seems to have lost his glasses. What do you do?",
+			"options": [
+				{
+					"id": 1,
+					"text": "How many times do we have to teach you this lesson, Old Man?",
+					"results": [
+						{
+							"prob": 0.3,
+							"title": "Dinner!",
+							"description": "The meat it a little tough",
+							"results": {
+								"add_health_rand": 1
+							}
+						},
+						{
+							"prob": 0.7,
+							"title": "The old man teaches you a lesson",
+							"description": "He's much angrier than you thought!",
+							"results": {
+								"remove_health_rand": 2
+							}
+						}
+					]
+				},
+				{
+					"id": 2,
+					"text": "Talk to him about the past",
+					"conditions": {
+						"has_species_in_party": "ant"
+					},
+					"results": [
+						{
+							"prob": 1,
+							"title": "You're joined by a dinosaur ant",
+							"description": "Average age of your party has increased",
+							"results": {
+								"add_party_member": 1
+							}
+						}
+					]
+				},
+				{
+					"id": 3,
+					"text": "Leave him alone",
+					"results": [
+						{
+							"prob": 1,
+							"title": "You leave him be",
+							"description": "Good luck old man",
+							"results": {
+								"pass": "pass"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": 9,
+			"title": "Daki's flammin' hot Dheetos™",
+			"description": "A wrapper for Daki's flammin' hot Dheetos™ has blown into the tree.",
+			"options": [
+				{
+					"id": 1,
+					"text": "Mmmmm Dheetos™'s dust...",
+					"conditions": {
+						"has_species_in_party": "ant"
+					},
+					"results": [
+						{
+							"prob": 0.3,
+							"results": {
+								"title": "I love Daki's flammin' hot Dheetos™",
+								"description": "You all ate!",
+								"results": {
+									"add_health_rand": 1
+								}
+							}
+						},
+						{
+							"prob": 0.3,
+							"results": {
+								"title": "My mouth is on fire!",
+								"description": "Why are you just eating Dheetos™'s dust? What's wrong with you?",
+								"results": {
+									"remove_health_rand": 1
+								}
+							}
+						},
+						{
+							"prob": 0.4,
+							"results": {
+								"title": "Transformed by the flame",
+								"description": "One of your party members is transformed by the purifying flame of Dheetos™'s dust. Long live the flame.",
+								"results": {
+									"remove_party_member": 1,
+									"add_party_member": 1
+								}
+							}
+						}
+					]
+				},
+				{
+					"id": 2,
+					"text": "Too spicy",
+					"results": [
+						{
+							"prob": 1,
+							"results": {
+								"title": "No Dheetos™ dust for me",
+								"description": "Your party move along",
+								"results": {
+									"pass": "pass"
+								}
 							}
 						}
 					]

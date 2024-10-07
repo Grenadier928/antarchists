@@ -10,6 +10,9 @@ script = ExtResource("1_e25ri")
 
 [node name="pause-menu" parent="." instance=ExtResource("2_hu0al")]
 visible = false
+z_index = 3
+offset_left = -947.685
+offset_right = -947.685
 
 [node name="Main-menu" parent="." instance=ExtResource("2_qsgi8")]
 visible = false

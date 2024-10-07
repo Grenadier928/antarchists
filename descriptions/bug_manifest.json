@@ -2,7 +2,7 @@
 	"bugs": [
 		{
 			"id": 1,
-            "description":"This is the starting ant",
+			"description": "This is the starting ant",
 			"name": "Antony",
 			"sprite_path": "BASICBROWNANT.png",
 			"min_spawn_level": 1,
@@ -65,7 +65,7 @@
 			"sprite_path": "DINOSAURANT.png",
 			"min_spawn_level": 3,
 			"max_spawn_level": 5,
-			"health": 3,
+			"health": 2,
 			"speed": 1,
 			"evasion": 2,
 			"strength": 2,
@@ -73,7 +73,7 @@
 				"combat-kill": [
 					"EXTERMINATED",
 					"No, YOU are extinct!",
-					" Can't suppress 65 million years of gut instinct."
+					"Can't suppress 65 million years of gut instinct."
 				],
 				"combat-self-death": [
 					"Revive me from amber!",
@@ -168,7 +168,8 @@
 					"That'll teach you to study",
 					"Have you learned your lesson?",
 					"Pay attention!",
-					"Now stay dead or you'll get detention"
+					"Now stay dead or you'll get detention",
+					"Watch and learn"
 				],
 				"combat-self-death": [
 					"See me after class!",
@@ -185,11 +186,13 @@
 				"cannibal-self": [
 					"I was expecting a thank you card!",
 					"I'm calling your parents",
-					"That means detention"
+					"That means detention",
+					"I knew we shouldn't have read 'Lord of the Flies'..."
 				],
 				"cannibal-other": [
 					"Best school lunch I've had in a while",
-					"There goes my teacher of the year award..."
+					"There goes my teacher of the year award...",
+					"Just like in 'Lord of the Flies'!"
 				],
 				"victory": [
 					"Talk about an easy A!",
@@ -215,7 +218,8 @@
 			"quips": {
 				"combat-kill": [
 					"Bow to your queen!",
-					"Subjects must bow!"
+					"Subjects must bow!",
+					"God Save the Queen!"
 				],
 				"combat-self-death": [
 					"My legacy lives on!",
@@ -228,15 +232,17 @@
 				],
 				"cannibal-self": [
 					"You wouldn't dare!",
-					"What do you mean 'Eat the Rich??'"
+					"What do you mean 'Eat the Rich'??'"
 				],
 				"cannibal-other": [
 					"Waste not, want not, darling.",
-					"Recycling is important, even for royalty."
+					"Recycling is important, even for royalty.",
+					"We all must sacrifice for the realm... (some more than others)"
 				],
 				"victory": [
 					"For the crown!",
-					"My empire lives on!"
+					"My empire lives on!",
+					"Hail to the Queen!"
 				]
 			},
 			"attacks": [
@@ -260,8 +266,7 @@
 					"Sticky!"
 				],
 				"combat-self-death": [
-					"My legacy lives on!",
-					"I feel, a-salt-ed!"
+					"I feel... a-salt-ed!"
 				],
 				"combat-friend-death": [
 					"Oh. My. God. #4265 is DEAD!!",
@@ -270,16 +275,306 @@
 				"cannibal-self": [
 					"Oh, I DO look like a snack!",
 					"I would eat me too!",
-					"Small bites, please!"
+					"Small bites, please!",
+					"No salt please!"
 				],
 				"cannibal-other": [
 					"Eat the rich!",
 					"Yummy (J. Beebs 2020)",
-					"Yummy!!"
+					"Yummy!!",
+					"I vant your blood!"
 				],
 				"victory": [
 					"Squashed like bugs!",
 					"Onward and upward."
+				]
+			},
+			"attacks": [
+				1,
+				2
+			]
+		},
+		{
+			"id": 7,
+			"description": "Alt version of the starting ant",
+			"name": "Antony",
+			"sprite_path": "BASICBROWNANT.png",
+			"min_spawn_level": 1,
+			"max_spawn_level": 3,
+			"health": 1,
+			"speed": 1,
+			"evasion": 2,
+			"strength": 1,
+			"quips": {
+				"combat-kill": [
+					"We sure squished you!!!",
+					"You’re not going to bug anyone anymore!",
+					"This. is. a TREE!",
+					"Dodge This",
+					"For the queen!"
+				],
+				"combat-self-death": [
+					"Noooooo :(",
+					"I never saved anything for the journey back...",
+					"a roiling night storm / my striving but an illusion / I depart the storm",
+					"Bury me under a peanut butter sandwich",
+					"🎶swing low, sweet picnic basket🎵",
+					"Tell ant #1263 I love her!"
+				],
+				"combat-friend-death": [
+					"This is so sad, can we hit 50 likes?",
+					"For ant #9287!",
+					"We're gonna need a bigger party...",
+					"Was that ant #3987 or #5913?"
+				],
+				"cannibal-self": [
+					"No, I don't taste good!",
+					"I thought you went vegan!",
+					"When they said party-based, I didn't think they meant Donner Party",
+					"Wait, cover me in peanut butter first!"
+				],
+				"cannibal-other": [
+					"Snack time!",
+					"a most piquant citrusy, lemon flavor",
+					"Did anyone bring a picnic blanket?",
+					"I feel the need, the need to feed",
+					"Going keto baby!",
+					"Even better than sugar"
+				],
+				"victory": [
+					"Squash this, flatso",
+					"Ants, Assemble!",
+					"FATALITY",
+					"and we didn't even have to call the exterminator"
+				]
+			},
+			"attacks_list": [
+				1,
+				2
+			]
+		},
+		{
+			"id": 8,
+			"description": "Alt version of the starting ant",
+			"name": "Antony",
+			"sprite_path": "BASICBROWNANT.png",
+			"min_spawn_level": 1,
+			"max_spawn_level": 3,
+			"health": 1,
+			"speed": 1,
+			"evasion": 3,
+			"strength": 1,
+			"quips": {
+				"combat-kill": [
+					"We sure squished you!!!",
+					"You’re not going to bug anyone anymore!",
+					"This. is. a TREE!",
+					"Dodge This",
+					"For the queen!"
+				],
+				"combat-self-death": [
+					"Noooooo :(",
+					"I never saved anything for the journey back...",
+					"a roiling night storm / my striving but an illusion / I depart the storm",
+					"Bury me under a peanut butter sandwich",
+					"🎶swing low, sweet picnic basket🎵",
+					"Tell ant #1263 I love her!"
+				],
+				"combat-friend-death": [
+					"This is so sad, can we hit 50 likes?",
+					"For ant #9287!",
+					"We're gonna need a bigger party...",
+					"Was that ant #3987 or #5913?"
+				],
+				"cannibal-self": [
+					"No, I don't taste good!",
+					"I thought you went vegan!",
+					"When they said party-based, I didn't think they meant Donner Party",
+					"Wait, cover me in peanut butter first!"
+				],
+				"cannibal-other": [
+					"Snack time!",
+					"a most piquant citrusy, lemon flavor",
+					"Did anyone bring a picnic blanket?",
+					"I feel the need, the need to feed",
+					"Going keto baby!",
+					"Even better than sugar"
+				],
+				"victory": [
+					"Squash this, flatso",
+					"Ants, Assemble!",
+					"FATALITY",
+					"and we didn't even have to call the exterminator"
+				]
+			},
+			"attacks_list": [
+				1,
+				2
+			]
+		},
+		{
+			"id": 9,
+			"name": "Glinda",
+			"sprite_path": "MERBEE.png",
+			"min_spawn_level": 1,
+			"max_spawn_level": 1,
+			"health": 1,
+			"speed": 1,
+			"evasion": 1,
+			"strength": 1,
+			"quips": {
+				"combat-kill": [
+					"Does that sting?",
+					"Get stung, loser",
+					"Buzz you too!",
+					"Buzz off!"
+				],
+				"combat-self-death": [
+					"My soul returns to Atlantis...",
+					"My soul return to the Hive"
+				],
+				"combat-friend-death": [
+					"She was so young!"
+				],
+				"cannibal-self": [
+					"Help! A pescatarian!",
+					"At least dip me in soy-sauce!"
+				],
+				"cannibal-other": [
+					"I'm falling for you hook, line, and stinger!"
+				],
+				"victory": [
+					"Upwards to Atlantis!"
+				]
+			},
+			"attacks": [
+				1,
+				2
+			]
+		},
+		{
+			"id": 10,
+			"name": "Hildavore",
+			"sprite_path": "REDFIREANT.png",
+			"min_spawn_level": 1,
+			"max_spawn_level": 1,
+			"health": 1,
+			"speed": 1,
+			"evasion": 1,
+			"strength": 1,
+			"quips": {
+				"combat-kill": [
+					"Burn in hell",
+					"I will scatter your ashes",
+					"For the Flame!!"
+				],
+				"combat-self-death": [
+					"You can't stop the Effervescent Flame",
+					"Even in death, I fan the Flame",
+					"For the Flame!!"
+				],
+				"combat-friend-death": [
+					"We will return each injury ten-fold",
+					"I require vengeance!",
+					"We live on in the Effervescent Flame",
+					"For the Flame!!"
+				],
+				"cannibal-self": [
+					"I'll scald your insides!",
+					"You can't handle the heat!"
+				],
+				"cannibal-other": [
+					"May the Effervescent Flame bless this meal!",
+					"You will live on through the Flame",
+					"Barbeque time!"
+				],
+				"victory": [
+					"For the Flame!!"
+				]
+			},
+			"attacks": [
+				1,
+				2
+			]
+		},
+		{
+			"id": 11,
+			"name": "Isaac",
+			"sprite_path": "TOPHATSHIELDANT.png",
+			"min_spawn_level": 1,
+			"max_spawn_level": 1,
+			"health": 1,
+			"speed": 1,
+			"evasion": 1,
+			"strength": 1,
+			"quips": {
+				"combat-kill": [
+					"Now settle down there, son",
+					"Okay, kiddo, it's past your bed time",
+					"Nap time!"
+				],
+				"combat-self-death": [
+					"Tell the kids... I love... picnic baskets.",
+					"At least... the hat... is safe..."
+				],
+				"combat-friend-death": [
+					"No! Not my buddy!",
+					"She had a family, you know!"
+				],
+				"cannibal-self": [
+					"Better me than the kids.",
+					"Guess I'm the picnic now.",
+					"Just don't eat the hat!"
+				],
+				"cannibal-other": [
+					"Sorry, old pal. Gotta do what I gotta do.",
+					"Waste not, want not.",
+					"Do you come with sides?"
+				],
+				"victory": [
+					"Well done everyone!",
+					"Good game!",
+					"Good show chaps!"
+				]
+			},
+			"attacks": [
+				1,
+				2
+			]
+		},
+		{
+			"id": 12,
+			"name": "Jonkler",
+			"sprite_path": "ZOMBIEANT.png",
+			"min_spawn_level": 1,
+			"max_spawn_level": 1,
+			"health": 1,
+			"speed": 1,
+			"evasion": 1,
+			"strength": 1,
+			"quips": {
+				"combat-kill": [
+					"..."
+				],
+				"combat-self-death": [
+					"I...",
+					"We...",
+					"You...",
+					"Wait I...",
+					"Wha..."
+				],
+				"combat-friend-death": [
+					"..."
+				],
+				"cannibal-self": [
+					"..."
+				],
+				"cannibal-other": [
+					"...",
+					"[Heavy Breathing]"
+				],
+				"victory": [
+					"..."
 				]
 			},
 			"attacks": [

@@ -9,6 +9,7 @@ var quips = null
 var custom_name = "Antony"
 var bug_type = null
 
+var sfx = null
 var sprite_path = null
 
 var status_armored = 0
@@ -68,7 +69,7 @@ func drawSprite():
 func _ready():
 	#$sfx.stream = load("res://sounds/clip/slice.wav")
 	#$sfx.play()
-	
+	sfx = $sfx
 	takeDamage(0)
 	selection_box = $active_selection
 	selection_box.visible = false

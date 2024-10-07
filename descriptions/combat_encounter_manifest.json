@@ -6,8 +6,17 @@
 				2,
 				2
 			],
+			"min_floor":2,
+			"max_floor":5
+		},
+		{
+			"id":1,
+			"enemy_list":[
+				7,
+				7
+			],
 			"min_floor":0,
-			"max_floor":3
+			"max_floor":2
 		}
 	]
 }

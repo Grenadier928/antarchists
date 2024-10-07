@@ -9,7 +9,7 @@ var map = preload("res://scenes/map.tscn")
 var map_node = preload("res://scripts/map_node.gd")
 
 var MAP
-var MAP_HEIGHT = 16
+var MAP_HEIGHT = 10
 
 var CURRENT_PARTY = []
 var CURRENT_ITEMS = []
@@ -50,7 +50,7 @@ func createBugFromId(id, player_controlled):
 	var dict_entry = null
 	for i in range (master_bug_dict.size()):
 		#print(master_bug_dict[i])
-		if master_bug_dict[i].id == id:
+		if master_bug_dict[i].id == int(id):
 			dict_entry = master_bug_dict[i]
 			break
 	var temp_bug = basic_bug.instantiate()
@@ -287,6 +287,7 @@ func LoadGame():
 	loadCombatEncounter(1)
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_tree().paused=false
 	pass
 # Called when the node enters the scene tree for the first time.
 
@@ -349,14 +350,22 @@ func remove_health_rand(amount):
 	var index = selectRandomPartyMember()
 	CURRENT_PARTY[index].health -= amount
 	if CURRENT_PARTY[index].health <= 0:
-		CURRENT_PARTY.pop_at(index)
+		remove_party_member(index)
 	
 func add_party_member(bug_id):
 	if (CURRENT_PARTY.size() >=4):
 		return
-	CURRENT_PARTY.append(master_bug_dict[bug_id])
+	var temp_bug = createBugFromId(bug_id, true)
+	CURRENT_PARTY.append(temp_bug)
+	
+func restart_game():
+	print("YOU FAILED!!")
+	get_tree().change_scene_to_file("res://scenes/index.tscn")
 func remove_party_member(index):
 	CURRENT_PARTY.pop_at(index)
+	if CURRENT_PARTY.size()<1:
+		print("YOU FAILED!!")
+		#get_tree().change_scene_to_file("res://scenes/index.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
@@ -364,11 +373,13 @@ func _physics_process(delta):
 
 func UpdateSFX(state: bool):
 	sfx=state
-	print("GOT STATE SFX")
-	print(sfx)
 
 func UpdateBG(state: bool):
 	bg=state
 func UpdateVol(vol: float):
 	volume=vol
-	print(volume)
+
+func PauseGame():
+	
+	$"Menu-manager".LoadPause()
+	get_tree().paused=true
