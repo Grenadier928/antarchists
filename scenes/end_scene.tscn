@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://vmp176wsa3pp"]
+
+[ext_resource type="Texture2D" uid="uid://dklxokum3d58h" path="res://textures/plains.jpg" id="1_n6imm"]
+[ext_resource type="Texture2D" uid="uid://b5jqpwicoqtph" path="res://textures/tree.png" id="2_sgypl"]
+[ext_resource type="Texture2D" uid="uid://c3ixekg2hiqub" path="res://textures/bug_sprites/LADY_BUG.png" id="3_wdwxw"]
+[ext_resource type="Texture2D" uid="uid://f3m7w08o603x" path="res://textures/DIALOG_BOX.png" id="4_bdwmd"]
+
+[node name="EndScene" type="Node2D"]
+
+[node name="Plains" type="Sprite2D" parent="."]
+position = Vector2(47.728, -226.576)
+scale = Vector2(7.394, 7.561)
+texture = ExtResource("1_n6imm")
+
+[node name="Tree" type="Sprite2D" parent="."]
+position = Vector2(-1123, 539)
+scale = Vector2(2.10618, 1.95392)
+texture = ExtResource("2_sgypl")
+
+[node name="LadyBug" type="Sprite2D" parent="."]
+position = Vector2(836.5, 775.5)
+scale = Vector2(1.75195, 2.00195)
+texture = ExtResource("3_wdwxw")
+
+[node name="DialogBox" type="Sprite2D" parent="."]
+position = Vector2(-321, -921.25)
+scale = Vector2(1.8916, 1.47949)
+texture = ExtResource("4_bdwmd")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -2163.0
+offset_top = -1183.5
+offset_right = 1481.0
+offset_bottom = -770.5
+theme_override_font_sizes/font_size = 150
+text = "You have sucsessfully overthrown queen lady bug!
+May antarchy reign!"
