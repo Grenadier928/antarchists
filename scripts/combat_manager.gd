@@ -491,6 +491,6 @@ func _on_consume_friend_pressed() -> void:
 
 
 func _on_recruit_pressed() -> void:
-	if (all_fighters.size() >= 4):
+	if (all_fighters.size() < 4):
 		all_fighters.append(index_manager.createBugFromId(randi_range(1, 11), true))
 	index_manager.endCombat()
