@@ -2,7 +2,7 @@ extends Node2D
 
 var dict_event = null
 var index_manager = null
-
+var results
 var is_event_finished = false;
 var exit_event_delay = 60;
 
@@ -56,6 +56,11 @@ func rollResult(selected_option):
 		random_val -= weight
 	if selected_option.results.size() == 1:
 		final_outcome = selected_option.results[0]
+		results = final_outcome.results
+		print("FINAL OUTCOME")
+		print(final_outcome.keys())
+		if "results" in results.keys():
+			final_outcome=results.results
 	$description.text = final_outcome.description
 	$title.text = final_outcome.title
 	$choices_holder.hide()
@@ -75,6 +80,9 @@ func rollResult(selected_option):
 				index_manager.add_health_rand(final_outcome.results[key])
 			"remove_health_rand":
 				index_manager.remove_health_rand(final_outcome.results[key])
+				if index_manager.CURRENT_PARTY.size()<1:
+					$combat_banner_defeat.show()
+					get_tree().pause=true
 			"add_party_member":
 				index_manager.add_party_member(final_outcome.results[key])
 			"remove_part_member":

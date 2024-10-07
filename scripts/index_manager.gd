@@ -350,7 +350,7 @@ func remove_health_rand(amount):
 	var index = selectRandomPartyMember()
 	CURRENT_PARTY[index].health -= amount
 	if CURRENT_PARTY[index].health <= 0:
-		CURRENT_PARTY.pop_at(index)
+		remove_party_member(index)
 	
 func add_party_member(bug_id):
 	if (CURRENT_PARTY.size() >=4):
@@ -358,9 +358,14 @@ func add_party_member(bug_id):
 	var temp_bug = createBugFromId(bug_id, true)
 	CURRENT_PARTY.append(temp_bug)
 	
-	
+func restart_game():
+	print("YOU FAILED!!")
+	get_tree().change_scene_to_file("res://scenes/index.tscn")
 func remove_party_member(index):
 	CURRENT_PARTY.pop_at(index)
+	if CURRENT_PARTY.size()<1:
+		print("YOU FAILED!!")
+		#get_tree().change_scene_to_file("res://scenes/index.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):

@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://w2hysgo1h6s"]
+[gd_scene load_steps=12 format=3 uid="uid://w2hysgo1h6s"]
 
 [ext_resource type="Script" path="res://scripts/combat_manager.gd" id="1_6hf62"]
 [ext_resource type="Texture2D" uid="uid://c2i57ok5smfio" path="res://textures/COMBATSCREEN_DUSK.png" id="2_2jbtc"]
 [ext_resource type="Texture2D" uid="uid://dcxwy2doqqan5" path="res://textures/paper.jpg" id="2_mjmyh"]
 [ext_resource type="Texture2D" uid="uid://dksgjlmr4be3m" path="res://textures/COMBATBANNER_DEFEAT.png" id="4_nnnbv"]
 [ext_resource type="Texture2D" uid="uid://bwg7l48glhcwb" path="res://textures/COMBATBANNER_VICTORY.png" id="5_jlclb"]
+[ext_resource type="Texture2D" uid="uid://bf72wupcmrrd" path="res://textures/buttons/BUTTONS_RETRY.png" id="5_ujfvl"]
+[ext_resource type="Texture2D" uid="uid://usmcmgrn5miu" path="res://textures/buttons/BUTTONS_RETRY_HOVER.png" id="6_m1b4w"]
 [ext_resource type="Texture2D" uid="uid://f3m7w08o603x" path="res://textures/DIALOG_BOX.png" id="6_pvu1g"]
 [ext_resource type="Texture2D" uid="uid://w7be1336dit7" path="res://textures/LEAF_PORTRAIT_FRAME_GREEN.png" id="7_5vaeo"]
 [ext_resource type="Texture2D" uid="uid://bobrr0etadv57" path="res://textures/buttons/BUTTONS_PAUSE.png" id="8_n8mrw"]
@@ -72,6 +74,23 @@ visible = false
 position = Vector2(-89, -21)
 texture = ExtResource("4_nnnbv")
 
+[node name="Retry" type="TextureButton" parent="combat_banner_defeat"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -2355.0
+offset_top = -1798.0
+offset_right = -1331.0
+offset_bottom = -1286.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(512, 256)
+texture_normal = ExtResource("5_ujfvl")
+texture_hover = ExtResource("6_m1b4w")
+
 [node name="combat_banner_win" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-132, 11)
@@ -130,10 +149,12 @@ text = "Skip and Continue!"
 
 [node name="quips_holder" type="Sprite2D" parent="."]
 visible = false
+z_index = 1
 position = Vector2(1, 1063)
 texture = ExtResource("6_pvu1g")
 
 [node name="quip" type="Label" parent="quips_holder"]
+z_index = 1
 offset_left = -969.0
 offset_top = -161.0
 offset_right = 975.0
@@ -159,5 +180,6 @@ pivot_offset = Vector2(512, 256)
 texture_normal = ExtResource("8_n8mrw")
 texture_hover = ExtResource("9_iaxsd")
 
+[connection signal="pressed" from="combat_banner_defeat/Retry" to="." method="_on_retry_pressed"]
 [connection signal="pressed" from="reward_screen/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="PauseButton" to="." method="_on_pause_button_pressed"]

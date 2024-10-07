@@ -225,6 +225,10 @@ func _physics_process(delta):
 		reward_screen_delay_counter += 1
 		
 		if reward_screen_delay_counter >= delay_before_reward_screen:
+			if index_manager.CURRENT_PARTY.size()<=1:
+				$reward_screen/consume_friend.disabled=true
+			else:
+				$reward_screen/consume_friend.disabled=false
 			$reward_screen.visible = true
 	
 	var bob_amount = 40
@@ -455,9 +459,14 @@ func spawnEnemyTeam(enemy_team):
 
 
 func _on_continue_pressed() -> void:
+	print("THIS IS CLLED")
 	index_manager.endCombat()
 	pass # Replace with function body.
 
 
 func _on_pause_button_pressed() -> void:
 	index_manager.PauseGame()
+
+
+func _on_retry_pressed() -> void:
+	index_manager.restart_game()
