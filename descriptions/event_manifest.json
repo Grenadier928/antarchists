@@ -342,6 +342,137 @@
 					]
 				}
 			]
+		},
+		{
+			"id": 7,
+			"title": "Braaiins!",
+			"description": "A zombie ant slowly shuffles towards your party",
+			"options": [
+				{
+					"id": 1,
+					"text": "We're eating your brains sucker!",
+					"results": [
+						{
+							"prob": 0.2,
+							"title": "Dinner!",
+							"description": "You all ate!",
+							"results": {
+								"add_health_rand": 1
+							}
+						},
+						{
+							"prob": 0.4,
+							"title": "He fights back!!",
+							"description": "He bites a member of your party. They become infected.",
+							"results": {
+								"remove_party_member": 1,
+								"add_party_member": 1
+							}
+						},
+						{
+							"prob": 0.4,
+							"title": "Some ants become infected",
+							"description": "Some party members become infected. Why do you always try to eat everything? ",
+							"results": {
+								"remove_party_member": 2,
+								"add_party_member": 2
+							}
+						}
+					]
+				},
+				{
+					"id": 2,
+					"text": "Recruit him!",
+					"conditions": {
+						"has_species_in_party": "ant"
+					},
+					"results": [
+						{
+							"prob": 1,
+							"title": "Not a fan",
+							"description": "He VERY predictably bites a member of your party",
+							"results": {
+								"remove_party_member": 1,
+								"add_party_member": 1
+							}
+						}
+					]
+				},
+				{
+					"id": 3,
+					"text": "Leave him alone",
+					"results": [
+						{
+							"prob": 1,
+							"title": "You leave him be",
+							"description": "Obviously. He's a zombie. Your party move along",
+							"results": {
+								"pass": "pass"
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": 8,
+			"title": "Golden oldie",
+			"description": "An ancient ant seems to have lost his glasses. What do you do?",
+			"options": [
+				{
+					"id": 1,
+					"text": "How many times do we have to teach you this lesson, Old Man?",
+					"results": [
+						{
+							"prob": 0.3,
+							"title": "Dinner!",
+							"description": "The meat it a little tough",
+							"results": {
+								"add_health_rand": 1
+							}
+						},
+						{
+							"prob": 0.7,
+							"title": "The old man teaches you a lesson",
+							"description": "He's much angrier than you thought!",
+							"results": {
+								"remove_health_rand": 2
+							}
+						}
+					]
+				},
+				{
+					"id": 2,
+					"text": "Talk to him about the past",
+					"conditions": {
+						"has_species_in_party": "ant"
+					},
+					"results": [
+						{
+							"prob": 1,
+							"title": "You're joined by a dinosaur ant",
+							"description": "Average age of your party has increased",
+							"results": {
+								"add_party_member": 1
+							}
+						}
+					]
+				},
+				{
+					"id": 3,
+					"text": "Leave him alone",
+					"results": [
+						{
+							"prob": 1,
+							"title": "You leave him be",
+							"description": "Good luck old man",
+							"results": {
+								"pass": "pass"
+							}
+						}
+					]
+				}
+			]
 		}
 	]
 }
