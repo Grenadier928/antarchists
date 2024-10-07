@@ -54,6 +54,8 @@ func rollResult(selected_option):
 			final_outcome = outcome
 			break
 		random_val -= weight
+	if selected_option.results.size() == 1:
+		final_outcome = selected_option.results[0]
 	$description.text = final_outcome.description
 	$title.text = final_outcome.title
 	$choices_holder.hide()
