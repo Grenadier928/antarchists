@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://vmp176wsa3pp"]
 
-[ext_resource type="Texture2D" uid="uid://dklxokum3d58h" path="res://textures/plains.jpg" id="1_n6imm"]
-[ext_resource type="Texture2D" uid="uid://b5jqpwicoqtph" path="res://textures/tree.png" id="2_sgypl"]
+[ext_resource type="Texture2D" uid="uid://d2ueun38yel5f" path="res://textures/plains.jpg" id="1_n6imm"]
+[ext_resource type="Texture2D" uid="uid://c43so3lduj28g" path="res://textures/tree.png" id="2_sgypl"]
 [ext_resource type="Texture2D" uid="uid://c3ixekg2hiqub" path="res://textures/bug_sprites/LADY_BUG.png" id="3_wdwxw"]
 [ext_resource type="Texture2D" uid="uid://f3m7w08o603x" path="res://textures/DIALOG_BOX.png" id="4_bdwmd"]
 
@@ -29,9 +29,10 @@ texture = ExtResource("4_bdwmd")
 
 [node name="Label" type="Label" parent="."]
 offset_left = -2163.0
-offset_top = -1183.5
+offset_top = -1183.0
 offset_right = 1481.0
-offset_bottom = -770.5
-theme_override_font_sizes/font_size = 150
+offset_bottom = -648.0
+theme_override_font_sizes/font_size = 120
 text = "You have sucsessfully overthrown queen lady bug!
-May antarchy reign!"
+May antarchy reign!
+(We were gonna have a cool boss fight but ran out of time  : /  )"

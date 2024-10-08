@@ -91,6 +91,8 @@ func testFunc(map_node):
 		INDEX_CONTROLLER.loadCombatEncounter(null)
 	elif map_node.node_type == "event":
 		INDEX_CONTROLLER.loadEvent(null)
+	elif map_node.node_type == "boss":
+		INDEX_CONTROLLER.endGame()
 
 
 func _on_pause_button_pressed() -> void:
