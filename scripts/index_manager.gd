@@ -9,7 +9,7 @@ var map = preload("res://scenes/map.tscn")
 var map_node = preload("res://scripts/map_node.gd")
 
 var MAP
-var MAP_HEIGHT = 4
+var MAP_HEIGHT = 11
 
 var CURRENT_PARTY = []
 var CURRENT_ITEMS = []
